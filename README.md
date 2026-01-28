@@ -1,7 +1,3 @@
-<div align="center">
-  <img width="1200" height="475" alt="UniVision Studio" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
-
 # UniVision Studio – Official Website
 
 This repository contains the official landing website for **UniVision Studio**, a software and digital product studio focused on building high-quality, scalable, and modern digital solutions.
