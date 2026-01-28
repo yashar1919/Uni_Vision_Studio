@@ -1,20 +1,53 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+  <img width="1200" height="475" alt="UniVision Studio" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Run and deploy your AI Studio app
+# UniVision Studio – Official Website
 
-This contains everything you need to run your app locally.
+This repository contains the official landing website for **UniVision Studio**, a software and digital product studio focused on building high-quality, scalable, and modern digital solutions.
 
-View your app in AI Studio: https://ai.studio/apps/temp/1
+## About UniVision Studio
 
-## Run Locally
+**UniVision Studio** is a professional software studio specializing in:
 
-**Prerequisites:**  Node.js
+- Custom web applications
+- Website development
+- Mobile applications
+- Cross-platform software
+- UI/UX design and digital products
 
+We focus on clean architecture, modern technologies, and long-term maintainability.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+---
+
+## Tech Stack
+
+- **React**
+- Modern CSS (theming with light & dark mode)
+- Responsive and accessible UI
+- Optimized for performance and SEO
+- Deployed on **Vercel**
+
+---
+
+## Features
+
+- One-page landing website
+- Light / Dark mode support
+- Modern, minimal UI inspired by Vercel & Next.js
+- Fully responsive (mobile, tablet, desktop)
+- Clean and scalable component structure
+
+---
+
+## Running Locally
+
+### Prerequisites
+
+- Node.js (v18+ recommended)
+
+### Installation
+
+```bash
+npm install
+```
