@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
         </div>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-zinc-950 dark:text-white mb-6 leading-tight">
           {t("hero.title.part1")}{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-indigo-600">
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-500 to-indigo-600">
             {t("hero.title.part2")}
           </span>
         </h1>
