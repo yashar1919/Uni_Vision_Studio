@@ -79,6 +79,8 @@ const Contact: React.FC = () => {
               </p>
               <p className="text-xl font-medium text-zinc-900 dark:text-white">
                 hello@univision.studio
+                <br />
+                yashartalebi19@gmail.com
               </p>
             </div>
             <div>
@@ -86,7 +88,7 @@ const Contact: React.FC = () => {
                 Office
               </p>
               <p className="text-xl font-medium text-zinc-900 dark:text-white">
-                Central Studio, Digital Park, 10100
+                11 Alley, Chamran Blvd, Shiraz, Iran
               </p>
             </div>
           </div>
