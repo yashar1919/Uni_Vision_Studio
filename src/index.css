@@ -1,0 +1,130 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom CSS Variables */
+:root {
+    --brand-50: #eff6ff;
+    --brand-100: #dbeafe;
+    --brand-200: #bfdbfe;
+    --brand-300: #93c5fd;
+    --brand-400: #60a5fa;
+    --brand-500: #3b82f6;
+    --brand-600: #2563eb;
+    --brand-700: #1d4ed8;
+    --brand-800: #1e40af;
+    --brand-900: #1e3a8a;
+}
+
+/* Dark mode variables */
+.dark {
+    --brand-50: #1e3a8a;
+    --brand-100: #1e40af;
+    --brand-200: #1d4ed8;
+    --brand-300: #2563eb;
+    --brand-400: #3b82f6;
+    --brand-500: #60a5fa;
+    --brand-600: #93c5fd;
+    --brand-700: #bfdbfe;
+    --brand-800: #dbeafe;
+    --brand-900: #eff6ff;
+}
+
+/* Glass effect for navigation */
+.glass-nav {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* RTL Support */
+[dir="rtl"] {
+    direction: rtl;
+}
+
+[dir="rtl"] .ml-2 {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+[dir="rtl"] .mr-2 {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+[dir="rtl"] .space-x-4>*+* {
+    margin-left: 0;
+    margin-right: 1rem;
+}
+
+[dir="rtl"] .space-x-8>*+* {
+    margin-left: 0;
+    margin-right: 2rem;
+}
+
+/* Persian font support */
+[dir="rtl"] {
+    font-family: 'Vazir', 'Tahoma', Arial, sans-serif;
+}
+
+/* Smooth transitions for language change */
+* {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animation classes for dropdowns */
+@keyframes slide-in-from-top {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-in.slide-in-from-top-1 {
+    animation: slide-in-from-top 0.2s ease-out;
+}
+
+/* Brand color utilities */
+.bg-brand-50 {
+    background-color: var(--brand-50);
+}
+
+.bg-brand-100 {
+    background-color: var(--brand-100);
+}
+
+.bg-brand-500 {
+    background-color: var(--brand-500);
+}
+
+.bg-brand-900 {
+    background-color: var(--brand-900);
+}
+
+.text-brand-400 {
+    color: var(--brand-400);
+}
+
+.text-brand-500 {
+    color: var(--brand-500);
+}
+
+.text-brand-600 {
+    color: var(--brand-600);
+}
+
+.text-brand-700 {
+    color: var(--brand-700);
+}
+
+.border-brand-100 {
+    border-color: var(--brand-100);
+}
+
+.border-brand-800 {
+    border-color: var(--brand-800);
+}

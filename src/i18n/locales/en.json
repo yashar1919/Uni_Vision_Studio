@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Crafting Digital Excellence",
+    "title": {
+      "part1": "Where Vision Meets",
+      "part2": "Digital Precision"
+    },
+    "description": "UniVision Studio is a professional software & digital studio delivering custom web, app, and high-performance cross-platform software solutions.",
+    "cta": {
+      "primary": "Start a Project",
+      "secondary": "Explore Services"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive digital solutions tailored to your needs",
+    "items": {
+      "webDesign": {
+        "title": "Website Design",
+        "description": "Bespoke designs optimized for WordPress, Odoo, or fully custom architectures with a focus on conversions."
+      },
+      "webApps": {
+        "title": "Custom Web Applications",
+        "description": "Full-stack solutions built with React, Node.js, and modern databases for enterprise-level performance."
+      },
+      "mobileDev": {
+        "title": "Mobile App Development",
+        "description": "High-performance native and cross-platform mobile experiences for iOS and Android platforms."
+      },
+      "crossPlatform": {
+        "title": "Cross-platform Apps",
+        "description": "Powerful desktop solutions utilizing Electron.js to bring your web logic to Windows, macOS, and Linux."
+      },
+      "uiUx": {
+        "title": "UI/UX Design",
+        "description": "User-centric interfaces and journey mapping focused on accessibility, usability, and modern aesthetics."
+      },
+      "consulting": {
+        "title": "Software Consulting",
+        "description": "Strategic technical advice on scalability, maintenance, and modernizing legacy infrastructures."
+      }
+    }
+  },
+  "about": {
+    "title": "About UniVision Studio",
+    "description": "We are a team of passionate developers and designers committed to delivering exceptional digital experiences.",
+    "stats": {
+      "projects": "Projects Completed",
+      "clients": "Happy Clients",
+      "experience": "Years Experience",
+      "technologies": "Technologies Mastered"
+    }
+  },
+  "experience": {
+    "title": "Our Experience",
+    "subtitle": "Years of expertise in cutting-edge technologies"
+  },
+  "cta": {
+    "title": "Ready to Start Your Project?",
+    "description": "Let's work together to bring your vision to life with cutting-edge technology and exceptional design.",
+    "button": "Get Started Today"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Ready to start your project? Contact us today.",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    }
+  },
+  "footer": {
+    "description": "Professional software & digital studio delivering exceptional digital experiences.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact Info",
+    "followUs": "Follow Us",
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Try Again",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "language": "Language"
+  }
+}
