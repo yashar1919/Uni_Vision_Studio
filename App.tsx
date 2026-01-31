@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Navbar from "./components/Navbar";
+import CustomCursor from "./components/CustomCursor";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Services from "./sections/Services";
@@ -60,6 +61,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 transition-colors duration-300 selection:bg-violet-500 selection:text-white">
+      <CustomCursor />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       <main>
