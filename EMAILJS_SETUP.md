@@ -73,7 +73,7 @@ export const EMAILJS_CONFIG = {
 
 - 200 ایمیل در ماه
 - 2 email service
-- EmailJS branding در ایمیل‌ها
+- EmailJS violeting در ایمیل‌ها
 
 ### مزایا:
 

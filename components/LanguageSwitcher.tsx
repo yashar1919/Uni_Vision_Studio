@@ -53,7 +53,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     <div className={`relative ${className}`} ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800/50"
+        className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800/50"
         aria-label={t("common.language")}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
@@ -91,7 +91,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
                   }
                   className={`w-full flex items-center justify-between px-4 py-3 text-sm transition-colors ${
                     isActive
-                      ? "bg-brand-50 dark:bg-brand-900/20 text-brand-700 dark:text-brand-300"
+                      ? "bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-300"
                       : "text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800"
                   }`}
                 >
@@ -112,7 +112,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
                   </div>
 
                   {isActive && (
-                    <Check className="w-4 h-4 text-brand-600 dark:text-brand-400" />
+                    <Check className="w-4 h-4 text-violet-600 dark:text-violet-400" />
                   )}
                 </button>
               );

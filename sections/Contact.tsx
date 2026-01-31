@@ -52,7 +52,7 @@ const Contact: React.FC = () => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
     <Section>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
         <div>
-          <h2 className="text-sm font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-4">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-violet-600 dark:text-violet-400 mb-4">
             {t("contact.title")}
           </h2>
           <h3 className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-8">
@@ -121,7 +121,7 @@ const Contact: React.FC = () => {
               </p>
               <button
                 onClick={() => setIsSent(false)}
-                className="mt-8 text-sm font-bold text-brand-600"
+                className="mt-8 text-sm font-bold text-violet-600"
               >
                 {t("contact.sendAnother")}
               </button>
@@ -143,7 +143,7 @@ const Contact: React.FC = () => {
                     required
                     value={formState.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none transition-all dark:text-white"
+                    className="w-full px-4 py-3 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl focus:ring-2 focus:ring-violet-500 outline-none transition-all dark:text-white"
                     placeholder={t("contact.form.namePlaceholder")}
                   />
                 </div>
@@ -161,7 +161,7 @@ const Contact: React.FC = () => {
                     required
                     value={formState.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none transition-all dark:text-white"
+                    className="w-full px-4 py-3 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl focus:ring-2 focus:ring-violet-500 outline-none transition-all dark:text-white"
                     placeholder={t("contact.form.emailPlaceholder")}
                   />
                 </div>
@@ -180,14 +180,14 @@ const Contact: React.FC = () => {
                   rows={5}
                   value={formState.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none transition-all dark:text-white resize-none"
+                  className="w-full px-4 py-3 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl focus:ring-2 focus:ring-violet-500 outline-none transition-all dark:text-white resize-none"
                   placeholder={t("contact.form.messagePlaceholder")}
                 ></textarea>
               </div>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full group flex items-center justify-center px-8 py-4 bg-brand-600 text-white rounded-xl font-bold transition-all hover:bg-brand-700 disabled:opacity-70"
+                className="w-full group flex items-center justify-center px-8 py-4 bg-violet-600 text-white rounded-xl font-bold transition-all hover:bg-violet-700 disabled:opacity-70"
               >
                 {isSubmitting ? (
                   t("contact.form.sending")

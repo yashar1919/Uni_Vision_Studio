@@ -14,10 +14,35 @@ import { Theme } from "./types";
 import "./src/i18n/config";
 
 const App: React.FC = () => {
+  const { i18n } = useTranslation();
   const [theme, setTheme] = useState<Theme>(() => {
     const stored = localStorage.getItem("univision-theme") as Theme;
     return stored || "light";
   });
+
+  // Initialize language and RTL on component mount
+  useEffect(() => {
+    const initializeLanguage = async () => {
+      const storedLang = localStorage.getItem("univision-language");
+      const langToUse = storedLang || "fa"; // Default to Persian
+
+      await i18n.changeLanguage(langToUse);
+
+      // Set document attributes for RTL/LTR
+      const htmlElement = document.documentElement;
+      htmlElement.lang = langToUse;
+      htmlElement.dir = langToUse === "fa" ? "rtl" : "ltr";
+
+      // Add/remove RTL class if needed for any CSS that depends on it
+      if (langToUse === "fa") {
+        htmlElement.classList.add("rtl-mode");
+      } else {
+        htmlElement.classList.remove("rtl-mode");
+      }
+    };
+
+    initializeLanguage();
+  }, [i18n]);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -34,7 +59,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 transition-colors duration-300 selection:bg-brand-500 selection:text-white">
+    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 transition-colors duration-300 selection:bg-violet-500 selection:text-white">
       <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       <main>

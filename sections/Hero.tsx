@@ -9,17 +9,17 @@ const Hero: React.FC = () => {
   return (
     <Section className="relative flex items-center justify-center min-h-[90vh]">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-[20%] -right-[10%] w-[500px] h-[500px] bg-brand-500/10 rounded-full blur-[120px]" />
-        <div className="absolute -bottom-[20%] -left-[10%] w-[500px] h-[500px] bg-violet-500/10 rounded-full blur-[120px]" />
+        <div className="absolute -top-[10%] -right-[10%] w-[500px] h-[500px] dark:bg-violet-500/20 bg-violet-500/40 rounded-full blur-[120px]" />
+        <div className="absolute -bottom-[10%] -left-[10%] w-[500px] h-[500px] dark:bg-violet-500/20 bg-violet-500/40 rounded-full blur-[120px]" />
       </div>
 
       <div className="text-center relative z-10 max-w-4xl mx-auto">
-        <div className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-400 mb-8 border border-brand-100 dark:border-brand-800/50">
+        <div className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400 mb-8 border border-violet-100 dark:border-violet-800/50">
           {t("hero.badge")}
         </div>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-zinc-950 dark:text-white mb-6 leading-tight">
           {t("hero.title.part1")} <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-violet-600">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-violet-600">
             {t("hero.title.part2")}
           </span>
         </h1>

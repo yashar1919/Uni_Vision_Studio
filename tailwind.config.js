@@ -12,7 +12,7 @@ export default {
     theme: {
         extend: {
             colors: {
-                brand: {
+                violet: {
                     50: '#eff6ff',
                     100: '#dbeafe',
                     200: '#bfdbfe',

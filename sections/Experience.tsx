@@ -8,7 +8,7 @@ const Experience: React.FC = () => {
     <Section className="bg-white dark:bg-zinc-950">
       <div className="flex flex-col lg:flex-row gap-16">
         <div className="lg:w-1/3">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-4">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-violet-600 dark:text-violet-400 mb-4">
             Proven Experience
           </h2>
           <h3 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-6">
@@ -59,7 +59,7 @@ const Experience: React.FC = () => {
 
           <div className="flex gap-6">
             <div className="shrink-0">
-              <div className="w-12 h-12 bg-brand-50 dark:bg-brand-900/20 rounded-xl flex items-center justify-center text-brand-600 dark:text-brand-400">
+              <div className="w-12 h-12 bg-violet-50 dark:bg-violet-900/20 rounded-xl flex items-center justify-center text-violet-600 dark:text-violet-400">
                 <Layers size={24} />
               </div>
             </div>

@@ -42,13 +42,14 @@ i18n
 
     // Language detection options
     detection: {
-      order: ["localStorage", "navigator", "htmlTag"],
+      order: ["localStorage", "htmlTag", "navigator"],
       caches: ["localStorage"],
       lookupLocalStorage: "univision-language",
+      lookupFromPathIndex: 0,
     },
 
-    // Fallback language
-    fallbackLng: "en",
+    // Default language is now Persian
+    fallbackLng: "fa",
 
     // Languages whitelist
     supportedLngs: Object.keys(supportedLanguages),

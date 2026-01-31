@@ -5,30 +5,30 @@
 
 /* Custom CSS Variables */
 :root {
-    --brand-50: #eff6ff;
-    --brand-100: #dbeafe;
-    --brand-200: #bfdbfe;
-    --brand-300: #93c5fd;
-    --brand-400: #60a5fa;
-    --brand-500: #3b82f6;
-    --brand-600: #2563eb;
-    --brand-700: #1d4ed8;
-    --brand-800: #1e40af;
-    --brand-900: #1e3a8a;
+    --violet-50: #eff6ff;
+    --violet-100: #dbeafe;
+    --violet-200: #bfdbfe;
+    --violet-300: #93c5fd;
+    --violet-400: #60a5fa;
+    --violet-500: #3b82f6;
+    --violet-600: #2563eb;
+    --violet-700: #1d4ed8;
+    --violet-800: #1e40af;
+    --violet-900: #1e3a8a;
 }
 
 /* Dark mode variables */
 .dark {
-    --brand-50: #1e3a8a;
-    --brand-100: #1e40af;
-    --brand-200: #1d4ed8;
-    --brand-300: #2563eb;
-    --brand-400: #3b82f6;
-    --brand-500: #60a5fa;
-    --brand-600: #93c5fd;
-    --brand-700: #bfdbfe;
-    --brand-800: #dbeafe;
-    --brand-900: #eff6ff;
+    --violet-50: #1e3a8a;
+    --violet-100: #1e40af;
+    --violet-200: #1d4ed8;
+    --violet-300: #2563eb;
+    --violet-400: #3b82f6;
+    --violet-500: #60a5fa;
+    --violet-600: #93c5fd;
+    --violet-700: #bfdbfe;
+    --violet-800: #dbeafe;
+    --violet-900: #eff6ff;
 }
 
 /* Glass effect for navigation */
@@ -37,19 +37,32 @@
     -webkit-backdrop-filter: blur(20px);
 }
 
-/* RTL Support */
+/* ===== RTL SUPPORT ===== */
+/* Comprehensive RTL fixes for Persian/Arabic layout */
+
 [dir="rtl"] {
     direction: rtl;
+    text-align: right;
 }
 
-[dir="rtl"] .ml-2 {
+/* Flexbox RTL fixes */
+[dir="rtl"] .flex {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .space-x-1>*+* {
+    margin-left: 0;
+    margin-right: 0.25rem;
+}
+
+[dir="rtl"] .space-x-2>*+* {
     margin-left: 0;
     margin-right: 0.5rem;
 }
 
-[dir="rtl"] .mr-2 {
-    margin-right: 0;
-    margin-left: 0.5rem;
+[dir="rtl"] .space-x-3>*+* {
+    margin-left: 0;
+    margin-right: 0.75rem;
 }
 
 [dir="rtl"] .space-x-4>*+* {
@@ -57,9 +70,118 @@
     margin-right: 1rem;
 }
 
+[dir="rtl"] .space-x-6>*+* {
+    margin-left: 0;
+    margin-right: 1.5rem;
+}
+
 [dir="rtl"] .space-x-8>*+* {
     margin-left: 0;
     margin-right: 2rem;
+}
+
+/* Margin and Padding flips */
+[dir="rtl"] .ml-2 {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+[dir="rtl"] .ml-4 {
+    margin-left: 0;
+    margin-right: 1rem;
+}
+
+[dir="rtl"] .ml-auto {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+[dir="rtl"] .mr-2 {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+[dir="rtl"] .mr-4 {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+
+[dir="rtl"] .mr-auto {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+[dir="rtl"] .pl-4 {
+    padding-left: 0;
+    padding-right: 1rem;
+}
+
+[dir="rtl"] .pl-6 {
+    padding-left: 0;
+    padding-right: 1.5rem;
+}
+
+[dir="rtl"] .pl-8 {
+    padding-left: 0;
+    padding-right: 2rem;
+}
+
+[dir="rtl"] .pr-4 {
+    padding-right: 0;
+    padding-left: 1rem;
+}
+
+[dir="rtl"] .pr-6 {
+    padding-right: 0;
+    padding-left: 1.5rem;
+}
+
+/* Left/Right position flips */
+[dir="rtl"] .left-0 {
+    left: auto;
+    right: 0;
+}
+
+[dir="rtl"] .right-0 {
+    right: auto;
+    left: 0;
+}
+
+[dir="rtl"] .left-4 {
+    left: auto;
+    right: 1rem;
+}
+
+[dir="rtl"] .right-4 {
+    right: auto;
+    left: 1rem;
+}
+
+/* Text alignment */
+[dir="rtl"] .text-left {
+    text-align: right;
+}
+
+[dir="rtl"] .text-right {
+    text-align: left;
+}
+
+/* Border radius flips */
+[dir="rtl"] .rounded-r-lg {
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+[dir="rtl"] .rounded-l-lg {
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* Transform flips */
+[dir="rtl"] .translate-x-1 {
+    transform: translateX(-0.25rem);
+}
+
+[dir="rtl"] .-translate-x-1 {
+    transform: translateX(0.25rem);
 }
 
 /* Persian font support - Applied globally */
@@ -119,43 +241,43 @@
     animation: slide-in-from-top 0.2s ease-out;
 }
 
-/* Brand color utilities */
-.bg-brand-50 {
-    background-color: var(--brand-50);
+/* violet color utilities */
+.bg-violet-50 {
+    background-color: var(--violet-50);
 }
 
-.bg-brand-100 {
-    background-color: var(--brand-100);
+.bg-violet-100 {
+    background-color: var(--violet-100);
 }
 
-.bg-brand-500 {
-    background-color: var(--brand-500);
+.bg-violet-500 {
+    background-color: var(--violet-500);
 }
 
-.bg-brand-900 {
-    background-color: var(--brand-900);
+.bg-violet-900 {
+    background-color: var(--violet-900);
 }
 
-.text-brand-400 {
-    color: var(--brand-400);
+.text-violet-400 {
+    color: var(--violet-400);
 }
 
-.text-brand-500 {
-    color: var(--brand-500);
+.text-violet-500 {
+    color: var(--violet-500);
 }
 
-.text-brand-600 {
-    color: var(--brand-600);
+.text-violet-600 {
+    color: var(--violet-600);
 }
 
-.text-brand-700 {
-    color: var(--brand-700);
+.text-violet-700 {
+    color: var(--violet-700);
 }
 
-.border-brand-100 {
-    border-color: var(--brand-100);
+.border-violet-100 {
+    border-color: var(--violet-100);
 }
 
-.border-brand-800 {
-    border-color: var(--brand-800);
+.border-violet-800 {
+    border-color: var(--violet-800);
 }
