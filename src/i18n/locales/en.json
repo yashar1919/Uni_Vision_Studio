@@ -48,13 +48,19 @@
     }
   },
   "about": {
-    "title": "About UniVision Studio",
-    "description": "We are a team of passionate developers and designers committed to delivering exceptional digital experiences.",
+    "title": "Our Studio",
+    "subtitle": "Where Quality Meets Scalability",
+    "description1": "We're not just developers—we're digital architects. Our team of seasoned developers and designers crafts solutions that don't just work; they excel.",
+    "description2": "Specializing in scalable, maintainable applications powered by modern tech stacks, we bring professional rigor to every project—from global enterprises to ambitious startups.",
     "stats": {
-      "projects": "Projects Completed",
-      "clients": "Happy Clients",
-      "experience": "Years Experience",
-      "technologies": "Technologies Mastered"
+      "studioFocus": "Studio Focus",
+      "scalableTech": "Scalable Tech",
+      "expertDesign": "Expert Design",
+      "agileDelivery": "Agile Delivery",
+      "studioFocusDesc": "Your Vision, Our Dedicated Team We keep our core team in-house for seamless collaboration and unwavering quality on every project.",
+      "scalableTechDesc": "Built to Grow With You We choose future-proof frameworks and tools that scale effortlessly as your business expands.",
+      "expertDesignDesc": "Beautiful, Functional, Effective Our designs blend stunning visuals with intuitive user journeys—crafted for engagement and conversion.",
+      "agileDeliveryDesc": "Transparent, Collaborative, On Time With agile workflows and clear communication, we deliver iteratively—keeping you in the loop at every stage."
     }
   },
   "experience": {
@@ -72,6 +78,7 @@
     "description": "Have a specific project in mind or just want to explore the possibilities? We're here to help you navigate your digital transformation.",
     "successDescription": "Thank you for reaching out. A studio representative will contact you shortly.",
     "sendAnother": "Send another message",
+    "officeAddress":"11 Alley, Chamran Blvd, Shiraz, Iran",
     "form": {
       "name": "Full Name",
       "namePlaceholder": "John Doe",

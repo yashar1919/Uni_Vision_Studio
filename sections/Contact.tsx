@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import Section from "../components/Section";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { initEmailJS, sendEmail, type EmailData } from "../src/config/emailjs";
+import { dir } from "console";
 
 const Contact: React.FC = () => {
   const { t } = useTranslation();
@@ -88,7 +89,7 @@ const Contact: React.FC = () => {
                 Office
               </p>
               <p className="text-xl font-medium text-zinc-900 dark:text-white">
-                11 Alley, Chamran Blvd, Shiraz, Iran
+                {t("contact.officeAddress")}
               </p>
             </div>
           </div>
@@ -192,10 +193,13 @@ const Contact: React.FC = () => {
                 {isSubmitting ? (
                   t("contact.form.sending")
                 ) : (
-                  <>
+                  <div
+                    className="inline-flex items-center"
+                    style={{ direction: "ltr" }}
+                  >
                     {t("contact.form.submit")}
                     <Send className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                  </>
+                  </div>
                 )}
               </button>
             </form>

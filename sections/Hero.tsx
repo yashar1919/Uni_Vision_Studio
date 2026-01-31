@@ -1,10 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 import Section from "../components/Section";
 
 const Hero: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language === "fa";
 
   return (
     <Section className="relative flex items-center justify-center min-h-[90vh]">
@@ -32,7 +33,11 @@ const Hero: React.FC = () => {
             className="group flex items-center justify-center px-8 py-4 bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 rounded-full font-medium transition-all hover:scale-105 active:scale-95"
           >
             {t("hero.cta.primary")}
-            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+            {isRTL ? (
+              <ArrowLeft className="mr-2 w-4 h-4 transition-transform group-hover:-translate-x-1" />
+            ) : (
+              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+            )}
           </a>
           <a
             href="#services"
