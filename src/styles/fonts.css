@@ -1,0 +1,73 @@
+/**
+ * Persian Fonts - فونت‌های فارسی
+ * 
+ * تمام فونت‌های فارسی پروژه در اینجا تعریف شده‌اند
+ */
+
+/* ===== Iran Yekan Fonts ===== */
+
+@font-face {
+    font-family: 'IRANYekanX';
+    src: url('/fonts/IRANYekanX-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IRANYekanX';
+    src: url('/fonts/IRANYekanX-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IRANYekanX';
+    src: url('/fonts/IRANYekanX-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IRANYekanX';
+    src: url('/fonts/IRANYekanX-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ===== Iran Sans Fonts ===== */
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url('/fonts/IRANSans_Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url('/fonts/IRANSans.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url('/fonts/IRANSans_Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url('/fonts/IRANSans_Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}

@@ -6,6 +6,9 @@ export default {
         "./**/*.{js,ts,jsx,tsx}",
     ],
     darkMode: 'class',
+    corePlugins: {
+        fontFamily: false,
+    },
     theme: {
         extend: {
             colors: {
@@ -23,7 +26,8 @@ export default {
                 }
             },
             fontFamily: {
-                'persian': ['Vazir', 'Tahoma', 'Arial', 'sans-serif'],
+                'persian': ['IRANSans', 'IRANYekanX', 'system-ui', 'sans-serif'],
+                'sans': ['IRANSans', 'IRANYekanX', 'system-ui', 'sans-serif'],
             },
             animation: {
                 'slide-in-from-top': 'slide-in-from-top 0.2s ease-out',

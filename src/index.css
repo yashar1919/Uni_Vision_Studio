@@ -1,3 +1,4 @@
+@import './styles/fonts.css';
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
@@ -61,9 +62,39 @@
     margin-right: 2rem;
 }
 
-/* Persian font support */
+/* Persian font support - Applied globally */
+@layer base {
+
+    html,
+    body {
+        @apply font-sans;
+        font-family: 'IRANSans', 'IRANYekanX', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'IRANSans', 'IRANYekanX', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+    }
+
+    p,
+    span,
+    div,
+    a,
+    li,
+    button,
+    input,
+    textarea,
+    label {
+        font-family: 'IRANSans', 'IRANYekanX', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+    }
+}
+
 [dir="rtl"] {
-    font-family: 'Vazir', 'Tahoma', Arial, sans-serif;
+    direction: rtl;
 }
 
 /* Smooth transitions for language change */

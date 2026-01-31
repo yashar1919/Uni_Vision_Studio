@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
     <Section className="relative flex items-center justify-center min-h-[90vh]">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-[20%] -right-[10%] w-[500px] h-[500px] bg-brand-500/10 rounded-full blur-[120px]" />
-        <div className="absolute -bottom-[20%] -left-[10%] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px]" />
+        <div className="absolute -bottom-[20%] -left-[10%] w-[500px] h-[500px] bg-violet-500/10 rounded-full blur-[120px]" />
       </div>
 
       <div className="text-center relative z-10 max-w-4xl mx-auto">
@@ -18,8 +18,8 @@ const Hero: React.FC = () => {
           {t("hero.badge")}
         </div>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-zinc-950 dark:text-white mb-6 leading-tight">
-          {t("hero.title.part1")}{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-indigo-600">
+          {t("hero.title.part1")} <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-violet-600">
             {t("hero.title.part2")}
           </span>
         </h1>
