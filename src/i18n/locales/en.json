@@ -64,13 +64,24 @@
     }
   },
   "experience": {
-    "title": "Our Experience",
-    "subtitle": "Years of expertise in cutting-edge technologies"
+    "title": "Proven Experience",
+    "subtitle": "Trusted with High-Stakes Projects",
+    "description": "Our portfolio spans international borders, covering diverse industries from finance to healthcare. We don't just build features; we build reliability.",
+    "stats": {
+      "globalDeployments": "Global Deployments",
+      "globalDeploymentsDesc": "We have successfully launched applications used across multiple countries, handling localization and international standard compliance.",
+      "enterpriseStandards": "Enterprise Standards",
+      "enterpriseStandardsDesc": "Our team integrates seamlessly with existing enterprise architectures, ensuring secure and high-availability solutions",
+      "multiPlatformEcosystems": "Multi-Platform Ecosystems",
+      "multiPlatformEcosystemsDesc": "From web dashboards to companion mobile apps and desktop terminals, we create unified digital ecosystems.",
+      "modernTechDebtReduction": "Modern Tech Debt Reduction",
+      "modernTechDebtReductionDesc": "Extensive experience in refactoring legacy codebases into modern, maintainable React and Node environments."
+    }
   },
   "cta": {
     "title": "Ready to Start Your Project?",
     "description": "Let's work together to bring your vision to life with cutting-edge technology and exceptional design.",
-    "button": "Get Started Today"
+    "button": "Start a Conversation"
   },
   "contact": {
     "title": "Get In Touch",
@@ -78,7 +89,7 @@
     "description": "Have a specific project in mind or just want to explore the possibilities? We're here to help you navigate your digital transformation.",
     "successDescription": "Thank you for reaching out. A studio representative will contact you shortly.",
     "sendAnother": "Send another message",
-    "officeAddress":"11 Alley, Chamran Blvd, Shiraz, Iran",
+    "officeAddress": "11 Alley, Chamran Blvd, Shiraz, Iran",
     "form": {
       "name": "Full Name",
       "namePlaceholder": "John Doe",

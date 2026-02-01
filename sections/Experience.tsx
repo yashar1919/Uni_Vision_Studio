@@ -3,9 +3,11 @@ import Section from "../components/Section";
 // Import Code from lucide-react to fix the 'Cannot find name Code' error
 import { Shield, Globe2, Layers, Code } from "lucide-react";
 import { useTheme } from "../src/hooks/useTheme";
+import { useTranslation } from "react-i18next";
 
 const Experience: React.FC = () => {
   const theme = useTheme();
+  const { t, i18n } = useTranslation();
 
   return (
     <Section className={theme === "dark" ? "bg-zinc-950" : "bg-white"}>
@@ -14,19 +16,17 @@ const Experience: React.FC = () => {
           <h2
             className={`text-sm font-bold uppercase tracking-widest ${theme === "dark" ? "text-violet-400" : "text-violet-600"} mb-4`}
           >
-            Proven Experience
+            {t("experience.title")}
           </h2>
           <h3
             className={`text-3xl md:text-4xl font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-6`}
           >
-            Trusted with High-Stakes Projects
+            {t("experience.subtitle")}
           </h3>
           <p
             className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-600"} leading-relaxed`}
           >
-            Our portfolio spans international borders, covering diverse
-            industries from finance to healthcare. We don't just build features;
-            we build reliability.
+            {t("experience.description")}
           </p>
         </div>
 
@@ -43,14 +43,12 @@ const Experience: React.FC = () => {
               <h4
                 className={`text-lg font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-2`}
               >
-                Global Deployments
+                {t("experience.stats.globalDeployments")}
               </h4>
               <p
                 className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm`}
               >
-                We have successfully launched applications used across multiple
-                countries, handling localization and international standard
-                compliance.
+                {t("experience.stats.globalDeploymentsDesc")}
               </p>
             </div>
           </div>
@@ -67,13 +65,12 @@ const Experience: React.FC = () => {
               <h4
                 className={`text-lg font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-2`}
               >
-                Enterprise Standards
+                {t("experience.stats.enterpriseStandards")}
               </h4>
               <p
                 className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm`}
               >
-                Our team integrates seamlessly with existing enterprise
-                architectures, ensuring secure and high-availability solutions.
+                {t("experience.stats.enterpriseStandardsDesc")}
               </p>
             </div>
           </div>
@@ -90,13 +87,12 @@ const Experience: React.FC = () => {
               <h4
                 className={`text-lg font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-2`}
               >
-                Multi-Platform Ecosystems
+                {t("experience.stats.multiPlatformEcosystems")}
               </h4>
               <p
                 className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm`}
               >
-                From web dashboards to companion mobile apps and desktop
-                terminals, we create unified digital ecosystems.
+                {t("experience.stats.multiPlatformEcosystemsDesc")}
               </p>
             </div>
           </div>
@@ -114,13 +110,12 @@ const Experience: React.FC = () => {
               <h4
                 className={`text-lg font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-2`}
               >
-                Modern Tech Debt Reduction
+                {t("experience.stats.modernTechDebtReduction")}
               </h4>
               <p
                 className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm`}
               >
-                Extensive experience in refactoring legacy codebases into
-                modern, maintainable React and Node environments.
+                {t("experience.stats.modernTechDebtReductionDesc")}
               </p>
             </div>
           </div>
