@@ -42,7 +42,15 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center gap-3">
+            <a href="#home" className="flex items-center gap-2">
+              <img
+                //src="/pictures/UniVisionStudio_without_foreground.svg"
+                src="/pictures/UniVisionStudio_with_lightViolet_foreground.svg"
+                alt="UniVision Studio Logo"
+                className="h-10 w-10"
+              />
+            </a>
             <a
               href="#home"
               className={`text-xl font-bold tracking-tight ${theme === "dark" ? "text-zinc-50" : "text-zinc-900"} whitespace-nowrap`}
