@@ -47,6 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
               <img
                 //src="/pictures/UniVisionStudio_without_foreground.svg"
                 src="/pictures/UniVisionStudio_with_lightViolet_foreground.svg"
+                //src="/pictures/logo-chatGPT.png"
                 alt="UniVision Studio Logo"
                 className="h-10 w-10"
               />

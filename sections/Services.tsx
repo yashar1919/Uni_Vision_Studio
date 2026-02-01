@@ -17,7 +17,7 @@ const Services: React.FC = () => {
           {t("services.title")}
         </h2>
         <h3
-          className={`text-3xl md:text-5xl font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-6`}
+          className={`text-3xl md:text-[32px] ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-6`}
         >
           {t("services.subtitle")}
         </h3>

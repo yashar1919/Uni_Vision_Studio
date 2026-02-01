@@ -6,7 +6,7 @@
     "contact": "Contact"
   },
   "hero": {
-    "badge": "Crafting Digital Excellence",
+    "badge": "Engineering a Shared Vision",
     "title": {
       "part1": "Where Vision",
       "part2": "Takes Shape"
@@ -104,11 +104,10 @@
     }
   },
   "footer": {
-    "description": "Professional software & digital studio delivering exceptional digital experiences.",
-    "quickLinks": "Quick Links",
-    "contact": "Contact Info",
-    "followUs": "Follow Us",
-    "rights": "All rights reserved."
+    "description": "Engineering the future of digital products",
+    "copyRight":"All rights reserved.",
+    "termsOfService":"Terms of Service",
+    "privacyPolicy":"Privacy Policy"
   },
   "common": {
     "loading": "Loading...",

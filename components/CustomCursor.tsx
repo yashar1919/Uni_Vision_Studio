@@ -1,4 +1,6 @@
+import { useTheme } from "@/src/hooks/useTheme";
 import React, { useEffect, useRef, useState } from "react";
+
 
 interface Particle {
   x: number;
@@ -15,6 +17,7 @@ const CustomCursor: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [particles, setParticles] = useState<Particle[]>([]);
   const particleIdRef = useRef(0);
+  const theme = useTheme();
 
   useEffect(() => {
     // Check if device is mobile
@@ -137,7 +140,7 @@ const CustomCursor: React.FC = () => {
           }}
         >
           <div
-            className="w-0.5 h-0.5 rounded-full bg-violet-400/60 dark:bg-violet-500/60 animate-particle-fade"
+            className={`w-0.5 h-0.5 rounded-full ${theme === "dark" ? "bg-violet-500/60" : "bg-violet-400/60"} animate-particle-fade`}
             style={{
               animation: "particleFade 0.5s ease-out forwards",
               boxShadow: "0 0 8px rgba(139, 92, 246, 0.7)",
@@ -159,7 +162,7 @@ const CustomCursor: React.FC = () => {
         }}
       >
         <div
-          className="w-full h-full rounded-full bg-violet-500 dark:bg-violet-400"
+          className={`w-full h-full rounded-full ${theme === "dark" ? "bg-violet-400" : "bg-violet-500"}`}
           style={{
             boxShadow:
               "0 0 20px rgba(139, 92, 246, 0.6), 0 0 40px rgba(139, 92, 246, 0.3)",
@@ -174,16 +177,22 @@ const CustomCursor: React.FC = () => {
           isHovering ? "scale-150" : "scale-100"
         }`}
         style={{
-          width: "32px",
-          height: "32px",
+          width: "20px",
+          height: "20px",
           transform: "translate(-50%, -50%)",
         }}
       >
         <div
+          // className={`w-full h-full rounded-full border-2 transition-colors duration-300 ${
+          //   isHovering
+          //     ? "border-violet-500 dark:border-violet-400 bg-violet-500/10"
+          //     : "border-violet-500/30 dark:border-violet-400/30"
+          // }`}
           className={`w-full h-full rounded-full border-2 transition-colors duration-300 ${
-            isHovering
-              ? "border-violet-500 dark:border-violet-400 bg-violet-500/10"
-              : "border-violet-500/30 dark:border-violet-400/30"
+            isHovering && theme === "dark" ? "border-violet-400 bg-violet-400/10" :
+            isHovering && theme === "light" ? "border-violet-500 bg-violet-500/10" :
+            theme === "dark" ? "border-violet-400/30" :
+            "border-violet-500/30"
           }`}
           style={{
             boxShadow: isHovering

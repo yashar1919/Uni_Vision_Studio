@@ -22,20 +22,22 @@ const Hero: React.FC = () => {
 
       <div className="text-center relative z-10 max-w-4xl mx-auto">
         <div
-          className={`inline-flex items-center rounded-full px-3 py-1 text-sm font-medium ${theme === "dark" ? "bg-violet-900/20 text-violet-400 border-violet-800/50" : "bg-violet-50 text-violet-600 border-violet-100"} mb-8 border`}
+          className={`inline-flex items-center rounded-full px-3 py-1 text-sm font-medium ${theme === "dark" ? "bg-violet-900/20 text-violet-400 border-violet-800/50" : "bg-violet-50 text-violet-600 border-violet-100"} border mb-8 `}
         >
           {t("hero.badge")}
         </div>
         <h1
-          className={`text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter ${theme === "dark" ? "text-white" : "text-zinc-950"} mb-6 leading-tight`}
+          className={`text-5xl md:text-[56px] lg:text-[62px] tracking-tighter ${theme === "dark" ? "text-white" : "text-zinc-950"} mb-6 leading-tight`}
         >
-          {t("hero.title.part1")} <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-violet-600">
+          {t("hero.title.part1")}
+          <span
+            className={`text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-violet-600 ${isRTL ? "mr-2" : "ml-2"}`}
+          >
             {t("hero.title.part2")}
           </span>
         </h1>
         <p
-          className={`text-lg md:text-xl ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"} mb-10 max-w-2xl mx-auto leading-relaxed`}
+          className={`text-lg md:text-sm ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"} mb-10 max-w-2xl mx-auto leading-relaxed`}
         >
           {t("hero.description")}
         </p>

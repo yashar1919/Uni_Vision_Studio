@@ -179,7 +179,7 @@ const Contact: React.FC = () => {
                   <input
                     type="email"
                     id="email"
-                    name="name"
+                    name="email"
                     required
                     value={formState.email}
                     onChange={handleChange}
