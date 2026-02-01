@@ -4,8 +4,8 @@ import Section from "../components/Section";
 const CTA: React.FC = () => {
   return (
     <Section className="py-0">
-      <div className="bg-violet-600 rounded-[2rem] p-12 md:p-24 text-center text-white relative overflow-hidden shadow-2xl">
-        <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-white/10 rounded-full blur-[100px]" />
+      <div className="bg-violet-600 rounded-4xl p-12 md:p-24 text-center text-white relative overflow-hidden shadow-2xl">
+        <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-150 h-150 bg-white/10 rounded-full blur-[100px]" />
 
         <h3 className="text-4xl md:text-6xl font-bold mb-8 relative z-10">
           Ready to elevate your digital presence?

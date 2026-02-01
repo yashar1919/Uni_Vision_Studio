@@ -129,7 +129,7 @@ const CustomCursor: React.FC = () => {
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className="fixed pointer-events-none z-[9997]"
+          className="fixed pointer-events-none z-9997"
           style={{
             left: `${particle.x}px`,
             top: `${particle.y}px`,
@@ -149,7 +149,7 @@ const CustomCursor: React.FC = () => {
       {/* Cursor Dot */}
       <div
         ref={cursorDotRef}
-        className={`custom-cursor-dot fixed pointer-events-none z-[9999] transition-all duration-[20ms] ${
+        className={`custom-cursor-dot fixed pointer-events-none z-9999 transition-all duration-20 ${
           isHovering ? "scale-0" : "scale-100"
         }`}
         style={{
@@ -170,7 +170,7 @@ const CustomCursor: React.FC = () => {
       {/* Cursor Outline */}
       <div
         ref={cursorOutlineRef}
-        className={`custom-cursor-outline fixed pointer-events-none z-[9998] transition-all duration-[40ms] ${
+        className={`custom-cursor-outline fixed pointer-events-none z-9998 transition-all duration-40 ${
           isHovering ? "scale-150" : "scale-100"
         }`}
         style={{

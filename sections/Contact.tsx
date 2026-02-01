@@ -107,7 +107,7 @@ const Contact: React.FC = () => {
         </div>
 
         <div
-          className={`${theme === "dark" ? "bg-zinc-900/50 border-zinc-800" : "bg-zinc-50 border-zinc-200"} p-8 md:p-12 rounded-[2rem] border`}
+          className={`${theme === "dark" ? "bg-zinc-900/50 border-zinc-800" : "bg-zinc-50 border-zinc-200"} p-8 md:p-12 rounded-4xl border`}
         >
           {error && (
             <div

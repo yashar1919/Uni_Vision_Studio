@@ -70,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-full ${theme === "dark" ? "hover:bg-zinc-800 text-zinc-400" : "hover:bg-zinc-100 text-zinc-500"} transition-colors flex-shrink-0`}
+              className={`p-2 rounded-full ${theme === "dark" ? "hover:bg-zinc-800 text-zinc-400" : "hover:bg-zinc-100 text-zinc-500"} transition-colors shrink-0`}
               aria-label="Toggle Theme"
             >
               {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
@@ -79,7 +79,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`md:hidden p-2 rounded-md ${theme === "dark" ? "text-zinc-400 hover:bg-zinc-800" : "text-zinc-600 hover:bg-zinc-100"} transition-colors flex-shrink-0`}
+              className={`md:hidden p-2 rounded-md ${theme === "dark" ? "text-zinc-400 hover:bg-zinc-800" : "text-zinc-600 hover:bg-zinc-100"} transition-colors shrink-0`}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
