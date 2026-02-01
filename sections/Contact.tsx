@@ -3,10 +3,11 @@ import { useTranslation } from "react-i18next";
 import Section from "../components/Section";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { initEmailJS, sendEmail, type EmailData } from "../src/config/emailjs";
-import { dir } from "console";
+import { useTheme } from "../src/hooks/useTheme";
 
 const Contact: React.FC = () => {
   const { t } = useTranslation();
+  const theme = useTheme();
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -63,13 +64,19 @@ const Contact: React.FC = () => {
     <Section>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
         <div>
-          <h2 className="text-sm font-bold uppercase tracking-widest text-violet-600 dark:text-violet-400 mb-4">
+          <h2
+            className={`text-sm font-bold uppercase tracking-widest ${theme === "dark" ? "text-violet-400" : "text-violet-600"} mb-4`}
+          >
             {t("contact.title")}
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-8">
+          <h3
+            className={`text-4xl md:text-5xl font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-8`}
+          >
             {t("contact.subtitle")}
           </h3>
-          <p className="text-zinc-600 dark:text-zinc-400 text-lg mb-10 leading-relaxed">
+          <p
+            className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-600"} text-lg mb-10 leading-relaxed`}
+          >
             {t("contact.description")}
           </p>
 
@@ -78,7 +85,9 @@ const Contact: React.FC = () => {
               <p className="text-sm font-bold text-zinc-400 uppercase tracking-tighter mb-1">
                 Email us
               </p>
-              <p className="text-xl font-medium text-zinc-900 dark:text-white">
+              <p
+                className={`text-xl font-medium ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+              >
                 hello@univision.studio
                 <br />
                 yashartalebi19@gmail.com
@@ -88,18 +97,24 @@ const Contact: React.FC = () => {
               <p className="text-sm font-bold text-zinc-400 uppercase tracking-tighter mb-1">
                 Office
               </p>
-              <p className="text-xl font-medium text-zinc-900 dark:text-white">
+              <p
+                className={`text-xl font-medium ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+              >
                 {t("contact.officeAddress")}
               </p>
             </div>
           </div>
         </div>
 
-        <div className="bg-zinc-50 dark:bg-zinc-900/50 p-8 md:p-12 rounded-[2rem] border border-zinc-200 dark:border-zinc-800">
+        <div
+          className={`${theme === "dark" ? "bg-zinc-900/50 border-zinc-800" : "bg-zinc-50 border-zinc-200"} p-8 md:p-12 rounded-[2rem] border`}
+        >
           {error && (
-            <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl flex items-center gap-3">
+            <div
+              className={`mb-6 p-4 ${theme === "dark" ? "bg-red-900/20 border-red-800 text-red-400" : "bg-red-50 border-red-200 text-red-700"} border rounded-xl flex items-center gap-3`}
+            >
               <AlertCircle className="w-5 h-5 text-red-500" />
-              <p className="text-red-700 dark:text-red-400 text-sm">{error}</p>
+              <p className="text-sm">{error}</p>
               <button
                 onClick={() => setError(null)}
                 className="ml-auto text-red-500 hover:text-red-700"
@@ -111,13 +126,19 @@ const Contact: React.FC = () => {
 
           {isSent ? (
             <div className="h-full flex flex-col items-center justify-center text-center py-12">
-              <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full flex items-center justify-center mb-6">
+              <div
+                className={`w-16 h-16 ${theme === "dark" ? "bg-green-900/30" : "bg-green-100"} text-green-600 rounded-full flex items-center justify-center mb-6`}
+              >
                 <CheckCircle size={32} />
               </div>
-              <h4 className="text-2xl font-bold mb-2 dark:text-white">
+              <h4
+                className={`text-2xl font-bold mb-2 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+              >
                 {t("contact.form.success")}
               </h4>
-              <p className="text-zinc-500 dark:text-zinc-400">
+              <p
+                className={theme === "dark" ? "text-zinc-400" : "text-zinc-500"}
+              >
                 {t("contact.successDescription")}
               </p>
               <button
@@ -133,7 +154,7 @@ const Contact: React.FC = () => {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2"
+                    className={`block text-sm font-medium ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"} mb-2`}
                   >
                     {t("contact.form.name")}
                   </label>
@@ -144,25 +165,25 @@ const Contact: React.FC = () => {
                     required
                     value={formState.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl focus:ring-2 focus:ring-violet-500 outline-none transition-all dark:text-white"
+                    className={`w-full px-4 py-3 ${theme === "dark" ? "bg-zinc-950 border-zinc-800 text-white" : "bg-white border-zinc-200 text-zinc-900"} border rounded-xl focus:ring-2 focus:ring-violet-500 outline-none transition-all`}
                     placeholder={t("contact.form.namePlaceholder")}
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2"
+                    className={`block text-sm font-medium ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"} mb-2`}
                   >
                     {t("contact.form.email")}
                   </label>
                   <input
                     type="email"
                     id="email"
-                    name="email"
+                    name="name"
                     required
                     value={formState.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl focus:ring-2 focus:ring-violet-500 outline-none transition-all dark:text-white"
+                    className={`w-full px-4 py-3 ${theme === "dark" ? "bg-zinc-950 border-zinc-800 text-white" : "bg-white border-zinc-200 text-zinc-900"} border rounded-xl focus:ring-2 focus:ring-violet-500 outline-none transition-all`}
                     placeholder={t("contact.form.emailPlaceholder")}
                   />
                 </div>
@@ -170,7 +191,7 @@ const Contact: React.FC = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2"
+                  className={`block text-sm font-medium ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"} mb-2`}
                 >
                   {t("contact.form.message")}
                 </label>
@@ -181,7 +202,7 @@ const Contact: React.FC = () => {
                   rows={5}
                   value={formState.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl focus:ring-2 focus:ring-violet-500 outline-none transition-all dark:text-white resize-none"
+                  className={`w-full px-4 py-3 ${theme === "dark" ? "bg-zinc-950 border-zinc-800 text-white" : "bg-white border-zinc-200 text-zinc-900"} border rounded-xl focus:ring-2 focus:ring-violet-500 outline-none transition-all resize-none`}
                   placeholder={t("contact.form.messagePlaceholder")}
                 ></textarea>
               </div>

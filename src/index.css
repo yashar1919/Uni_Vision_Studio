@@ -1,7 +1,18 @@
 @import './styles/fonts.css';
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss";
+
+@theme {
+    --color-violet-50: #f5f3ff;
+    --color-violet-100: #ede9fe;
+    --color-violet-200: #ddd6fe;
+    --color-violet-300: #c4b5fd;
+    --color-violet-400: #a78bfa;
+    --color-violet-500: #8b5cf6;
+    --color-violet-600: #7c3aed;
+    --color-violet-700: #6d28d9;
+    --color-violet-800: #5b21b6;
+    --color-violet-900: #4c1d95;
+}
 
 /* ===== CUSTOM CURSOR STYLES ===== */
 /* Hide default cursor on desktop devices */
@@ -20,39 +31,159 @@
     }
 }
 
-/* Custom CSS Variables */
-:root {
-    --violet-50: #eff6ff;
-    --violet-100: #dbeafe;
-    --violet-200: #bfdbfe;
-    --violet-300: #93c5fd;
-    --violet-400: #60a5fa;
-    --violet-500: #3b82f6;
-    --violet-600: #2563eb;
-    --violet-700: #1d4ed8;
-    --violet-800: #1e40af;
-    --violet-900: #1e3a8a;
+/* Cursor dot - small inner circle */
+.cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background-color: rgb(139, 92, 246);
+    /* violet-500 */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 20ms ease, height 20ms ease, background-color 150ms ease;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.6),
+        0 0 40px rgba(139, 92, 246, 0.4);
 }
 
-/* Dark mode variables */
-.dark {
-    --violet-50: #1e3a8a;
-    --violet-100: #1e40af;
-    --violet-200: #1d4ed8;
-    --violet-300: #2563eb;
-    --violet-400: #3b82f6;
-    --violet-500: #60a5fa;
-    --violet-600: #93c5fd;
-    --violet-700: #bfdbfe;
-    --violet-800: #dbeafe;
-    --violet-900: #eff6ff;
+.cursor-dot.hovering {
+    width: 12px;
+    height: 12px;
+    background-color: rgb(124, 58, 237);
+    /* violet-600 */
+}
+
+/* Cursor outline - larger outer ring */
+.cursor-outline {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    border: 2px solid rgba(139, 92, 246, 0.5);
+    /* violet-500 with transparency */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 40ms ease, height 40ms ease, border-color 150ms ease;
+}
+
+.cursor-outline.hovering {
+    width: 48px;
+    height: 48px;
+    border-color: rgba(124, 58, 237, 0.7);
+    /* violet-600 with higher opacity */
+}
+
+/* Particle trail effect */
+.cursor-particle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background-color: rgba(139, 92, 246, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9997;
+    transform: translate(-50%, -50%);
+}
+
+/* ===== BACKGROUND TEXTURE STYLES ===== */
+/* .bg-texture-layer {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.bg-texture-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.15;
+    mix-blend-mode: screen;
+}
+
+.bg-texture-blob:nth-child(1) {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    top: -250px;
+    left: -250px;
+    animation: texture-float 20s ease-in-out infinite;
+}
+
+.bg-texture-blob:nth-child(2) {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #6d28d9 0%, #5b21b6 100%);
+    top: 50%;
+    right: -200px;
+    animation: texture-drift 25s ease-in-out infinite;
+}
+
+.bg-texture-blob:nth-child(3) {
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    bottom: -300px;
+    left: 50%;
+    animation: texture-pulse 30s ease-in-out infinite;
+}
+
+.bg-texture-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+} */
+
+@keyframes texture-float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+}
+
+@keyframes texture-drift {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(-40px, 40px) rotate(180deg);
+    }
+}
+
+@keyframes texture-pulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, 0) scale(1);
+        opacity: 0.15;
+    }
+
+    50% {
+        transform: translate(-50%, 0) scale(1.2);
+        opacity: 0.25;
+    }
 }
 
 /* Glass effect for navigation */
-.glass-nav {
+/* .glass-nav {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-}
+} */
 
 /* ===== RTL SUPPORT ===== */
 /* Comprehensive RTL fixes for Persian/Arabic layout */
@@ -62,12 +193,8 @@
     text-align: right;
 }
 
-/* Flexbox RTL fixes */
-[dir="rtl"] .flex {
-    flex-direction: row-reverse;
-}
-
-[dir="rtl"] .space-x-1>*+* {
+/* Flexbox RTL fixes - Only for space-x utilities */
+/* [dir="rtl"] .space-x-1>*+* {
     margin-left: 0;
     margin-right: 0.25rem;
 }
@@ -95,10 +222,10 @@
 [dir="rtl"] .space-x-8>*+* {
     margin-left: 0;
     margin-right: 2rem;
-}
+} */
 
 /* Margin and Padding flips */
-[dir="rtl"] .ml-2 {
+/* [dir="rtl"] .ml-2 {
     margin-left: 0;
     margin-right: 0.5rem;
 }
@@ -151,10 +278,10 @@
 [dir="rtl"] .pr-6 {
     padding-right: 0;
     padding-left: 1.5rem;
-}
+} */
 
 /* Left/Right position flips */
-[dir="rtl"] .left-0 {
+/* [dir="rtl"] .left-0 {
     left: auto;
     right: 0;
 }
@@ -172,73 +299,64 @@
 [dir="rtl"] .right-4 {
     right: auto;
     left: 1rem;
-}
+} */
 
 /* Text alignment */
-[dir="rtl"] .text-left {
+/* [dir="rtl"] .text-left {
     text-align: right;
 }
 
 [dir="rtl"] .text-right {
     text-align: left;
-}
+} */
 
 /* Border radius flips */
-[dir="rtl"] .rounded-r-lg {
+/* [dir="rtl"] .rounded-r-lg {
     border-radius: 0.5rem 0 0 0.5rem;
 }
 
 [dir="rtl"] .rounded-l-lg {
     border-radius: 0 0.5rem 0.5rem 0;
-}
+} */
 
 /* Transform flips */
-[dir="rtl"] .translate-x-1 {
+/* [dir="rtl"] .translate-x-1 {
     transform: translateX(-0.25rem);
 }
 
 [dir="rtl"] .-translate-x-1 {
     transform: translateX(0.25rem);
-}
+} */
 
 /* Persian font support - Applied globally */
-@layer base {
+html,
+body {
+    font-family: 'IRANSans', 'IRANYekanX', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+}
 
-    html,
-    body {
-        @apply font-sans;
-        font-family: 'IRANSans', 'IRANYekanX', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
-    }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'IRANSans', 'IRANYekanX', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+}
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: 'IRANSans', 'IRANYekanX', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
-    }
-
-    p,
-    span,
-    div,
-    a,
-    li,
-    button,
-    input,
-    textarea,
-    label {
-        font-family: 'IRANSans', 'IRANYekanX', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
-    }
+p,
+span,
+div,
+a,
+li,
+button,
+input,
+textarea,
+label {
+    font-family: 'IRANSans', 'IRANYekanX', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
 }
 
 [dir="rtl"] {
     direction: rtl;
-}
-
-/* Smooth transitions for language change */
-* {
-    transition: all 0.3s ease-in-out;
 }
 
 /* ===== CUSTOM CURSOR ANIMATIONS ===== */
@@ -273,45 +391,4 @@
 
 .animate-in.slide-in-from-top-1 {
     animation: slide-in-from-top 0.2s ease-out;
-}
-
-/* violet color utilities */
-.bg-violet-50 {
-    background-color: var(--violet-50);
-}
-
-.bg-violet-100 {
-    background-color: var(--violet-100);
-}
-
-.bg-violet-500 {
-    background-color: var(--violet-500);
-}
-
-.bg-violet-900 {
-    background-color: var(--violet-900);
-}
-
-.text-violet-400 {
-    color: var(--violet-400);
-}
-
-.text-violet-500 {
-    color: var(--violet-500);
-}
-
-.text-violet-600 {
-    color: var(--violet-600);
-}
-
-.text-violet-700 {
-    color: var(--violet-700);
-}
-
-.border-violet-100 {
-    border-color: var(--violet-100);
-}
-
-.border-violet-800 {
-    border-color: var(--violet-800);
 }

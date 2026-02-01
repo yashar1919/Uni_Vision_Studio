@@ -35,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/80 dark:bg-zinc-950/80 border-b border-zinc-200 dark:border-zinc-800 glass-nav py-4"
+          ? `${theme === "dark" ? "bg-zinc-950/80 border-zinc-800" : "bg-white/80 border-zinc-200"} border-b glass-nav py-4`
           : "bg-transparent py-6"
       }`}
     >
@@ -45,7 +45,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           <div className="flex items-center">
             <a
               href="#home"
-              className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 whitespace-nowrap"
+              className={`text-xl font-bold tracking-tight ${theme === "dark" ? "text-zinc-50" : "text-zinc-900"} whitespace-nowrap`}
             >
               UniVision<span className="text-violet-500">.</span>Studio
             </a>
@@ -57,7 +57,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-zinc-600 hover:text-violet-600 dark:text-zinc-400 dark:hover:text-violet-400 transition-colors whitespace-nowrap"
+                className={`text-sm font-medium ${theme === "dark" ? "text-zinc-400 hover:text-violet-400" : "text-zinc-600 hover:text-violet-600"} transition-colors whitespace-nowrap`}
               >
                 {item.label}
               </a>
@@ -70,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-500 dark:text-zinc-400 flex-shrink-0"
+              className={`p-2 rounded-full ${theme === "dark" ? "hover:bg-zinc-800 text-zinc-400" : "hover:bg-zinc-100 text-zinc-500"} transition-colors flex-shrink-0`}
               aria-label="Toggle Theme"
             >
               {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
@@ -79,7 +79,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-md text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex-shrink-0"
+              className={`md:hidden p-2 rounded-md ${theme === "dark" ? "text-zinc-400 hover:bg-zinc-800" : "text-zinc-600 hover:bg-zinc-100"} transition-colors flex-shrink-0`}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -89,7 +89,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 overflow-hidden transition-all duration-300 ${
+        className={`md:hidden absolute top-full left-0 right-0 ${theme === "dark" ? "bg-zinc-950 border-zinc-800" : "bg-white border-zinc-200"} border-b overflow-hidden transition-all duration-300 ${
           isMobileMenuOpen
             ? "max-h-64 opacity-100"
             : "max-h-0 opacity-0 pointer-events-none"
@@ -103,7 +103,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
               key={item.href}
               href={item.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-medium text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
+              className={`block px-3 py-2 rounded-md text-base font-medium ${theme === "dark" ? "text-zinc-400 hover:bg-zinc-800 hover:text-violet-400" : "text-zinc-600 hover:bg-zinc-100 hover:text-violet-600"} transition-colors`}
             >
               {item.label}
             </a>

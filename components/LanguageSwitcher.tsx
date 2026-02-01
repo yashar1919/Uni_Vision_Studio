@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { ChevronDown, Globe, Check } from "lucide-react";
 import { supportedLanguages, type SupportedLanguage } from "../src/i18n/config";
 import type { LanguageInfo } from "../types";
+import { useTheme } from "../src/hooks/useTheme";
 
 interface LanguageSwitcherProps {
   className?: string;
@@ -12,6 +13,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   className = "",
 }) => {
   const { i18n, t } = useTranslation();
+  const theme = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -53,7 +55,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     <div className={`relative ${className}`} ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800/50"
+        className={`flex items-center gap-2 px-3 py-2 text-sm font-medium ${theme === "dark" ? "text-zinc-400 hover:text-violet-400 hover:bg-zinc-800/50" : "text-zinc-600 hover:text-violet-600 hover:bg-zinc-50"} transition-colors rounded-lg`}
         aria-label={t("common.language")}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
@@ -72,8 +74,12 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-zinc-900 rounded-xl shadow-lg border border-zinc-200 dark:border-zinc-800 py-2 z-50 animate-in slide-in-from-top-1 duration-200">
-          <div className="px-3 py-2 text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider border-b border-zinc-100 dark:border-zinc-800">
+        <div
+          className={`absolute top-full right-0 mt-2 w-48 ${theme === "dark" ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-200"} rounded-xl shadow-lg border py-2 z-50 animate-in slide-in-from-top-1 duration-200`}
+        >
+          <div
+            className={`px-3 py-2 text-xs font-semibold ${theme === "dark" ? "text-zinc-400 border-zinc-800" : "text-zinc-500 border-zinc-100"} uppercase tracking-wider border-b`}
+          >
             {t("common.language")}
           </div>
 
@@ -91,8 +97,12 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
                   }
                   className={`w-full flex items-center justify-between px-4 py-3 text-sm transition-colors ${
                     isActive
-                      ? "bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-300"
-                      : "text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800"
+                      ? theme === "dark"
+                        ? "bg-violet-900/20 text-violet-300"
+                        : "bg-violet-50 text-violet-700"
+                      : theme === "dark"
+                        ? "text-zinc-300 hover:bg-zinc-800"
+                        : "text-zinc-700 hover:bg-zinc-50"
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -105,14 +115,18 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
                     </span>
                     <div className="text-left">
                       <div className="font-medium">{language.nativeName}</div>
-                      <div className="text-xs text-zinc-500 dark:text-zinc-400">
+                      <div
+                        className={`text-xs ${theme === "dark" ? "text-zinc-400" : "text-zinc-500"}`}
+                      >
                         {language.name}
                       </div>
                     </div>
                   </div>
 
                   {isActive && (
-                    <Check className="w-4 h-4 text-violet-600 dark:text-violet-400" />
+                    <Check
+                      className={`w-4 h-4 ${theme === "dark" ? "text-violet-400" : "text-violet-600"}`}
+                    />
                   )}
                 </button>
               );
