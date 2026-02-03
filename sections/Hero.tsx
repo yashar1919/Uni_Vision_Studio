@@ -13,10 +13,10 @@ const Hero: React.FC = () => {
     <Section className="relative flex items-center justify-center min-h-[90vh]">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className={`absolute -top-[10%] -right-[10%] w-125 h-125 ${theme === "dark" ? "bg-violet-500/20" : "bg-violet-500/40"} rounded-full blur-[120px]`}
+          className={`absolute -top-[60%] sm:-top-[10%] -right-[10%] w-125 h-125 ${theme === "dark" ? "bg-violet-500/20" : "bg-violet-500/40"} rounded-full blur-[120px]`}
         />
         <div
-          className={`absolute -bottom-[10%] -left-[10%] w-125 h-125 ${theme === "dark" ? "bg-violet-500/20" : "bg-violet-500/40"} rounded-full blur-[120px]`}
+          className={`absolute -bottom-[60%] sm:-bottom-[10%] -left-[10%] w-125 h-125 ${theme === "dark" ? "bg-violet-500/20" : "bg-violet-500/40"} rounded-full blur-[120px]`}
         />
       </div>
 
