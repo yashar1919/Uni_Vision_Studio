@@ -89,6 +89,8 @@
     "description": "Have a specific project in mind or just want to explore the possibilities? We're here to help you navigate your digital transformation.",
     "successDescription": "Thank you for reaching out. A studio representative will contact you shortly.",
     "sendAnother": "Send another message",
+    "emailUs":"Email Us",
+    "office":"Office",
     "officeAddress": "11 Alley, Chamran Blvd, Shiraz, Iran",
     "form": {
       "name": "Full Name",

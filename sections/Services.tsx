@@ -17,7 +17,7 @@ const Services: React.FC = () => {
           {t("services.title")}
         </h2>
         <h3
-          className={`text-3xl md:text-[32px] ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-6`}
+          className={`text-2xl md:text-[32px] ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-6`}
         >
           {t("services.subtitle")}
         </h3>
@@ -34,11 +34,11 @@ const Services: React.FC = () => {
             >
               {SERVICE_ICONS[serviceKey]}
             </div>
-            <h4
-              className={`text-xl font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-4`}
+            <p
+              className={`text-xl ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-4`}
             >
               {t(`services.items.${serviceKey}.title`)}
-            </h4>
+            </p>
             <p
               className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-600"} text-sm leading-relaxed`}
             >

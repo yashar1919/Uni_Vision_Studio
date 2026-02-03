@@ -392,3 +392,7 @@ label {
 .animate-in.slide-in-from-top-1 {
     animation: slide-in-from-top 0.2s ease-out;
 }
+
+#logo_text_font{
+    font-family: sans-serif !important;
+}

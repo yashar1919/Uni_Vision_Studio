@@ -27,9 +27,10 @@ const Hero: React.FC = () => {
           {t("hero.badge")}
         </div>
         <h1
-          className={`text-5xl md:text-[56px] lg:text-[62px] tracking-tighter ${theme === "dark" ? "text-white" : "text-zinc-950"} mb-6 leading-tight`}
+          className={`text-[42px] md:text-[56px] lg:text-[62px] tracking-tighter ${theme === "dark" ? "text-white" : "text-zinc-950"} mb-6 leading-tight`}
         >
           {t("hero.title.part1")}
+          <br className="block sm:hidden" />
           <span
             className={`text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-violet-600 ${isRTL ? "mr-2" : "ml-2"}`}
           >

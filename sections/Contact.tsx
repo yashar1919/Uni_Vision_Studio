@@ -70,12 +70,12 @@ const Contact: React.FC = () => {
             {t("contact.title")}
           </h2>
           <h3
-            className={`text-4xl md:text-5xl font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-8`}
+            className={`text-2xl md:text-[32px] ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-8`}
           >
             {t("contact.subtitle")}
           </h3>
           <p
-            className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-600"} text-lg mb-10 leading-relaxed`}
+            className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-600"} text-md mb-10 leading-relaxed`}
           >
             {t("contact.description")}
           </p>
@@ -83,10 +83,10 @@ const Contact: React.FC = () => {
           <div className="space-y-6">
             <div>
               <p className="text-sm font-bold text-zinc-400 uppercase tracking-tighter mb-1">
-                Email us
+                {t("contact.emailUs")}
               </p>
               <p
-                className={`text-xl font-medium ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+                className={`text-lg font-medium ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
               >
                 hello@univision.studio
                 <br />
@@ -95,10 +95,10 @@ const Contact: React.FC = () => {
             </div>
             <div>
               <p className="text-sm font-bold text-zinc-400 uppercase tracking-tighter mb-1">
-                Office
+                {t("contact.office")}
               </p>
               <p
-                className={`text-xl font-medium ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+                className={`text-lg ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
               >
                 {t("contact.officeAddress")}
               </p>

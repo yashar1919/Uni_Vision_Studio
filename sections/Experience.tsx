@@ -19,7 +19,7 @@ const Experience: React.FC = () => {
             {t("experience.title")}
           </h2>
           <h3
-            className={`text-3xl md:text-4xl font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-6`}
+            className={`text-2xl md:text-[32px] ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-6`}
           >
             {t("experience.subtitle")}
           </h3>
@@ -41,12 +41,12 @@ const Experience: React.FC = () => {
             </div>
             <div>
               <h4
-                className={`text-lg font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-2`}
+                className={`text-lg  ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-2`}
               >
                 {t("experience.stats.globalDeployments")}
               </h4>
               <p
-                className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm`}
+                className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm text-justify`}
               >
                 {t("experience.stats.globalDeploymentsDesc")}
               </p>
@@ -63,7 +63,7 @@ const Experience: React.FC = () => {
             </div>
             <div>
               <h4
-                className={`text-lg font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-2`}
+                className={`text-lg ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-2`}
               >
                 {t("experience.stats.enterpriseStandards")}
               </h4>
@@ -85,12 +85,12 @@ const Experience: React.FC = () => {
             </div>
             <div>
               <h4
-                className={`text-lg font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-2`}
+                className={`text-lg ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-2`}
               >
                 {t("experience.stats.multiPlatformEcosystems")}
               </h4>
               <p
-                className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm`}
+                className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm text-justify`}
               >
                 {t("experience.stats.multiPlatformEcosystemsDesc")}
               </p>
@@ -108,12 +108,12 @@ const Experience: React.FC = () => {
             </div>
             <div>
               <h4
-                className={`text-lg font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-2`}
+                className={`text-lg ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-2`}
               >
                 {t("experience.stats.modernTechDebtReduction")}
               </h4>
               <p
-                className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm`}
+                className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm text-justify`}
               >
                 {t("experience.stats.modernTechDebtReductionDesc")}
               </p>

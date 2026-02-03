@@ -17,17 +17,17 @@ const About: React.FC = () => {
             {t("about.title")}
           </h2>
           <h3
-            className={`text-3xl md:text-4xl font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-8`}
+            className={`text-2xl md:text-[32px] ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-8`}
           >
             {t("about.subtitle")}
           </h3>
           <p
-            className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-600"} text-lg mb-6 leading-relaxed`}
+            className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-600"} text-sm text-justify mb-6 leading-relaxed`}
           >
             {t("about.description1")}
           </p>
           <p
-            className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-600"} text-lg leading-relaxed`}
+            className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-600"} text-sm text-justify leading-relaxed`}
           >
             {t("about.description2")}
           </p>
@@ -38,12 +38,12 @@ const About: React.FC = () => {
             className={`p-8 ${theme === "dark" ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-200"} rounded-2xl border shadow-sm transition-transform hover:-translate-y-1`}
           >
             <h4
-              className={`text-xl font-bold mb-3 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+              className={`text-xl mb-3 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
             >
               {t("about.stats.studioFocus")}
             </h4>
             <p
-              className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm`}
+              className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm text-justify`}
             >
               {t("about.stats.studioFocusDesc")}
             </p>
@@ -52,12 +52,12 @@ const About: React.FC = () => {
             className={`p-8 ${theme === "dark" ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-200"} rounded-2xl border shadow-sm transition-transform hover:-translate-y-1`}
           >
             <h4
-              className={`text-xl font-bold mb-3 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+              className={`text-xl mb-3 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
             >
               {t("about.stats.scalableTech")}
             </h4>
             <p
-              className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm`}
+              className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm text-justify`}
             >
               {t("about.stats.scalableTechDesc")}
             </p>
@@ -66,12 +66,12 @@ const About: React.FC = () => {
             className={`p-8 ${theme === "dark" ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-200"} rounded-2xl border shadow-sm transition-transform hover:-translate-y-1`}
           >
             <h4
-              className={`text-xl font-bold mb-3 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+              className={`text-xl mb-3 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
             >
               {t("about.stats.expertDesign")}
             </h4>
             <p
-              className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm`}
+              className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm text-justify`}
             >
               {t("about.stats.expertDesignDesc")}
             </p>
@@ -80,12 +80,12 @@ const About: React.FC = () => {
             className={`p-8 ${theme === "dark" ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-200"} rounded-2xl border shadow-sm transition-transform hover:-translate-y-1`}
           >
             <h4
-              className={`text-xl font-bold mb-3 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+              className={`text-xl mb-3 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
             >
               {t("about.stats.agileDelivery")}
             </h4>
             <p
-              className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm`}
+              className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm text-justify`}
             >
               {t("about.stats.agileDeliveryDesc")}
             </p>

@@ -12,12 +12,20 @@ const Footer: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         <div>
-          <a
+          {/* <a
             href="#home"
             className={`text-xl font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
           >
             UniVision<span className="text-violet-500">.</span>Studio
-          </a>
+          </a> */}
+          <p
+            className={`text-md tracking-tight ${theme === "dark" ? "text-zinc-50" : "text-zinc-900"} whitespace-nowrap`}
+          >
+            <span className="text-violet-400 text-xl">U</span>ni
+            <span className="text-violet-400 text-xl">V</span>ision
+            <span className="text-violet-500"> </span>
+            <span className="text-sm text-zinc-400">studio</span>
+          </p>
           <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2 max-w-xs">
             {t("footer.description")}
           </p>

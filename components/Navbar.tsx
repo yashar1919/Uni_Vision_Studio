@@ -43,20 +43,27 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <a href="#home" className="flex items-center gap-2">
+            <a
+              href="#home"
+              className={`flex items-center gap-2 ${theme === "dark" ? "bg-violet-400/10" : "bg-violet-950"} p-1 rounded-full`}
+            >
               <img
                 //src="/pictures/UniVisionStudio_without_foreground.svg"
-                src="/pictures/UniVisionStudio_with_lightViolet_foreground.svg"
-                //src="/pictures/logo-chatGPT.png"
+                //src="/pictures/UniVisionStudio_with_lightViolet_foreground.svg"
+                src="/pictures/logo.png"
                 alt="UniVision Studio Logo"
                 className="h-10 w-10"
               />
             </a>
             <a
               href="#home"
-              className={`text-xl font-bold tracking-tight ${theme === "dark" ? "text-zinc-50" : "text-zinc-900"} whitespace-nowrap`}
+              className={`text-md tracking-tight ${theme === "dark" ? "text-zinc-50" : "text-zinc-900"} whitespace-nowrap hidden sm:block`}
+              id="logo_text_font"
             >
-              UniVision<span className="text-violet-500">.</span>Studio
+              <span className="text-violet-400 text-xl">U</span>ni
+              <span className="text-violet-400 text-xl">V</span>ision
+              <span className="text-violet-500"> </span>
+              <span className="text-sm text-zinc-400">studio</span>
             </a>
           </div>
 
