@@ -88,7 +88,7 @@ const Contact: React.FC = () => {
               <p
                 className={`text-lg font-medium ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
               >
-                hello@univision.studio
+                +989017916871
                 <br />
                 yashartalebi19@gmail.com
               </p>
