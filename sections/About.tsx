@@ -2,6 +2,7 @@ import React from "react";
 import Section from "../components/Section";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../src/hooks/useTheme";
+import { Target, TrendingUp, Palette, Rocket } from "lucide-react";
 
 const About: React.FC = () => {
   const { t } = useTranslation();
@@ -35,57 +36,69 @@ const About: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div
-            className={`p-8 ${theme === "dark" ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-200"} rounded-2xl border shadow-sm transition-transform hover:-translate-y-1`}
+            className={`p-8 ${theme === "dark" ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-200"} rounded-2xl border shadow-sm transition-transform hover:-translate-y-1 relative overflow-hidden`}
           >
+            <Target
+              className={`absolute -bottom-4 -right-4 w-32 h-32 ${theme === "dark" ? "text-violet-900/20" : "text-violet-100"} rotate-12`}
+            />
             <h4
-              className={`text-xl mb-3 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+              className={`text-xl mb-3 ${theme === "dark" ? "text-white" : "text-zinc-900"} relative z-10`}
             >
               {t("about.stats.studioFocus")}
             </h4>
             <p
-              className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm text-justify`}
+              className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm text-justify relative z-10`}
             >
               {t("about.stats.studioFocusDesc")}
             </p>
           </div>
           <div
-            className={`p-8 ${theme === "dark" ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-200"} rounded-2xl border shadow-sm transition-transform hover:-translate-y-1`}
+            className={`p-8 ${theme === "dark" ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-200"} rounded-2xl border shadow-sm transition-transform hover:-translate-y-1 relative overflow-hidden`}
           >
+            <TrendingUp
+              className={`absolute -bottom-4 -right-4 w-32 h-32 ${theme === "dark" ? "text-green-900/20" : "text-green-100"} rotate-12`}
+            />
             <h4
-              className={`text-xl mb-3 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+              className={`text-xl mb-3 ${theme === "dark" ? "text-white" : "text-zinc-900"} relative z-10`}
             >
               {t("about.stats.scalableTech")}
             </h4>
             <p
-              className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm text-justify`}
+              className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm text-justify relative z-10`}
             >
               {t("about.stats.scalableTechDesc")}
             </p>
           </div>
           <div
-            className={`p-8 ${theme === "dark" ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-200"} rounded-2xl border shadow-sm transition-transform hover:-translate-y-1`}
+            className={`p-8 ${theme === "dark" ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-200"} rounded-2xl border shadow-sm transition-transform hover:-translate-y-1 relative overflow-hidden`}
           >
+            <Palette
+              className={`absolute -bottom-4 -right-4 w-32 h-32 ${theme === "dark" ? "text-blue-900/20" : "text-blue-100"} rotate-12`}
+            />
             <h4
-              className={`text-xl mb-3 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+              className={`text-xl mb-3 ${theme === "dark" ? "text-white" : "text-zinc-900"} relative z-10`}
             >
               {t("about.stats.expertDesign")}
             </h4>
             <p
-              className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm text-justify`}
+              className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm text-justify relative z-10`}
             >
               {t("about.stats.expertDesignDesc")}
             </p>
           </div>
           <div
-            className={`p-8 ${theme === "dark" ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-200"} rounded-2xl border shadow-sm transition-transform hover:-translate-y-1`}
+            className={`p-8 ${theme === "dark" ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-200"} rounded-2xl border shadow-sm transition-transform hover:-translate-y-1 relative overflow-hidden`}
           >
+            <Rocket
+              className={`absolute -bottom-4 -right-4 w-32 h-32 ${theme === "dark" ? "text-orange-900/20" : "text-orange-100"} rotate-12`}
+            />
             <h4
-              className={`text-xl mb-3 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+              className={`text-xl mb-3 ${theme === "dark" ? "text-white" : "text-zinc-900"} relative z-10`}
             >
               {t("about.stats.agileDelivery")}
             </h4>
             <p
-              className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm text-justify`}
+              className={`${theme === "dark" ? "text-zinc-400" : "text-zinc-500"} text-sm text-justify relative z-10`}
             >
               {t("about.stats.agileDeliveryDesc")}
             </p>

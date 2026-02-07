@@ -38,11 +38,14 @@ const Footer: React.FC = () => {
           <a href="#" className="hover:text-violet-600 transition-colors">
             {t("footer.termsOfService")}
           </a>
-          <a href="#" className="hover:text-violet-600 transition-colors">
-            Twitter
+          <a
+            href="https://www.instagram.com/univisionstudio.ir?igsh=MTc5OTFnaTVsY2htaw%3D%3D&utm_source=qr"
+            className="hover:text-violet-600 transition-colors"
+          >
+            {t("footer.instagram")}
           </a>
           <a href="#" className="hover:text-violet-600 transition-colors">
-            LinkedIn
+            {t("footer.linkedin")}
           </a>
         </div>
 

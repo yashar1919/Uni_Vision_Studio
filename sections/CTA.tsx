@@ -35,7 +35,7 @@ const CTA: React.FC = () => {
         </p>
         <a
           href="#contact"
-          className={`inline-block px-15 border border-violet-400 shadow-2xl py-4 bg-violet-600 text-white rounded-full font-bold text-lg transition-transform hover:scale-105 active:scale-95 relative z-10`}
+          className={`inline-block px-15 border border-violet-400 shadow-2xl py-4 bg-violet-600 text-white rounded-full font-bold text-md sm:text-lg transition-transform hover:scale-105 active:scale-95 relative z-10`}
         >
           {t("cta.button")}
         </a>

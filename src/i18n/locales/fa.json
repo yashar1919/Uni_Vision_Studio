@@ -3,7 +3,8 @@
     "home": "خانه",
     "services": "خدمات",
     "about": "درباره ما",
-    "contact": "تماس"
+    "contact": "تماس",
+    "menu":"منو"
   },
   "hero": {
     "badge": "مهندسیِ یک چشم‌انداز مشترک",
@@ -89,14 +90,14 @@
     "description": "پروژه خاصی در ذهن دارید یا فقط می‌خواهید امکانات را بررسی کنید؟ ما اینجا هستیم تا به شما در مسیر تحول دیجیتال‌تان کمک کنیم.",
     "successDescription": "از تماس شما متشکریم. یکی از نمایندگان استودیو به زودی با شما تماس خواهد گرفت.",
     "sendAnother": "ارسال پیام دیگر",
-    "emailUs":"ایمیل ما",
+    "contactUs":"راه های ارتباطی",
     "office":"استودیو",
     "officeAddress": "ایران، شیراز، بلوار چمران، کوچه 11",
     "form": {
       "name": "نام کامل",
-      "namePlaceholder": "محمد رضایی",
+      "namePlaceholder": "یاشار طالبی",
       "email": "آدرس ایمیل",
-      "emailPlaceholder": "mohamad@example.com",
+      "emailPlaceholder": "yashartalebi19@gmail.com",
       "message": "جزئیات پروژه",
       "messagePlaceholder": "درباره اهداف‌تان بگویید...",
       "submit": "ارسال پیام",
@@ -109,7 +110,9 @@
     "description": "صفر تا صد ایده های شما را به حرفه ای ترین حالت، پیاده سازی خواهیم کرد",
     "copyRight":"کلیه حقوق محفوظ است.",
     "termsOfService":"شرایط خدمات",
-    "privacyPolicy":"حریم خصوصی"
+    "privacyPolicy":"حریم خصوصی",
+    "linkedin":"لینکدین",
+    "instagram":"اینستاگرام"
   },
   "common": {
     "loading": "در حال بارگذاری...",

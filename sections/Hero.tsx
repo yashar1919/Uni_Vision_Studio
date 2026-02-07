@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft, Sparkles } from "lucide-react";
 import Section from "../components/Section";
 import { useTheme } from "../src/hooks/useTheme";
 
@@ -56,9 +56,12 @@ const Hero: React.FC = () => {
           </a>
           <a
             href="#services"
-            className={`px-8 py-4 ${theme === "dark" ? "bg-zinc-900 border-zinc-800 text-zinc-100 hover:bg-zinc-800" : "bg-white border-zinc-200 text-zinc-900 hover:bg-zinc-50"} border rounded-full font-medium transition-all`}
+            className={`group flex items-center justify-center px-8 py-4 ${theme === "dark" ? "bg-zinc-900 border-zinc-500 text-zinc-100 hover:bg-zinc-800" : "bg-white border-zinc-900 text-zinc-900 hover:bg-zinc-50"} border rounded-full font-medium transition-all hover:scale-105 active:scale-95`}
           >
             {t("hero.cta.secondary")}
+            <Sparkles
+              className={`${isRTL ? "mr-2" : "ml-2"} w-4 h-4 transition-transform group-hover:rotate-12`}
+            />
           </a>
         </div>
       </div>

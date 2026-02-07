@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import {
+  Menu,
+  X,
+  Sun,
+  Moon,
+  Home,
+  Briefcase,
+  Users,
+  Phone,
+} from "lucide-react";
 import { Theme } from "../types";
 import LanguageSwitcher from "./LanguageSwitcher";
 
@@ -15,12 +24,12 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isRTL = i18n.language === "fa";
 
-  // Navigation items using translations
+  // Navigation items using translations with icons
   const navItems = [
-    { label: t("nav.home"), href: "#home" },
-    { label: t("nav.services"), href: "#services" },
-    { label: t("nav.about"), href: "#about" },
-    { label: t("nav.contact"), href: "#contact" },
+    { label: t("nav.home"), href: "#home", icon: Home },
+    { label: t("nav.services"), href: "#services", icon: Briefcase },
+    { label: t("nav.about"), href: "#about", icon: Users },
+    { label: t("nav.contact"), href: "#contact", icon: Phone },
   ];
 
   useEffect(() => {
@@ -73,8 +82,14 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
               <a
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium ${theme === "dark" ? "text-zinc-400 hover:text-violet-400" : "text-zinc-600 hover:text-violet-600"} transition-colors whitespace-nowrap`}
+                className={`text-sm font-medium ${theme === "dark" ? "text-zinc-400 hover:text-violet-400" : "text-zinc-600 hover:text-violet-600"} transition-colors whitespace-nowrap flex items-center`}
               >
+                {item.icon && (
+                  <item.icon
+                    size={16}
+                    className={`inline-block ${isRTL ? "ml-2" : "mr-2"}`}
+                  />
+                )}
                 {item.label}
               </a>
             ))}
@@ -103,27 +118,63 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Backdrop */}
+      {isMobileMenuOpen && (
+        <div
+          className={`fixed inset-0 z-40 md:hidden transition-opacity duration-300 ${theme === "dark" ? "bg-black/50" : "bg-black/30"}`}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile Sidebar Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 ${theme === "dark" ? "bg-zinc-950 border-zinc-800" : "bg-white border-zinc-200"} border-b overflow-hidden transition-all duration-300 ${
+        className={`fixed top-0 h-screen w-64 md:hidden z-40 ${isRTL ? "right-0" : "left-0"} ${theme === "dark" ? "bg-zinc-950" : "bg-white"} transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen
-            ? "max-h-64 opacity-100"
-            : "max-h-0 opacity-0 pointer-events-none"
+            ? isRTL
+              ? "translate-x-0"
+              : "translate-x-0"
+            : isRTL
+              ? "translate-x-64"
+              : "-translate-x-64"
         }`}
       >
+        {/* Close Button */}
         <div
-          className={`px-4 pt-2 pb-6 space-y-2 ${isRTL ? "text-right" : "text-left"}`}
+          className={`flex items-center justify-between px-4 py-6 ${theme === "dark" ? "border-zinc-800" : "border-zinc-200"} border-b`}
         >
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={`block px-3 py-2 rounded-md text-base font-medium ${theme === "dark" ? "text-zinc-400 hover:bg-zinc-800 hover:text-violet-400" : "text-zinc-600 hover:bg-zinc-100 hover:text-violet-600"} transition-colors`}
-            >
-              {item.label}
-            </a>
-          ))}
+          <h3
+            className={`text-lg font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+          >
+            {t("nav.menu")}
+          </h3>
+          <button
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`p-2 rounded-lg ${theme === "dark" ? "hover:bg-zinc-800 text-zinc-400" : "hover:bg-zinc-100 text-zinc-600"} transition-colors`}
+          >
+            <X size={24} />
+          </button>
+        </div>
+
+        {/* Menu Items */}
+        <div className="px-3 py-4 space-y-1 overflow-y-auto h-[calc(100vh-80px)]">
+          {navItems.map((item) => {
+            const IconComponent = item.icon;
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium ${theme === "dark" ? "text-zinc-300 hover:bg-violet-900/30 hover:text-violet-300" : "text-zinc-700 hover:bg-violet-50 hover:text-violet-600"} transition-all duration-200 group`}
+              >
+                <div
+                  className={`${theme === "dark" ? "group-hover:bg-violet-500/20" : "group-hover:bg-violet-500/10"} p-2 rounded-lg transition-colors duration-200`}
+                >
+                  <IconComponent size={18} />
+                </div>
+                <span className="font-medium">{item.label}</span>
+              </a>
+            );
+          })}
         </div>
       </div>
     </nav>
