@@ -4,7 +4,7 @@
     "services": "Services",
     "about": "About",
     "contact": "Contact",
-    "menu":"Menu"
+    "menu": "Menu"
   },
   "hero": {
     "badge": "Engineering a Shared Vision",
@@ -62,6 +62,32 @@
       "scalableTechDesc": "Built to Grow With You We choose future-proof frameworks and tools that scale effortlessly as your business expands.",
       "expertDesignDesc": "Beautiful, Functional, Effective Our designs blend stunning visuals with intuitive user journeys—crafted for engagement and conversion.",
       "agileDeliveryDesc": "Transparent, Collaborative, On Time With agile workflows and clear communication, we deliver iteratively—keeping you in the loop at every stage."
+    }
+  },
+  "ai": {
+    "badge": "AI-Powered Innovation",
+    "title": "Building the Future with Artificial Intelligence",
+    "description": "At UniVision Studio, we don't just follow trends—we lead them. Our team leverages cutting-edge AI technologies to create intelligent, adaptive solutions that learn and grow with your business. From machine learning models to natural language processing, we transform complex challenges into elegant, automated solutions.",
+    "capabilities": {
+      "intelligent": {
+        "title": "Intelligent Solutions",
+        "description": "We integrate AI to make your applications smarter, more responsive, and capable of learning from user behavior to deliver personalized experiences."
+      },
+      "automation": {
+        "title": "Smart Automation",
+        "description": "Automate repetitive tasks, streamline workflows, and let AI handle the heavy lifting while your team focuses on what matters most."
+      },
+      "precision": {
+        "title": "Data-Driven Precision",
+        "description": "Harness the power of AI analytics to gain deep insights, make informed decisions, and stay ahead of the competition with predictive intelligence."
+      }
+    },
+    "showcase": {
+      "badge": "Our Custom AI",
+      "title": "Experience Our Proprietary AI Assistant",
+      "description": "We've developed our own advanced AI system—a testament to our expertise in artificial intelligence. Try it yourself and see how we're pushing the boundaries of what's possible with AI technology.",
+      "button": "Try Our AI Now",
+      "note": "Experience firsthand the quality and innovation we bring to every AI project"
     }
   },
   "experience": {

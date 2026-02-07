@@ -5,6 +5,7 @@ import CustomCursor from "./components/CustomCursor";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Services from "./sections/Services";
+import AICapabilities from "./sections/AICapabilities";
 import Experience from "./sections/Experience";
 import CTA from "./sections/CTA";
 import Contact from "./sections/Contact";
@@ -78,6 +79,8 @@ const App: React.FC = () => {
         <div id="about">
           <About />
         </div>
+
+        <AICapabilities />
 
         <Experience />
 
