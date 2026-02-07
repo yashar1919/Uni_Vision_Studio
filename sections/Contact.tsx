@@ -99,7 +99,7 @@ const Contact: React.FC = () => {
               >
                 <div className="font-light">
                   <Mail
-                    className={`${isRTL ? "ml-2" : "mr-2"} inline-block text-amber-500`}
+                    className={`${isRTL ? "ml-2" : "mr-2"} inline-block text-yellow-700`}
                     size={22}
                   />
                   <a href="mailto:yashartalebi19@gmail.com">
@@ -108,7 +108,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div className="font-light">
                   <Phone
-                    className={`${isRTL ? "ml-2" : "mr-2"} inline-block text-emerald-500`}
+                    className={`${isRTL ? "ml-2" : "mr-2"} inline-block text-cyan-700`}
                     size={22}
                   />
                   <a href="tel:+989017916871">09017916871</a>
@@ -121,7 +121,7 @@ const Contact: React.FC = () => {
                       xmlns="http://www.w3.org/2000/svg"
                       width="22"
                       height="22"
-                      fill="oklch(62.7% 0.194 149.214)"
+                      fill="oklch(50.8% 0.118 165.612)"
                       className="bi bi-whatsapp"
                       viewBox="0 0 16 16"
                     >
@@ -130,9 +130,7 @@ const Contact: React.FC = () => {
                   </span>
                   <a href="https://wa.me/989017916871">
                     <span className="font-light">
-                      <span className="text-violet-500 font-medium">U</span>ni
-                      <span className="text-violet-500 font-medium">V</span>
-                      ision's WhatsApp
+                     UniVision's WhatsApp
                     </span>
                   </a>
                 </div>
@@ -146,7 +144,7 @@ const Contact: React.FC = () => {
                 className={`text-lg font-light ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
               >
                 <MapPin
-                  className={`${isRTL ? "ml-2" : "mr-2"} inline-block text-rose-500`}
+                  className={`${isRTL ? "ml-2" : "mr-2"} inline-block text-rose-700`}
                   size={24}
                 />
                 {t("contact.officeAddress")}
