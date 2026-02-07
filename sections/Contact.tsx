@@ -94,10 +94,10 @@ const Contact: React.FC = () => {
               <p className="text-sm font-bold text-zinc-400 uppercase tracking-tighter mb-2">
                 {t("contact.contactUs")}
               </p>
-              <p
+              <div
                 className={`text-lg font-medium flex flex-col gap-3 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
               >
-                <p className="font-light">
+                <div className="font-light">
                   <Mail
                     className={`${isRTL ? "ml-2" : "mr-2"} inline-block text-amber-500`}
                     size={22}
@@ -105,15 +105,15 @@ const Contact: React.FC = () => {
                   <a href="mailto:yashartalebi19@gmail.com">
                     yashartalebi19@gmail.com
                   </a>
-                </p>
-                <p className="font-light">
+                </div>
+                <div className="font-light">
                   <Phone
                     className={`${isRTL ? "ml-2" : "mr-2"} inline-block text-emerald-500`}
                     size={22}
                   />
                   <a href="tel:+989017916871">09017916871</a>
-                </p>
-                <p className="flex items-center">
+                </div>
+                <div className="flex items-center">
                   <span
                     className={`inline-block ${isRTL ? "ml-2" : "mr-2"} rounded-full`}
                   >
@@ -129,14 +129,14 @@ const Contact: React.FC = () => {
                     </svg>
                   </span>
                   <a href="https://wa.me/989017916871">
-                    <p className="font-light">
+                    <span className="font-light">
                       <span className="text-violet-500 font-medium">U</span>ni
                       <span className="text-violet-500 font-medium">V</span>
                       ision's WhatsApp
-                    </p>
+                    </span>
                   </a>
-                </p>
-              </p>
+                </div>
+              </div>
             </div>
             <div>
               <p className="text-sm font-bold text-zinc-400 uppercase tracking-tighter mb-2">

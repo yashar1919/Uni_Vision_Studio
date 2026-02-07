@@ -49,9 +49,19 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center flex-row-reverse">
           {/* Logo */}
           <div className="flex items-center gap-3">
+            <a
+              href="#home"
+              className={`text-md tracking-tight ${theme === "dark" ? "text-zinc-50" : "text-zinc-900"} whitespace-nowrap hidden sm:block`}
+              id="logo_text_font"
+            >
+              <span className="text-violet-400 text-xl">U</span>ni
+              <span className="text-violet-400 text-xl">V</span>ision
+              <span className="text-violet-500"> </span>
+              <span className="text-sm text-zinc-400">studio</span>
+            </a>
             <a
               href="#home"
               className={`flex items-center gap-2 ${theme === "dark" ? "bg-violet-400/10" : "bg-violet-950"} p-1 rounded-full`}
@@ -63,16 +73,6 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                 alt="UniVision Studio Logo"
                 className="h-10 w-10"
               />
-            </a>
-            <a
-              href="#home"
-              className={`text-md tracking-tight ${theme === "dark" ? "text-zinc-50" : "text-zinc-900"} whitespace-nowrap hidden sm:block`}
-              id="logo_text_font"
-            >
-              <span className="text-violet-400 text-xl">U</span>ni
-              <span className="text-violet-400 text-xl">V</span>ision
-              <span className="text-violet-500"> </span>
-              <span className="text-sm text-zinc-400">studio</span>
             </a>
           </div>
 
@@ -97,11 +97,13 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 
           {/* Right side controls - Language, Theme, Mobile Menu */}
           <div className="flex items-center gap-3">
-            <LanguageSwitcher />
+            <div className={isRTL ? "order-3" : "order-3"}>
+              <LanguageSwitcher />
+            </div>
 
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-full ${theme === "dark" ? "hover:bg-zinc-800 text-zinc-400" : "hover:bg-zinc-100 text-zinc-500"} transition-colors shrink-0`}
+              className={`p-2 rounded-full ${theme === "dark" ? "hover:bg-zinc-800 text-zinc-400" : "hover:bg-zinc-100 text-zinc-500"} transition-colors shrink-0 ${isRTL ? "order-2" : "order-2"}`}
               aria-label="Toggle Theme"
             >
               {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
@@ -110,7 +112,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`md:hidden p-2 rounded-md ${theme === "dark" ? "text-zinc-400 hover:bg-zinc-800" : "text-zinc-600 hover:bg-zinc-100"} transition-colors shrink-0`}
+              className={`md:hidden p-2 rounded-md ${theme === "dark" ? "text-zinc-400 hover:bg-zinc-800" : "text-zinc-600 hover:bg-zinc-100"} transition-colors shrink-0 ${isRTL ? "order-1" : "order-1"}`}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -145,7 +147,18 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           <h3
             className={`text-lg font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
           >
-            {t("nav.menu")}
+            <div className="w-10 flex items-center gap-2">
+              <img
+                src="../public/pictures/logo.png"
+                alt="UniVision Studio Logo"
+                className={`flex items-center gap-2 ${theme === "dark" ? "bg-violet-400/10" : "bg-violet-950"} p-1 rounded-full`}
+              />
+              <p className="font-light">
+                <span className="text-violet-500 font-medium">U</span>ni
+                <span className="text-violet-500 font-medium">V</span>
+                ision
+              </p>
+            </div>
           </h3>
           <button
             onClick={() => setIsMobileMenuOpen(false)}

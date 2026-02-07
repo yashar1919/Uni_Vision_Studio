@@ -1,7 +1,6 @@
 import { useTheme } from "@/src/hooks/useTheme";
 import React, { useEffect, useRef, useState } from "react";
 
-
 interface Particle {
   x: number;
   y: number;
@@ -189,10 +188,13 @@ const CustomCursor: React.FC = () => {
           //     : "border-violet-500/30 dark:border-violet-400/30"
           // }`}
           className={`w-full h-full rounded-full border-2 transition-colors duration-300 ${
-            isHovering && theme === "dark" ? "border-violet-400 bg-violet-400/10" :
-            isHovering && theme === "light" ? "border-violet-500 bg-violet-500/10" :
-            theme === "dark" ? "border-violet-400/30" :
-            "border-violet-500/30"
+            isHovering && theme === "dark"
+              ? "border-violet-400 bg-violet-400/10"
+              : isHovering && theme === "light"
+                ? "border-violet-500 bg-violet-500/10"
+                : theme === "dark"
+                  ? "border-violet-400/30"
+                  : "border-violet-500/30"
           }`}
           style={{
             boxShadow: isHovering
