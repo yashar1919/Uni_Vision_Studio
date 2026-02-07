@@ -149,7 +149,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           >
             <div className="w-10 flex items-center gap-2">
               <img
-                src="../public/pictures/logo.png"
+                src="/pictures/logo.png"
                 alt="UniVision Studio Logo"
                 className={`flex items-center gap-2 ${theme === "dark" ? "bg-violet-400/10" : "bg-violet-950"} p-1 rounded-full`}
               />
