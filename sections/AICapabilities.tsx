@@ -63,7 +63,7 @@ const AICapabilities: React.FC = () => {
     <Section>
       <div className="relative">
         {/* Background Decoration */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-violet-500/5 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-150 bg-violet-500/5 rounded-full blur-3xl -z-10"></div>
 
         <div className="text-center max-w-4xl mx-auto mb-16">
           <div
@@ -121,7 +121,7 @@ const AICapabilities: React.FC = () => {
 
         {/* Custom AI Showcase */}
         <div
-          className={`relative overflow-hidden p-10 md:p-14 ${theme === "dark" ? "bg-gradient-to-br from-violet-950/50 to-zinc-900/50 border-violet-500/20" : "bg-gradient-to-br from-violet-50 to-white border-violet-200"} border rounded-4xl`}
+          className={`relative overflow-hidden p-10 md:p-14 ${theme === "dark" ? "bg-gradient-to-br from-zinc-950/70 via-zinc-900/50 to-zinc-900/40 border-zinc-700/40" : "bg-gradient-to-br from-zinc-50 via-white to-zinc-100/60 border-zinc-200"} border rounded-4xl`}
         >
           {/* Decorative Elements */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500/10 rounded-full blur-3xl"></div>
@@ -138,13 +138,13 @@ const AICapabilities: React.FC = () => {
             </div>
 
             <h3
-              className={`text-2xl md:text-3xl font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-4`}
+              className={`text-xl md:text-3xl font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-4`}
             >
               {t("ai.showcase.title")}
             </h3>
 
             <p
-              className={`text-md ${theme === "dark" ? "text-zinc-300" : "text-zinc-600"} mb-8 leading-relaxed`}
+              className={`text-sm ${theme === "dark" ? "text-zinc-300" : "text-zinc-600"} mb-8 leading-relaxed`}
             >
               {t("ai.showcase.description")}
             </p>
@@ -155,7 +155,9 @@ const AICapabilities: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-violet-600 to-violet-500 text-white rounded-xl font-bold transition-all hover:shadow-2xl hover:shadow-violet-500/50 hover:scale-105 group"
             >
-              <span>{t("ai.showcase.button")}</span>
+              <span className="text-[13.5px] sm:text-md">
+                {t("ai.showcase.button")}
+              </span>
               {isRTL ? (
                 <ArrowLeft
                   size={20}

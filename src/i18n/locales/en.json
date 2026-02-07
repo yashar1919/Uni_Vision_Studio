@@ -121,9 +121,9 @@
     "officeAddress": "11 Alley, Chamran Blvd, Shiraz, Iran",
     "form": {
       "name": "Full Name",
-      "namePlaceholder": "John Doe",
+      "namePlaceholder": "Mohammad Rezaei",
       "email": "Email Address",
-      "emailPlaceholder": "john@example.com",
+      "emailPlaceholder": "mohammad@example.com",
       "message": "Project Details",
       "messagePlaceholder": "Tell us about your goals...",
       "submit": "Send Message",

@@ -3,7 +3,7 @@ import emailjs from "@emailjs/browser";
 // EmailJS Configuration
 export const EMAILJS_CONFIG = {
   PUBLIC_KEY: "xaDSZbBxsJXBoHEkc", // از User Account > API Keys
-  SERVICE_ID: "service_qjo06a4", // از Email Services
+  SERVICE_ID: "service_j5dwe92", // از Email Services
   TEMPLATE_ID: "template_9g4uvz7", // از Email Templates
 };
 
@@ -17,7 +17,7 @@ export interface EmailData {
   from_name: string;
   from_email: string;
   message: string;
-  to_email: string; // این ایمیل شما است: yashartalebi19@gmail.com
+  to_email: string; // این ایمیل رسمی شما است: univisionstudio@outlook.com
 }
 
 export const sendEmail = async (data: EmailData): Promise<boolean> => {
@@ -30,9 +30,9 @@ export const sendEmail = async (data: EmailData): Promise<boolean> => {
         from_email: data.from_email,
         message: data.message,
         title: "پیغام از فرم تماس وبسایت", // برای Subject template
-        to_email: "yashartalebi19@gmail.com", // ایمیل مقصد شما
+        to_email: "univisionstudio@outlook.com", // ایمیل رسمی UniVision Studio
         reply_to: data.from_email,
-      }
+      },
     );
 
     console.log("Email sent successfully:", response);

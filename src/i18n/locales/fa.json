@@ -121,9 +121,9 @@
     "officeAddress": "ایران، شیراز، بلوار چمران، کوچه 11",
     "form": {
       "name": "نام کامل",
-      "namePlaceholder": "یاشار طالبی",
+      "namePlaceholder": "محمد رضایی",
       "email": "آدرس ایمیل",
-      "emailPlaceholder": "yashartalebi19@gmail.com",
+      "emailPlaceholder": "mohammad@example.com",
       "message": "جزئیات پروژه",
       "messagePlaceholder": "درباره اهداف‌تان بگویید...",
       "submit": "ارسال پیام",

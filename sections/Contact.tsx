@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
         from_name: formState.name,
         from_email: formState.email,
         message: formState.message,
-        to_email: "yashartalebi19@gmail.com",
+        to_email: "univisionstudio@outlook.com",
       };
 
       const success = await sendEmail(emailData);
@@ -102,8 +102,8 @@ const Contact: React.FC = () => {
                     className={`${isRTL ? "ml-2" : "mr-2"} inline-block text-yellow-700`}
                     size={22}
                   />
-                  <a href="mailto:yashartalebi19@gmail.com">
-                    yashartalebi19@gmail.com
+                  <a href="mailto:univisionstudio@outlook.com">
+                    univisionstudio@outlook.com
                   </a>
                 </div>
                 <div className="font-light">
@@ -129,9 +129,7 @@ const Contact: React.FC = () => {
                     </svg>
                   </span>
                   <a href="https://wa.me/989017916871">
-                    <span className="font-light">
-                     UniVision's WhatsApp
-                    </span>
+                    <span className="font-light">UniVision's WhatsApp</span>
                   </a>
                 </div>
               </div>
