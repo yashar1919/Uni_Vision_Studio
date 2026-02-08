@@ -20,6 +20,7 @@ const Contact: React.FC = () => {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
+    phone: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -39,8 +40,8 @@ const Contact: React.FC = () => {
     try {
       const emailData: EmailData = {
         from_name: formState.name,
-        from_email: formState.email,
-        message: formState.message,
+        from_email: formState.email || "no-reply@univisionstudio.com",
+        message: `${formState.message}${formState.phone ? `\n\n📱 شماره تماس: ${formState.phone}` : ""}`,
         to_email: "univisionstudio@outlook.com",
       };
 
@@ -48,7 +49,7 @@ const Contact: React.FC = () => {
 
       if (success) {
         setIsSent(true);
-        setFormState({ name: "", email: "", message: "" });
+        setFormState({ name: "", email: "", phone: "", message: "" });
         // Hide success message after 5 seconds
         setTimeout(() => setIsSent(false), 5000);
       } else {
@@ -194,62 +195,115 @@ const Contact: React.FC = () => {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className={`block text-sm font-medium ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"} mb-2`}
-                  >
-                    {t("contact.form.name")}
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formState.name}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 ${theme === "dark" ? "bg-zinc-950 border-zinc-800 text-white" : "bg-white border-zinc-200 text-zinc-900"} border rounded-xl focus:ring-2 focus:ring-violet-500 outline-none transition-all`}
-                    placeholder={t("contact.form.namePlaceholder")}
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className={`block text-sm font-medium ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"} mb-2`}
-                  >
-                    {t("contact.form.email")}
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formState.email}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 ${theme === "dark" ? "bg-zinc-950 border-zinc-800 text-white" : "bg-white border-zinc-200 text-zinc-900"} border rounded-xl focus:ring-2 focus:ring-violet-500 outline-none transition-all`}
-                    placeholder={t("contact.form.emailPlaceholder")}
-                  />
+            <form onSubmit={handleSubmit} className="space-y-8">
+              {/* Your Message Section - Required */}
+              <div className="pb-6 border-b border-zinc-200/30 dark:border-zinc-700/30">
+                <h4
+                  className={`text-sm font-bold uppercase tracking-widest ${theme === "dark" ? "text-violet-400" : "text-violet-600"} mb-5`}
+                >
+                  {t("contact.form.yourMessage")}
+                </h4>
+                <div className="space-y-5">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className={`block text-sm font-medium ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"} mb-2`}
+                    >
+                      {t("contact.form.name")}{" "}
+                      <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      value={formState.name}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 ${theme === "dark" ? "bg-zinc-950 border-zinc-800 text-white" : "bg-white border-zinc-200 text-zinc-900"} border rounded-xl focus:ring-2 focus:ring-violet-500 outline-none transition-all`}
+                      placeholder={t("contact.form.namePlaceholder")}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className={`block text-sm font-medium ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"} mb-2`}
+                    >
+                      {t("contact.form.message")}{" "}
+                      <span className="text-red-500">*</span>
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={5}
+                      value={formState.message}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 ${theme === "dark" ? "bg-zinc-950 border-zinc-800 text-white" : "bg-white border-zinc-200 text-zinc-900"} border rounded-xl focus:ring-2 focus:ring-violet-500 outline-none transition-all resize-none`}
+                      placeholder={t("contact.form.messagePlaceholder")}
+                    ></textarea>
+                    <p
+                      className={`text-xs mt-2 ${theme === "dark" ? "text-zinc-500" : "text-zinc-500"}`}
+                    >
+                      {t("contact.form.messageHint")}
+                    </p>
+                  </div>
                 </div>
               </div>
+
+              {/* Contact Details Section - Optional */}
               <div>
-                <label
-                  htmlFor="message"
-                  className={`block text-sm font-medium ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"} mb-2`}
+                <h4
+                  className={`text-sm font-bold uppercase tracking-widest ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"} mb-5`}
                 >
-                  {t("contact.form.message")}
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={5}
-                  value={formState.message}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 ${theme === "dark" ? "bg-zinc-950 border-zinc-800 text-white" : "bg-white border-zinc-200 text-zinc-900"} border rounded-xl focus:ring-2 focus:ring-violet-500 outline-none transition-all resize-none`}
-                  placeholder={t("contact.form.messagePlaceholder")}
-                ></textarea>
+                  {t("contact.form.contactDetails")}{" "}
+                  <span className="text-xs font-normal text-zinc-500">
+                    {t("contact.form.optional")}
+                  </span>
+                </h4>
+                <p
+                  className={`text-xs mb-4 ${theme === "dark" ? "text-zinc-500" : "text-zinc-500"}`}
+                >
+                  {t("contact.form.contactHint")}
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className={`block text-sm font-medium ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"} mb-2`}
+                    >
+                      {t("contact.form.email")}
+                    </label>
+                    <input
+                      style={{
+                        direction: "ltr",
+                      }}
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formState.email}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 ${theme === "dark" ? "bg-zinc-950/50 border-zinc-800 text-white" : "bg-white/50 border-zinc-200 text-zinc-900"} border rounded-xl focus:ring-2 focus:ring-violet-500 outline-none transition-all`}
+                      placeholder={t("contact.form.emailPlaceholder")}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className={`block text-sm font-medium ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"} mb-2`}
+                    >
+                      {t("contact.form.phone")}
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formState.phone}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 ${theme === "dark" ? "bg-zinc-950/50 border-zinc-800 text-white" : "bg-white/50 border-zinc-200 text-zinc-900"} border rounded-xl focus:ring-2 focus:ring-violet-500 outline-none transition-all`}
+                      placeholder={t("contact.form.phonePlaceholder")}
+                    />
+                  </div>
+                </div>
               </div>
               <button
                 type="submit"
