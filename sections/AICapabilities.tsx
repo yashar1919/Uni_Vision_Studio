@@ -15,7 +15,7 @@ import i18n from "@/src/i18n/config";
 const AICapabilities: React.FC = () => {
   const { t } = useTranslation();
   const theme = useTheme();
-  const isRTL = i18n.language === "fa";
+  const isRTL = i18n.language === "fa" || i18n.language === "ar";
 
   const capabilities = [
     {
@@ -76,13 +76,13 @@ const AICapabilities: React.FC = () => {
           </div>
 
           <h2
-            className={`text-3xl md:text-[42px] font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-6 leading-tight`}
+            className={`text-3xl md:text-[42px] ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-6 leading-tight`}
           >
             {t("ai.title")}
           </h2>
 
           <p
-            className={`text-lg ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"} leading-relaxed max-w-3xl mx-auto`}
+            className={`text-sm ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"} leading-relaxed max-w-3xl mx-auto`}
           >
             {t("ai.description")}
           </p>
@@ -105,7 +105,7 @@ const AICapabilities: React.FC = () => {
                   <Icon size={28} />
                 </div>
                 <h3
-                  className={`text-xl font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-3`}
+                  className={`text-xl ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-3`}
                 >
                   {t(`ai.capabilities.${capability.key}.title`)}
                 </h3>
@@ -138,7 +138,7 @@ const AICapabilities: React.FC = () => {
             </div>
 
             <h3
-              className={`text-xl md:text-3xl font-bold ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-4`}
+              className={`text-xl md:text-3xl ${theme === "dark" ? "text-white" : "text-zinc-900"} mb-4`}
             >
               {t("ai.showcase.title")}
             </h3>

@@ -22,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
   const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const isRTL = i18n.language === "fa";
+  const isRTL = i18n.language === "fa" || i18n.language === "ar";
 
   // Navigation items using translations with icons
   const navItems = [

@@ -5,6 +5,7 @@ import LanguageDetector from "i18next-browser-languagedetector";
 // Import translation files
 import enTranslations from "./locales/en.json";
 import faTranslations from "./locales/fa.json";
+import arTranslations from "./locales/ar.json";
 
 // Supported languages configuration
 export const supportedLanguages = {
@@ -22,6 +23,13 @@ export const supportedLanguages = {
     flag: "🇮🇷",
     dir: "rtl",
   },
+  ar: {
+    code: "ar",
+    name: "Arabic",
+    nativeName: "العربية",
+    flag: "🇸🇦",
+    dir: "rtl",
+  },
 } as const;
 
 export type SupportedLanguage = keyof typeof supportedLanguages;
@@ -37,6 +45,9 @@ i18n
       },
       fa: {
         translation: faTranslations,
+      },
+      ar: {
+        translation: arTranslations,
       },
     },
 

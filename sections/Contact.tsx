@@ -16,7 +16,7 @@ import i18n from "@/src/i18n/config";
 const Contact: React.FC = () => {
   const { t } = useTranslation();
   const theme = useTheme();
-  const isRTL = i18n.language === "fa";
+  const isRTL = i18n.language === "fa" || i18n.language === "ar";
   const [formState, setFormState] = useState({
     name: "",
     email: "",

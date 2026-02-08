@@ -17,7 +17,7 @@ interface LanguageDirection {
 
 export const useLanguageDirection = (): LanguageDirection => {
   const { i18n } = useTranslation();
-  const isRTL = i18n.language === "fa";
+  const isRTL = i18n.language === "fa" || i18n.language === "ar";
   const direction: TextDirection = isRTL ? "rtl" : "ltr";
 
   return {

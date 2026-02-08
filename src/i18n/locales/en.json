@@ -12,7 +12,7 @@
       "part1": "Where Vision",
       "part2": "Takes Shape"
     },
-    "description": "UniVision Studio crafts custom web applications, mobile apps, and seamless cross-platform experiences—built to perform.",
+    "description": "UniVision Studio crafts custom web applications, mobile apps, and universal solutions—software that works seamlessly on every device and platform, from phones to computers to the cloud.",
     "cta": {
       "primary": "Start a Project",
       "secondary": "Explore Services"
@@ -28,58 +28,58 @@
       },
       "webApps": {
         "title": "Custom Web Applications",
-        "description": "Full-stack solutions built with React, Node.js, and modern databases for enterprise-level performance."
+        "description": "Powerful, fast web applications built with the latest technology. Whether you need a sophisticated e-commerce platform, management system, or business dashboard, we create solutions that grow with your business."
       },
       "mobileDev": {
         "title": "Mobile App Development",
         "description": "High-performance native and cross-platform mobile experiences for iOS and Android platforms."
       },
       "crossPlatform": {
-        "title": "Cross-platform Apps",
-        "description": "Powerful desktop solutions utilizing Electron.js to bring your web logic to Windows, macOS, and Linux."
+        "title": "Desktop & Universal Apps",
+        "description": "Software that runs on Windows, Mac, and Linux. Write once, deploy everywhere. Perfect for companies that need their tools working consistently across all employee computers."
       },
       "uiUx": {
-        "title": "UI/UX Design",
-        "description": "User-centric interfaces and journey mapping focused on accessibility, usability, and modern aesthetics."
+        "title": "User Experience Design",
+        "description": "Beautiful, intuitive interfaces that customers actually enjoy using. We focus on making your software easy and delightful, so users stay engaged and come back."
       },
       "consulting": {
-        "title": "Software Consulting",
-        "description": "Strategic technical advice on scalability, maintenance, and modernizing legacy infrastructures."
+        "title": "Software Strategy & Consulting",
+        "description": "Guidance on choosing the right technology, scaling your systems as you grow, and updating aging software to modern standards. Think of us as your technical advisor."
       }
     }
   },
   "about": {
     "title": "Our Studio",
     "subtitle": "Where Quality Meets Scalability",
-    "description1": "We're not just developers—we're digital architects. Our team of seasoned developers and designers crafts solutions that don't just work; they excel.",
-    "description2": "Specializing in scalable, maintainable applications powered by modern tech stacks, we bring professional rigor to every project—from global enterprises to ambitious startups.",
+    "description1": "We're not just developers—we're digital architects. Our team of experienced developers and designers builds solutions that don't just work; they deliver real results and happy users.",
+    "description2": "Whether you're a startup or an established company, we specialize in building software that: stays reliable, grows smoothly as your business expands, and is easy to maintain and update. Every project, big or small, gets our full attention and expertise.",
     "stats": {
       "studioFocus": "Studio Focus",
       "scalableTech": "Scalable Tech",
       "expertDesign": "Expert Design",
       "agileDelivery": "Agile Delivery",
       "studioFocusDesc": "Your Vision, Our Dedicated Team We keep our core team in-house for seamless collaboration and unwavering quality on every project.",
-      "scalableTechDesc": "Built to Grow With You We choose future-proof frameworks and tools that scale effortlessly as your business expands.",
-      "expertDesignDesc": "Beautiful, Functional, Effective Our designs blend stunning visuals with intuitive user journeys—crafted for engagement and conversion.",
+      "scalableTechDesc": "Built to Grow With You—We use technology that won't hold you back. As your business grows from 100 to 10,000 users, your software keeps working smoothly. No major rebuilds needed.",
+      "expertDesignDesc": "Beautiful & Easy to Use—Our designs aren't just pretty; they're intuitive. Users understand how to navigate your software instantly, which means more engagement and better conversion rates.",
       "agileDeliveryDesc": "Transparent, Collaborative, On Time With agile workflows and clear communication, we deliver iteratively—keeping you in the loop at every stage."
     }
   },
   "ai": {
     "badge": "AI-Powered Innovation",
     "title": "Building the Future with Artificial Intelligence",
-    "description": "At UniVision Studio, we don't just follow trends—we lead them. Our team leverages cutting-edge AI technologies to create intelligent, adaptive solutions that learn and grow with your business. From machine learning models to natural language processing, we transform complex challenges into elegant, automated solutions.",
+    "description": "At UniVision Studio, we leverage the latest AI technology to solve real business problems. From automating repetitive work to giving your software intelligence, we're not just following trends—we're building the future. And we do it in ways that make sense for your business.",
     "capabilities": {
       "intelligent": {
-        "title": "Intelligent Solutions",
-        "description": "We integrate AI to make your applications smarter, more responsive, and capable of learning from user behavior to deliver personalized experiences."
+        "title": "Smarter Software",
+        "description": "AI that learns from your users. Software that gets better the more it's used, personalizing experiences and anticipating customer needs."
       },
       "automation": {
-        "title": "Smart Automation",
-        "description": "Automate repetitive tasks, streamline workflows, and let AI handle the heavy lifting while your team focuses on what matters most."
+        "title": "Automate the Repetitive",
+        "description": "Stop wasting time on routine tasks. AI handles data entry, reporting, scheduling, and more. Your team focuses on strategic work that actually moves the needle."
       },
       "precision": {
-        "title": "Data-Driven Precision",
-        "description": "Harness the power of AI analytics to gain deep insights, make informed decisions, and stay ahead of the competition with predictive intelligence."
+        "title": "Smart Insights",
+        "description": "AI analyzes your data to reveal patterns humans miss. Make confident business decisions backed by real insights, not hunches. Stay ahead of trends."
       }
     },
     "showcase": {
@@ -93,16 +93,16 @@
   "experience": {
     "title": "Proven Experience",
     "subtitle": "Trusted with High-Stakes Projects",
-    "description": "Our portfolio spans international borders, covering diverse industries from finance to healthcare. We don't just build features; we build reliability.",
+    "description": "We've successfully delivered projects for companies across multiple countries and industries. From healthcare to finance, we've built software that businesses depend on. Reliability isn't just a promise—it's our track record.",
     "stats": {
       "globalDeployments": "Global Deployments",
       "globalDeploymentsDesc": "We have successfully launched applications used across multiple countries, handling localization and international standard compliance.",
       "enterpriseStandards": "Enterprise Standards",
       "enterpriseStandardsDesc": "Our team integrates seamlessly with existing enterprise architectures, ensuring secure and high-availability solutions",
       "multiPlatformEcosystems": "Multi-Platform Ecosystems",
-      "multiPlatformEcosystemsDesc": "From web dashboards to companion mobile apps and desktop terminals, we create unified digital ecosystems.",
+      "multiPlatformEcosystemsDesc": "Connected Systems—We create ecosystems: your web portal, mobile app, and desktop tools all work together seamlessly. One unified experience for your users.",
       "modernTechDebtReduction": "Modern Tech Debt Reduction",
-      "modernTechDebtReductionDesc": "Extensive experience in refactoring legacy codebases into modern, maintainable React and Node environments."
+      "modernTechDebtReductionDesc": "Modernizing Old Systems—Legacy software slowing you down? We transform outdated systems into modern, fast, maintainable solutions. Same functionality, better performance, easier to update."
     }
   },
   "cta": {

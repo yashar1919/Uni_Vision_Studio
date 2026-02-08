@@ -33,10 +33,12 @@ const App: React.FC = () => {
       // Set document attributes for RTL/LTR
       const htmlElement = document.documentElement;
       htmlElement.lang = langToUse;
-      htmlElement.dir = langToUse === "fa" ? "rtl" : "ltr";
+      // Support RTL for both Persian (fa) and Arabic (ar)
+      htmlElement.dir =
+        langToUse === "fa" || langToUse === "ar" ? "rtl" : "ltr";
 
       // Add/remove RTL class if needed for any CSS that depends on it
-      if (langToUse === "fa") {
+      if (langToUse === "fa" || langToUse === "ar") {
         htmlElement.classList.add("rtl-mode");
       } else {
         htmlElement.classList.remove("rtl-mode");

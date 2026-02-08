@@ -6,7 +6,7 @@ import { useTheme } from "../src/hooks/useTheme";
 
 const Hero: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const isRTL = i18n.language === "fa";
+  const isRTL = i18n.language === "fa" || i18n.language === "ar";
   const theme = useTheme();
 
   return (
@@ -42,27 +42,29 @@ const Hero: React.FC = () => {
         >
           {t("hero.description")}
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="#contact"
-            className={`group flex items-center justify-center px-8 py-4 ${theme === "dark" ? "bg-white text-zinc-950" : "bg-zinc-950 text-white"} rounded-full font-medium transition-all hover:scale-105 active:scale-95`}
-          >
-            {t("hero.cta.primary")}
-            {isRTL ? (
-              <ArrowLeft className="mr-2 w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            ) : (
-              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-            )}
-          </a>
-          <a
-            href="#services"
-            className={`group flex items-center justify-center px-8 py-4 ${theme === "dark" ? "bg-zinc-900 border-zinc-500 text-zinc-100 hover:bg-zinc-800" : "bg-white border-zinc-900 text-zinc-900 hover:bg-zinc-50"} border rounded-full font-medium transition-all hover:scale-105 active:scale-95`}
-          >
-            {t("hero.cta.secondary")}
-            <Sparkles
-              className={`${isRTL ? "mr-2" : "ml-2"} w-4 h-4 transition-transform group-hover:rotate-12`}
-            />
-          </a>
+        <div className="flex items-center justify-center">
+          <div className="sm:flex-row flex flex-col gap-4 sm:w-120 sm:max-w-150">
+            <a
+              href="#contact"
+              className={`group flex items-center justify-center px-8 py-4 w-full ${theme === "dark" ? "bg-white text-zinc-950" : "bg-zinc-950 text-white"} rounded-full font-medium transition-all hover:scale-105 active:scale-95`}
+            >
+              {t("hero.cta.primary")}
+              {isRTL ? (
+                <ArrowLeft className="mr-2 w-4 h-4 transition-transform group-hover:-translate-x-1" />
+              ) : (
+                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              )}
+            </a>
+            <a
+              href="#services"
+              className={`group flex items-center justify-center px-8 py-4 w-full ${theme === "dark" ? "bg-zinc-900 border-zinc-500 text-zinc-100 hover:bg-zinc-800" : "bg-white border-zinc-900 text-zinc-900 hover:bg-zinc-50"} border rounded-full font-medium transition-all hover:scale-105 active:scale-95`}
+            >
+              {t("hero.cta.secondary")}
+              <Sparkles
+                className={`${isRTL ? "mr-2" : "ml-2"} w-4 h-4 transition-transform group-hover:rotate-12`}
+              />
+            </a>
+          </div>
         </div>
       </div>
     </Section>
