@@ -10,6 +10,50 @@ const Footer: React.FC = () => {
     <footer
       className={`py-12 px-4 sm:px-6 lg:px-8 border-t ${theme === "dark" ? "border-zinc-900 bg-zinc-950" : "border-zinc-200 bg-white"}`}
     >
+      {/* Visit Cards Section */}
+      <div className="max-w-7xl mx-auto mb-16">
+        <h3
+          className={`text-center text-xl md:text-2xl font-bold mb-10 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+        >
+          {t("footer.visitCards", "Digital Visit Cards")}
+        </h3>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* Visit Card 1 */}
+          <div
+            className={`group relative overflow-hidden rounded-3xl ${theme === "dark" ? "bg-zinc-900/50 border-zinc-800" : "bg-zinc-50 border-zinc-200"} border transition-all duration-500 hover:shadow-2xl hover:shadow-violet-500/10 hover:scale-[1.02]`}
+          >
+            <div className="p-4">
+              <img
+                src="/svg/visitcard-1.svg"
+                alt="UniVision Studio Visit Card - Front"
+                className="w-full h-auto rounded-2xl"
+                loading="lazy"
+              />
+            </div>
+            <div
+              className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t ${theme === "dark" ? "from-violet-950/20 to-transparent" : "from-violet-100/30 to-transparent"}`}
+            ></div>
+          </div>
+
+          {/* Visit Card 2 */}
+          <div
+            className={`group relative overflow-hidden rounded-3xl ${theme === "dark" ? "bg-zinc-900/50 border-zinc-800" : "bg-zinc-50 border-zinc-200"} border transition-all duration-500 hover:shadow-2xl hover:shadow-violet-500/10 hover:scale-[1.02]`}
+          >
+            <div className="p-4">
+              <img
+                src="/svg/visitcard-2.svg"
+                alt="UniVision Studio Visit Card - Back"
+                className="w-full h-auto rounded-2xl"
+                loading="lazy"
+              />
+            </div>
+            <div
+              className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t ${theme === "dark" ? "from-violet-950/20 to-transparent" : "from-violet-100/30 to-transparent"}`}
+            ></div>
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         <div>
           {/* <a

@@ -155,7 +155,8 @@
     "contactEmail": "Email",
     "scanEmailQR": "Send email",
     "contactPhone": "Call",
-    "scanPhoneQR": "Phone number"
+    "scanPhoneQR": "Phone number",
+    "visitCards": "Digital Visit Cards"
   },
   "common": {
     "loading": "Loading...",

@@ -155,7 +155,8 @@
     "contactEmail": "ایمیل",
     "scanEmailQR": "ارسال ایمیل",
     "contactPhone": "تماس",
-    "scanPhoneQR": "شماره تلفن"
+    "scanPhoneQR": "شماره تلفن",
+    "visitCards": "کارت‌های ویزیت دیجیتال"
   },
   "common": {
     "loading": "در حال بارگذاری...",

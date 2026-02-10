@@ -155,7 +155,8 @@
     "contactEmail": "البريد الإلكتروني",
     "scanEmailQR": "إرسال بريد",
     "contactPhone": "اتصال",
-    "scanPhoneQR": "رقم الهاتف"
+    "scanPhoneQR": "رقم الهاتف",
+    "visitCards": "بطاقات الزيارة الرقمية"
   },
   "common": {
     "loading": "جاري التحميل...",
