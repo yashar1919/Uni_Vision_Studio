@@ -6,8 +6,4 @@ import "./src/index.css";
 // Initialize i18n
 import "./src/i18n/config";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-);
+ReactDOM.createRoot(document.getElementById("root")!).render(<App />);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Navbar from "./components/Navbar";
-import CustomCursor from "./components/CustomCursor";
+// import CustomCursor from "./components/CustomCursor";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Services from "./sections/Services";
@@ -66,7 +66,7 @@ const App: React.FC = () => {
     <div
       className={`min-h-screen ${theme === "dark" ? "bg-zinc-950 text-zinc-50" : "bg-white text-zinc-900"} transition-colors duration-300 selection:bg-violet-500 selection:text-white`}
     >
-      <CustomCursor />
+      {/* <CustomCursor /> */}
       <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       <main>

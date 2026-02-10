@@ -16,6 +16,7 @@ const CustomCursor: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [particles, setParticles] = useState<Particle[]>([]);
   const particleIdRef = useRef(0);
+  const timeoutsRef = useRef<Set<NodeJS.Timeout>>(new Set());
   const theme = useTheme();
 
   useEffect(() => {
@@ -28,6 +29,7 @@ const CustomCursor: React.FC = () => {
 
     // Don't render cursor on mobile
     if (isMobile) {
+      window.removeEventListener("resize", checkMobile);
       return;
     }
 
@@ -73,9 +75,12 @@ const CustomCursor: React.FC = () => {
       setParticles((prev) => [...prev, particle]);
 
       // Remove particle after animation
-      setTimeout(() => {
+      const timeoutId = setTimeout(() => {
         setParticles((prev) => prev.filter((p) => p.id !== particle.id));
-      }, 500); // Ultra fast fade out
+        timeoutsRef.current.delete(timeoutId);
+      }, 500);
+
+      timeoutsRef.current.add(timeoutId);
     };
 
     // Smooth follow animation for outline
@@ -117,6 +122,13 @@ const CustomCursor: React.FC = () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", checkMobile);
       cleanupHoverable();
+
+      // Clear all timeouts
+      timeoutsRef.current.forEach(clearTimeout);
+      timeoutsRef.current.clear();
+
+      // Clear all particles
+      setParticles([]);
     };
   }, [isMobile]);
 

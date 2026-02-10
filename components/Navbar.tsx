@@ -40,6 +40,23 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu when language changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [i18n.language]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -130,14 +147,14 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 
       {/* Mobile Sidebar Menu */}
       <div
-        className={`fixed top-0 h-screen w-64 md:hidden z-40 ${isRTL ? "right-0" : "left-0"} ${theme === "dark" ? "bg-zinc-950" : "bg-white"} transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 h-screen w-64 md:hidden z-40 ${theme === "dark" ? "bg-zinc-950" : "bg-white"} transition-transform duration-300 ease-in-out ${
+          isRTL ? "right-0" : "left-0"
+        } ${
           isMobileMenuOpen
-            ? isRTL
-              ? "translate-x-0"
-              : "translate-x-0"
+            ? "translate-x-0"
             : isRTL
-              ? "translate-x-64"
-              : "-translate-x-64"
+              ? "translate-x-full"
+              : "-translate-x-full"
         }`}
       >
         {/* Close Button */}

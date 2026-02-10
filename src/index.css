@@ -14,9 +14,11 @@
     --color-violet-900: #4c1d95;
 }
 
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ START Of CustomCursor Styles ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
 /* ===== CUSTOM CURSOR STYLES ===== */
 /* Hide default cursor on desktop devices */
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     body {
         cursor: none !important;
     }
@@ -29,15 +31,14 @@
     .cursor-pointer {
         cursor: none !important;
     }
-}
+} */
 
 /* Cursor dot - small inner circle */
-.cursor-dot {
+/* .cursor-dot {
     position: fixed;
     width: 8px;
     height: 8px;
     background-color: rgb(139, 92, 246);
-    /* violet-500 */
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
@@ -45,38 +46,35 @@
     transition: width 20ms ease, height 20ms ease, background-color 150ms ease;
     box-shadow: 0 0 20px rgba(139, 92, 246, 0.6),
         0 0 40px rgba(139, 92, 246, 0.4);
-}
+} */
 
-.cursor-dot.hovering {
+/* .cursor-dot.hovering {
     width: 12px;
     height: 12px;
     background-color: rgb(124, 58, 237);
-    /* violet-600 */
-}
+} */
 
 /* Cursor outline - larger outer ring */
-.cursor-outline {
+/* .cursor-outline {
     position: fixed;
     width: 32px;
     height: 32px;
     border: 2px solid rgba(139, 92, 246, 0.5);
-    /* violet-500 with transparency */
     border-radius: 50%;
     pointer-events: none;
     z-index: 9998;
     transform: translate(-50%, -50%);
     transition: width 40ms ease, height 40ms ease, border-color 150ms ease;
-}
+} */
 
-.cursor-outline.hovering {
+/* .cursor-outline.hovering {
     width: 48px;
     height: 48px;
     border-color: rgba(124, 58, 237, 0.7);
-    /* violet-600 with higher opacity */
-}
+} */
 
 /* Particle trail effect */
-.cursor-particle {
+/* .cursor-particle {
     position: fixed;
     width: 4px;
     height: 4px;
@@ -85,7 +83,9 @@
     pointer-events: none;
     z-index: 9997;
     transform: translate(-50%, -50%);
-}
+} */
+
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ END Of CustomCursor Styles ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 
 /* ===== BACKGROUND TEXTURE STYLES ===== */
 /* .bg-texture-layer {
@@ -393,6 +393,6 @@ label {
     animation: slide-in-from-top 0.2s ease-out;
 }
 
-#logo_text_font{
+#logo_text_font {
     font-family: sans-serif !important;
 }
