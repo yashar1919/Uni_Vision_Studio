@@ -332,6 +332,7 @@
 html,
 body {
     font-family: 'IRANSans', 'IRANYekanX', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+    overflow-x: hidden;
 }
 
 h1,
