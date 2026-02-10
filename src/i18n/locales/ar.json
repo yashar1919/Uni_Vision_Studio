@@ -145,7 +145,17 @@
     "termsOfService": "شروط الخدمة",
     "privacyPolicy": "سياسة الخصوصية",
     "linkedin": "لينكدإن",
-    "instagram": "إنستاغرام"
+    "instagram": "إنستاغرام",
+    "quickAccess": "وصول سريع",
+    "scanQRCode": "امسح رمز الاستجابة السريعة",
+    "visitWebsite": "الموقع الإلكتروني",
+    "scanWebsiteQR": "زيارة الموقع",
+    "contactWhatsApp": "واتساب",
+    "scanWhatsAppQR": "أرسل رسالة",
+    "contactEmail": "البريد الإلكتروني",
+    "scanEmailQR": "إرسال بريد",
+    "contactPhone": "اتصال",
+    "scanPhoneQR": "رقم الهاتف"
   },
   "common": {
     "loading": "جاري التحميل...",

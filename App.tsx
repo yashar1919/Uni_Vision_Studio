@@ -9,6 +9,7 @@ import AICapabilities from "./sections/AICapabilities";
 import Experience from "./sections/Experience";
 import CTA from "./sections/CTA";
 import Contact from "./sections/Contact";
+import QRCode from "./sections/QRCode";
 import Footer from "./sections/Footer";
 import { Theme } from "./types";
 
@@ -91,6 +92,8 @@ const App: React.FC = () => {
         <div id="contact">
           <Contact />
         </div>
+
+        <QRCode />
       </main>
 
       <Footer />

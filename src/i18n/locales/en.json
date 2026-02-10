@@ -145,7 +145,17 @@
     "termsOfService": "Terms of Service",
     "privacyPolicy": "Privacy Policy",
     "linkedin": "LinkedIn",
-    "instagram": "Instagram"
+    "instagram": "Instagram",
+    "quickAccess": "Quick Access",
+    "scanQRCode": "Scan QR Code",
+    "visitWebsite": "Visit Website",
+    "scanWebsiteQR": "Website",
+    "contactWhatsApp": "WhatsApp",
+    "scanWhatsAppQR": "Message us",
+    "contactEmail": "Email",
+    "scanEmailQR": "Send email",
+    "contactPhone": "Call",
+    "scanPhoneQR": "Phone number"
   },
   "common": {
     "loading": "Loading...",

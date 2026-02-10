@@ -145,7 +145,17 @@
     "termsOfService": "شرایط خدمات",
     "privacyPolicy": "حریم خصوصی",
     "linkedin": "لینکدین",
-    "instagram": "اینستاگرام"
+    "instagram": "اینستاگرام",
+    "quickAccess": "دسترسی سریع",
+    "scanQRCode": "اسکن کد QR",
+    "visitWebsite": "وب‌سایت",
+    "scanWebsiteQR": "مشاهده وب‌سایت",
+    "contactWhatsApp": "واتساپ",
+    "scanWhatsAppQR": "پیام بدهید",
+    "contactEmail": "ایمیل",
+    "scanEmailQR": "ارسال ایمیل",
+    "contactPhone": "تماس",
+    "scanPhoneQR": "شماره تلفن"
   },
   "common": {
     "loading": "در حال بارگذاری...",
