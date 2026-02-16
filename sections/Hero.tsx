@@ -1,13 +1,71 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { ArrowRight, ArrowLeft, Sparkles } from "lucide-react";
 import Section from "../components/Section";
 import { useTheme } from "../src/hooks/useTheme";
 
+const HERO_DYNAMIC_TEXTS: Record<string, string[]> = {
+  en: [
+    "Achieves Results",
+    "Becomes Reality",
+    "Transforms Into Digital Products",
+  ],
+  fa: [
+    "به نتیجه می‌رسد",
+    "به واقعیت تبدیل می‌شود",
+    "به محصول دیجیتال تبدیل می‌شود",
+  ],
+  ar: ["تُحقق النتائج", "إلى واقع ملموس", "إلى منتج رقمي"],
+};
+
 const Hero: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const isRTL = i18n.language === "fa" || i18n.language === "ar";
+  const language = i18n.language?.toLowerCase() || "en";
+  const languageKey = language.startsWith("fa")
+    ? "fa"
+    : language.startsWith("ar")
+      ? "ar"
+      : "en";
+  const isRTL = languageKey === "fa" || languageKey === "ar";
   const theme = useTheme();
+
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const rotatingTexts =
+    HERO_DYNAMIC_TEXTS[languageKey] || HERO_DYNAMIC_TEXTS.en;
+  const fullText = rotatingTexts[currentTextIndex] || "";
+
+  useEffect(() => {
+    let charIndex = 0;
+    let isDeleting = false;
+    let timeout: NodeJS.Timeout;
+
+    const type = () => {
+      if (!isDeleting && charIndex < fullText.length) {
+        // Typing forward
+        setDisplayedText(fullText.slice(0, charIndex + 1));
+        charIndex++;
+        timeout = setTimeout(type, 80); // Typing speed
+      } else if (!isDeleting && charIndex === fullText.length) {
+        // Pause before deleting
+        isDeleting = true;
+        timeout = setTimeout(type, 2000); // Pause duration
+      } else if (isDeleting && charIndex > 0) {
+        // Deleting backward
+        charIndex--;
+        setDisplayedText(fullText.slice(0, charIndex));
+        timeout = setTimeout(type, 50); // Deleting speed
+      } else if (isDeleting && charIndex === 0) {
+        // Move to next text
+        setDisplayedText("");
+        setCurrentTextIndex((prev) => (prev + 1) % rotatingTexts.length);
+      }
+    };
+
+    timeout = setTimeout(type, 500);
+
+    return () => clearTimeout(timeout);
+  }, [fullText, rotatingTexts.length]);
 
   return (
     <Section className="relative flex items-center justify-center min-h-[90vh]">
@@ -32,9 +90,10 @@ const Hero: React.FC = () => {
           {t("hero.title.part1")}
           <br className="block sm:hidden" />
           <span
-            className={`text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-violet-600 ${isRTL ? "mr-2" : "ml-2"}`}
+            className={`text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-violet-600 ${isRTL ? "mr-2" : "ml-2"} inline-block min-h-[1.2em]`}
           >
-            {t("hero.title.part2")}
+            {displayedText}
+            <span className="animate-cursor">|</span>
           </span>
         </h1>
         <p

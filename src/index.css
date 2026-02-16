@@ -397,3 +397,24 @@ label {
 #logo_text_font {
     font-family: sans-serif !important;
 }
+
+/* ========== Hero Typing Animation Styles ========== */
+@keyframes blink-cursor {
+    0%,
+    49% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.animate-cursor {
+    animation: blink-cursor 1s infinite;
+    display: inline;
+    margin-left: 2px;
+}
+
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ END Of Hero Typing Animation Styles ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
