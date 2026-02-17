@@ -21,6 +21,10 @@ const CTA: React.FC = () => {
             <img
               src="/pictures/logo.png"
               alt="UniVision Studio Logo"
+              width={240}
+              height={240}
+              loading="lazy"
+              decoding="async"
               className="md:h-50 md:w-50 lg:h-60 lg:w-60 h-40 w-40"
             />
           </a>

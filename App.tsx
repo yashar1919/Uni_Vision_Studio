@@ -17,12 +17,15 @@ import {
   trackEvent,
   trackPageView,
 } from "./src/config/analytics";
+import { useSeo } from "./src/hooks/useSeo";
 
 // Import i18n configuration
 import "./src/i18n/config";
 
 const App: React.FC = () => {
   const { i18n } = useTranslation();
+  useSeo(i18n.language);
+
   const [theme, setTheme] = useState<Theme>(() => {
     const stored = localStorage.getItem("univision-theme") as Theme;
     return stored || "dark";

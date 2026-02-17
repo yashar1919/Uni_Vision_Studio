@@ -46,6 +46,9 @@ const QRCode: React.FC = () => {
               alt="Website QR Code"
               className="w-72 h-72 sm:w-full sm:h-full lg:w-40 lg:h-40 rounded-xl"
               loading="lazy"
+              decoding="async"
+              width={288}
+              height={288}
             />
           </div>
           <h4
@@ -72,6 +75,9 @@ const QRCode: React.FC = () => {
               alt="WhatsApp QR Code"
               className="w-72 h-72 sm:w-full sm:h-full lg:w-40 lg:h-40 rounded-xl"
               loading="lazy"
+              decoding="async"
+              width={288}
+              height={288}
             />
           </div>
           <h4
@@ -98,6 +104,9 @@ const QRCode: React.FC = () => {
               alt="Email QR Code"
               className="w-72 h-72 sm:w-full sm:h-full lg:w-40 lg:h-40 rounded-xl"
               loading="lazy"
+              decoding="async"
+              width={288}
+              height={288}
             />
           </div>
           <h4
@@ -124,6 +133,9 @@ const QRCode: React.FC = () => {
               alt="Phone QR Code"
               className="w-72 h-72 sm:w-full sm:h-full lg:w-40 lg:h-40 rounded-xl"
               loading="lazy"
+              decoding="async"
+              width={288}
+              height={288}
             />
           </div>
           <h4

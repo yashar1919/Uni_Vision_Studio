@@ -71,6 +71,9 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                 //src="/pictures/UniVisionStudio_with_lightViolet_foreground.svg"
                 src="/pictures/logo.png"
                 alt="UniVision Studio Logo"
+                width={40}
+                height={40}
+                decoding="async"
                 className="h-10 w-10"
               />
             </a>
@@ -151,6 +154,9 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
               <img
                 src="/pictures/logo.png"
                 alt="UniVision Studio Logo"
+                width={40}
+                height={40}
+                decoding="async"
                 className={`flex items-center gap-2 ${theme === "dark" ? "bg-violet-400/10" : "bg-violet-950"} p-1 rounded-full`}
               />
               <p className="font-light">

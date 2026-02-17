@@ -93,7 +93,7 @@ const Hero: React.FC = () => {
             className={`text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-violet-600 ${isRTL ? "mr-2" : "ml-2"} inline-block min-h-[1.2em] py-2`}
           >
             {displayedText}
-            <span className="animate-cursor text-violet-400">|</span>
+            <span className="animate-cursor text-violet-400 font-light">|</span>
           </span>
         </h1>
         <p
