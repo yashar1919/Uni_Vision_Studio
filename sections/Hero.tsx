@@ -90,10 +90,10 @@ const Hero: React.FC = () => {
           {t("hero.title.part1")}
           <br className="block sm:hidden" />
           <span
-            className={`text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-violet-600 ${isRTL ? "mr-2" : "ml-2"} inline-block min-h-[1.2em]`}
+            className={`text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-violet-600 ${isRTL ? "mr-2" : "ml-2"} inline-block min-h-[1.2em] py-2`}
           >
             {displayedText}
-            <span className="animate-cursor">|</span>
+            <span className="animate-cursor text-violet-400">|</span>
           </span>
         </h1>
         <p
