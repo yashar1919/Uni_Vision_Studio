@@ -13,3 +13,9 @@ This repository contains the official landing website for **UniVision Studio**, 
 - UI/UX design and digital products
 
 We focus on clean architecture, modern technologies, and long-term maintainability.
+
+## Analytics (Free + Permanent)
+
+The project supports Google Analytics 4 + Microsoft Clarity.
+
+Setup guide: `ANALYTICS_SETUP.md`

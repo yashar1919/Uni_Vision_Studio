@@ -12,6 +12,11 @@ import Contact from "./sections/Contact";
 import QRCode from "./sections/QRCode";
 import Footer from "./sections/Footer";
 import { Theme } from "./types";
+import {
+  initializeAnalytics,
+  trackEvent,
+  trackPageView,
+} from "./src/config/analytics";
 
 // Import i18n configuration
 import "./src/i18n/config";
@@ -50,6 +55,45 @@ const App: React.FC = () => {
   }, [i18n]);
 
   useEffect(() => {
+    initializeAnalytics();
+    trackPageView();
+
+    const onHashChange = () => {
+      trackPageView();
+    };
+
+    const onDocumentClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      const linkElement = target?.closest(
+        "a[href]",
+      ) as HTMLAnchorElement | null;
+
+      if (!linkElement) return;
+
+      const href = linkElement.getAttribute("href") || "";
+      if (!href.startsWith("#")) return;
+
+      const section = href.slice(1) || "home";
+      const linkText = (linkElement.textContent || "unknown")
+        .trim()
+        .slice(0, 80);
+
+      trackEvent("section_navigation_click", {
+        section,
+        link_text: linkText || "unknown",
+      });
+    };
+
+    window.addEventListener("hashchange", onHashChange);
+    document.addEventListener("click", onDocumentClick);
+
+    return () => {
+      window.removeEventListener("hashchange", onHashChange);
+      document.removeEventListener("click", onDocumentClick);
+    };
+  }, []);
+
+  useEffect(() => {
     const root = window.document.documentElement;
     if (theme === "dark") {
       root.classList.add("dark");
@@ -57,7 +101,13 @@ const App: React.FC = () => {
       root.classList.remove("dark");
     }
     localStorage.setItem("univision-theme", theme);
+
+    trackEvent("theme_changed", { theme });
   }, [theme]);
+
+  useEffect(() => {
+    trackEvent("language_changed", { language: i18n.language || "unknown" });
+  }, [i18n.language]);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));

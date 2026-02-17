@@ -10,6 +10,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { initEmailJS, sendEmail, type EmailData } from "../src/config/emailjs";
+import { trackEvent } from "../src/config/analytics";
 import { useTheme } from "../src/hooks/useTheme";
 import i18n from "@/src/i18n/config";
 
@@ -36,6 +37,7 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
+    trackEvent("contact_form_submit_attempt");
 
     try {
       const emailData: EmailData = {
@@ -48,15 +50,20 @@ const Contact: React.FC = () => {
       const success = await sendEmail(emailData);
 
       if (success) {
+        trackEvent("contact_form_submit_success");
         setIsSent(true);
         setFormState({ name: "", email: "", phone: "", message: "" });
         // Hide success message after 5 seconds
         setTimeout(() => setIsSent(false), 5000);
       } else {
+        trackEvent("contact_form_submit_failed", {
+          reason: "send_email_returned_false",
+        });
         setError(t("contact.form.error"));
       }
     } catch (err) {
       console.error("Email sending error:", err);
+      trackEvent("contact_form_submit_failed", { reason: "exception" });
       setError(t("contact.form.error"));
     } finally {
       setIsSubmitting(false);
