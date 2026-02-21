@@ -25,7 +25,7 @@ const CTA: React.FC = () => {
               height={240}
               loading="lazy"
               decoding="async"
-              className="md:h-50 md:w-50 lg:h-60 lg:w-60 h-40 w-40"
+              className="md:h-60 md:w-60 lg:h-70 lg:w-70 h-50 w-50"
             />
           </a>
         </div>

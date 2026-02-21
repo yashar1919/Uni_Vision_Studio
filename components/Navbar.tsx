@@ -64,7 +64,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             </a>
             <a
               href="#home"
-              className={`flex items-center gap-2 ${theme === "dark" ? "bg-violet-400/10" : "bg-violet-950"} p-1 rounded-full`}
+              className={`flex items-center gap-2 ${theme === "dark" ? "bg-violet-400/10" : "bg-violet-950"} p-0.5 rounded-full`}
             >
               <img
                 //src="/pictures/UniVisionStudio_without_foreground.svg"
@@ -74,7 +74,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                 width={40}
                 height={40}
                 decoding="async"
-                className="h-10 w-10"
+                className="h-12 w-12"
               />
             </a>
           </div>
