@@ -114,12 +114,14 @@ const Contact: React.FC = () => {
                     univisionstudio@outlook.com
                   </a>
                 </div>
-                <div className="font-light">
+                <div className="font-light flex">
                   <Phone
                     className={`${isRTL ? "ml-2" : "mr-2"} inline-block text-cyan-700`}
                     size={22}
                   />
-                  <a href="tel:+989017916871">09017916871</a>
+                  <div style={{ direction: "ltr" }}>
+                    <a href="tel:+989017916871">+98 9017916871</a>
+                  </div>
                 </div>
                 <div className="flex items-center">
                   <span
