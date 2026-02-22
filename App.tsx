@@ -58,8 +58,21 @@ const App: React.FC = () => {
   }, [i18n]);
 
   useEffect(() => {
-    initializeAnalytics();
-    trackPageView();
+    let idleCallbackId: number | null = null;
+    let fallbackTimeoutId: number | null = null;
+
+    const initTracking = () => {
+      initializeAnalytics();
+      trackPageView();
+    };
+
+    if ("requestIdleCallback" in window) {
+      idleCallbackId = window.requestIdleCallback(initTracking, {
+        timeout: 2500,
+      });
+    } else {
+      fallbackTimeoutId = window.setTimeout(initTracking, 1500);
+    }
 
     const onHashChange = () => {
       trackPageView();
@@ -91,6 +104,12 @@ const App: React.FC = () => {
     document.addEventListener("click", onDocumentClick);
 
     return () => {
+      if (idleCallbackId !== null && "cancelIdleCallback" in window) {
+        window.cancelIdleCallback(idleCallbackId);
+      }
+      if (fallbackTimeoutId !== null) {
+        window.clearTimeout(fallbackTimeoutId);
+      }
       window.removeEventListener("hashchange", onHashChange);
       document.removeEventListener("click", onDocumentClick);
     };

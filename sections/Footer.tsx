@@ -28,10 +28,12 @@ const Footer: React.FC = () => {
                 alt="UniVision Studio Visit Card - Front"
                 className="w-full h-auto rounded-2xl"
                 loading="lazy"
+                width={1200}
+                height={675}
               />
             </div>
             <div
-              className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t ${theme === "dark" ? "from-violet-950/20 to-transparent" : "from-violet-100/30 to-transparent"}`}
+              className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-t ${theme === "dark" ? "from-violet-950/20 to-transparent" : "from-violet-100/30 to-transparent"}`}
             ></div>
           </div>
 
@@ -45,10 +47,12 @@ const Footer: React.FC = () => {
                 alt="UniVision Studio Visit Card - Back"
                 className="w-full h-auto rounded-2xl"
                 loading="lazy"
+                width={1200}
+                height={675}
               />
             </div>
             <div
-              className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t ${theme === "dark" ? "from-violet-950/20 to-transparent" : "from-violet-100/30 to-transparent"}`}
+              className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-t ${theme === "dark" ? "from-violet-950/20 to-transparent" : "from-violet-100/30 to-transparent"}`}
             ></div>
           </div>
         </div>
@@ -70,12 +74,16 @@ const Footer: React.FC = () => {
             <span className="text-violet-500"> </span>
             <span className="text-sm text-zinc-400">studio</span>
           </p>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2 max-w-xs">
+          <p
+            className={`text-sm mt-2 max-w-xs ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
+          >
             {t("footer.description")}
           </p>
         </div>
 
-        <div className="flex gap-8 text-sm text-zinc-500 dark:text-zinc-400">
+        <div
+          className={`flex gap-8 text-sm ${theme === "dark" ? "text-zinc-400" : "text-zinc-700"}`}
+        >
           <a href="#" className="hover:text-violet-600 transition-colors">
             {t("footer.privacyPolicy")}
           </a>
@@ -94,7 +102,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div
-          className={`text-sm ${theme === "dark" ? "text-zinc-400" : "text-zinc-500"}`}
+          className={`text-sm ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
         >
           &copy; {new Date().getFullYear()} UniVision Studio |{" "}
           {t("footer.copyRight")}

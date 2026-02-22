@@ -173,6 +173,7 @@ const Contact: React.FC = () => {
               <button
                 onClick={() => setError(null)}
                 className="ml-auto text-red-500 hover:text-red-700"
+                aria-label="Dismiss error message"
               >
                 ×
               </button>

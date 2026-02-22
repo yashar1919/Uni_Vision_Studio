@@ -69,10 +69,12 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
               <img
                 //src="/pictures/UniVisionStudio_without_foreground.svg"
                 //src="/pictures/UniVisionStudio_with_lightViolet_foreground.svg"
-                src="/pictures/logo.png"
+                src="/pictures/logo.webp"
                 alt="UniVision Studio Logo"
                 width={40}
                 height={40}
+                loading="eager"
+                fetchPriority="high"
                 decoding="async"
                 className="h-12 w-12"
               />
@@ -116,6 +118,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`md:hidden p-2 rounded-md ${theme === "dark" ? "text-zinc-400 hover:bg-zinc-800" : "text-zinc-600 hover:bg-zinc-100"} transition-colors shrink-0 ${isRTL ? "order-1" : "order-1"}`}
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -152,7 +155,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           >
             <div className="w-10 flex items-center gap-2">
               <img
-                src="/pictures/logo.png"
+                src="/pictures/logo.webp"
                 alt="UniVision Studio Logo"
                 width={40}
                 height={40}
@@ -169,6 +172,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           <button
             onClick={() => setIsMobileMenuOpen(false)}
             className={`p-2 rounded-lg ${theme === "dark" ? "hover:bg-zinc-800 text-zinc-400" : "hover:bg-zinc-100 text-zinc-600"} transition-colors`}
+            aria-label="Close menu"
           >
             <X size={24} />
           </button>

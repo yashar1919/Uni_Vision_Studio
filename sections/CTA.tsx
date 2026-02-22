@@ -19,7 +19,7 @@ const CTA: React.FC = () => {
             className={`flex items-center gap-2 bg-transparent p-1 rounded-full`}
           >
             <img
-              src="/pictures/logo.png"
+              src="/pictures/logo.webp"
               alt="UniVision Studio Logo"
               width={240}
               height={240}
