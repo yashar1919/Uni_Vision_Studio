@@ -1,10 +1,55 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const WHATSAPP_LINK = "https://wa.me/989017916871";
+const IDLE_DELAY_MS = 3500;
 
 const FloatingWhatsAppButton: React.FC = () => {
   const { t } = useTranslation();
+  const [isIdle, setIsIdle] = useState(false);
+  const idleTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const startIdleTimer = () => {
+      if (idleTimeoutRef.current !== null) {
+        clearTimeout(idleTimeoutRef.current);
+      }
+
+      idleTimeoutRef.current = setTimeout(() => {
+        setIsIdle(true);
+      }, IDLE_DELAY_MS);
+    };
+
+    const handleUserActivity = () => {
+      setIsIdle((previous) => (previous ? false : previous));
+      startIdleTimer();
+    };
+
+    const activityEvents: Array<keyof WindowEventMap> = [
+      "scroll",
+      "wheel",
+      "touchmove",
+      "pointerdown",
+      "keydown",
+      "mousemove",
+    ];
+
+    activityEvents.forEach((eventName) => {
+      window.addEventListener(eventName, handleUserActivity, { passive: true });
+    });
+
+    startIdleTimer();
+
+    return () => {
+      activityEvents.forEach((eventName) => {
+        window.removeEventListener(eventName, handleUserActivity);
+      });
+
+      if (idleTimeoutRef.current !== null) {
+        clearTimeout(idleTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <a
@@ -13,15 +58,15 @@ const FloatingWhatsAppButton: React.FC = () => {
       rel="noopener noreferrer"
       aria-label={t("footer.contactWhatsApp", "WhatsApp")}
       title={t("footer.contactWhatsApp", "WhatsApp")}
-      className="fixed bottom-5 right-5 md:bottom-7 md:right-7 z-60 inline-flex items-center justify-center w-12 h-12 md:w-15 md:h-15 rounded-full bg-green-500 text-white shadow-2xl transition-transform duration-200 hover:scale-105 active:scale-95 motion-safe:animate-pulse [animation-duration:2.2s]"
+      className="fixed bottom-5 right-5 md:bottom-7 md:right-7 z-60 inline-flex items-center justify-center w-12 h-12 md:w-15 md:h-15 rounded-full bg-green-500 text-white shadow-2xl transition-transform duration-200 hover:scale-105 active:scale-95"
     >
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 rounded-full bg-green-400/50 motion-safe:animate-ping [animation-duration:2.2s]"
+        className={`pointer-events-none absolute inset-0 rounded-full bg-green-400/50 ${isIdle ? "motion-safe:animate-ping [animation-duration:2.2s]" : "opacity-0"}`}
       />
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 rounded-full bg-green-400/35 motion-safe:animate-ping [animation-duration:2.2s] [animation-delay:1.1s]"
+        className={`pointer-events-none absolute inset-0 rounded-full bg-green-400/35 ${isIdle ? "motion-safe:animate-ping [animation-duration:2.2s] [animation-delay:1.1s]" : "opacity-0"}`}
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
