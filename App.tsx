@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Navbar from "./components/Navbar";
+import FloatingWhatsAppButton from "./components/FloatingWhatsAppButton";
 // import CustomCursor from "./components/CustomCursor";
 import Hero from "./sections/Hero";
 import Services from "./sections/Services";
@@ -243,6 +244,8 @@ const App: React.FC = () => {
           <Footer />
         </Suspense>
       </DeferredSection>
+
+      <FloatingWhatsAppButton />
     </div>
   );
 };
