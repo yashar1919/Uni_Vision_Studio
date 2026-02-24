@@ -3,6 +3,15 @@ export type SeoLanguage = "en" | "fa" | "ar";
 export const SITE_URL = "https://www.univisionstudio.ir";
 export const SITE_NAME = "UniVision Studio";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/pictures/logo.png`;
+export const BRAND_ALIASES = [
+  "UniVisionStudio",
+  "Uni Vision Studio",
+  "یونی‌ویژن استودیو",
+  "یونی ویژن استودیو",
+  "یونیویژن استودیو",
+  "یونی ویژن",
+  "یونیویژن",
+];
 
 type SeoContent = {
   title: string;
@@ -25,7 +34,7 @@ export const SEO_CONTENT: Record<SeoLanguage, SeoContent> = {
     description:
       "یونی‌ویژن استودیو ارائه‌دهنده خدمات توسعه نرم‌افزار سفارشی، اپلیکیشن وب، اپلیکیشن موبایل و راهکارهای هوش مصنوعی برای کسب‌وکارهای در حال رشد است.",
     keywords:
-      "یونی‌ویژن استودیو, توسعه نرم افزار, طراحی سایت, توسعه اپلیکیشن موبایل, هوش مصنوعی, طراحی تجربه کاربری, محصول دیجیتال",
+      "یونی‌ویژن استودیو, یونی ویژن استودیو, یونیویژن استودیو, یونیویژن, یونی ویژن, univision studio, univisionstudio, توسعه نرم افزار, طراحی سایت, توسعه اپلیکیشن موبایل, هوش مصنوعی, طراحی تجربه کاربری, محصول دیجیتال",
     locale: "fa_IR",
   },
   ar: {

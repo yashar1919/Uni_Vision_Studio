@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import {
+  BRAND_ALIASES,
   DEFAULT_OG_IMAGE,
   SEO_CONTENT,
   SITE_NAME,
@@ -190,10 +191,12 @@ export const useSeo = (language?: string) => {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: SITE_NAME,
+      alternateName: BRAND_ALIASES,
       url: SITE_URL,
       logo: DEFAULT_OG_IMAGE,
       email: "univisionstudio@outlook.com",
       telephone: "+989017916871",
+      inLanguage: ["en", "fa", "ar"],
       address: {
         "@type": "PostalAddress",
         streetAddress: "Chamran Blvd, Alley 11",
@@ -206,6 +209,7 @@ export const useSeo = (language?: string) => {
       "@context": "https://schema.org",
       "@type": "WebSite",
       name: SITE_NAME,
+      alternateName: BRAND_ALIASES,
       url: SITE_URL,
       inLanguage: ["en", "fa", "ar"],
     });
@@ -215,6 +219,7 @@ export const useSeo = (language?: string) => {
       "@type": "ProfessionalService",
       "@id": `${SITE_URL}/#professional-service`,
       name: SITE_NAME,
+      alternateName: BRAND_ALIASES,
       url: SITE_URL,
       image: DEFAULT_OG_IMAGE,
       email: "univisionstudio@outlook.com",
