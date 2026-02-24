@@ -1,4 +1,4 @@
-import emailjs from "@emailjs/browser";
+let emailJsClient: (typeof import("@emailjs/browser"))["default"] | null = null;
 
 // EmailJS Configuration
 export const EMAILJS_CONFIG = {
@@ -7,9 +7,19 @@ export const EMAILJS_CONFIG = {
   TEMPLATE_ID: "template_9g4uvz7", // از Email Templates
 };
 
+const getEmailJsClient = async () => {
+  if (!emailJsClient) {
+    const emailJsModule = await import("@emailjs/browser");
+    emailJsClient = emailJsModule.default;
+  }
+
+  return emailJsClient;
+};
+
 // Initialize EmailJS
-export const initEmailJS = () => {
-  emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+export const initEmailJS = async () => {
+  const emailJs = await getEmailJsClient();
+  emailJs.init(EMAILJS_CONFIG.PUBLIC_KEY);
 };
 
 // Email sending function
@@ -22,7 +32,8 @@ export interface EmailData {
 
 export const sendEmail = async (data: EmailData): Promise<boolean> => {
   try {
-    const response = await emailjs.send(
+    const emailJs = await getEmailJsClient();
+    const response = await emailJs.send(
       EMAILJS_CONFIG.SERVICE_ID,
       EMAILJS_CONFIG.TEMPLATE_ID,
       {

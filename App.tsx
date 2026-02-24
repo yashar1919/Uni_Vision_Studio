@@ -1,16 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Navbar from "./components/Navbar";
 // import CustomCursor from "./components/CustomCursor";
 import Hero from "./sections/Hero";
-import About from "./sections/About";
 import Services from "./sections/Services";
-import AICapabilities from "./sections/AICapabilities";
-import Experience from "./sections/Experience";
-import CTA from "./sections/CTA";
-import Contact from "./sections/Contact";
-import QRCode from "./sections/QRCode";
-import Footer from "./sections/Footer";
 import { Theme } from "./types";
 import {
   initializeAnalytics,
@@ -21,6 +14,62 @@ import { useSeo } from "./src/hooks/useSeo";
 
 // Import i18n configuration
 import "./src/i18n/config";
+
+const About = React.lazy(() => import("./sections/About"));
+const AICapabilities = React.lazy(() => import("./sections/AICapabilities"));
+const Experience = React.lazy(() => import("./sections/Experience"));
+const CTA = React.lazy(() => import("./sections/CTA"));
+const Contact = React.lazy(() => import("./sections/Contact"));
+const QRCode = React.lazy(() => import("./sections/QRCode"));
+const Footer = React.lazy(() => import("./sections/Footer"));
+
+type DeferredSectionProps = {
+  id?: string;
+  minHeight?: number;
+  rootMargin?: string;
+  children: React.ReactNode;
+};
+
+const DeferredSection: React.FC<DeferredSectionProps> = ({
+  id,
+  minHeight = 280,
+  rootMargin = "250px 0px",
+  children,
+}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const sectionElement = sectionRef.current;
+
+    if (!sectionElement || isVisible) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin },
+    );
+
+    observer.observe(sectionElement);
+
+    return () => observer.disconnect();
+  }, [isVisible, rootMargin]);
+
+  return (
+    <div
+      id={id}
+      ref={sectionRef}
+      style={isVisible ? undefined : { minHeight }}
+      aria-busy={!isVisible}
+    >
+      {isVisible ? children : null}
+    </div>
+  );
+};
 
 const App: React.FC = () => {
   const { i18n } = useTranslation();
@@ -59,7 +108,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     let idleCallbackId: number | null = null;
-    let fallbackTimeoutId: number | null = null;
+    let fallbackTimeoutId: ReturnType<typeof setTimeout> | null = null;
 
     const initTracking = () => {
       initializeAnalytics();
@@ -71,7 +120,7 @@ const App: React.FC = () => {
         timeout: 2500,
       });
     } else {
-      fallbackTimeoutId = window.setTimeout(initTracking, 1500);
+      fallbackTimeoutId = globalThis.setTimeout(initTracking, 1500);
     }
 
     const onHashChange = () => {
@@ -108,7 +157,7 @@ const App: React.FC = () => {
         window.cancelIdleCallback(idleCallbackId);
       }
       if (fallbackTimeoutId !== null) {
-        window.clearTimeout(fallbackTimeoutId);
+        globalThis.clearTimeout(fallbackTimeoutId);
       }
       window.removeEventListener("hashchange", onHashChange);
       document.removeEventListener("click", onDocumentClick);
@@ -151,24 +200,48 @@ const App: React.FC = () => {
           <Services />
         </div>
 
-        <div id="about">
-          <About />
-        </div>
+        <DeferredSection id="about" minHeight={520}>
+          <Suspense fallback={null}>
+            <About />
+          </Suspense>
+        </DeferredSection>
 
-        <AICapabilities />
+        <DeferredSection minHeight={520}>
+          <Suspense fallback={null}>
+            <AICapabilities />
+          </Suspense>
+        </DeferredSection>
 
-        <Experience />
+        <DeferredSection minHeight={460}>
+          <Suspense fallback={null}>
+            <Experience />
+          </Suspense>
+        </DeferredSection>
 
-        <CTA />
+        <DeferredSection minHeight={320}>
+          <Suspense fallback={null}>
+            <CTA />
+          </Suspense>
+        </DeferredSection>
 
-        <div id="contact">
-          <Contact />
-        </div>
+        <DeferredSection id="contact" minHeight={760}>
+          <Suspense fallback={null}>
+            <Contact />
+          </Suspense>
+        </DeferredSection>
 
-        <QRCode />
+        <DeferredSection minHeight={680}>
+          <Suspense fallback={null}>
+            <QRCode />
+          </Suspense>
+        </DeferredSection>
       </main>
 
-      <Footer />
+      <DeferredSection minHeight={340} rootMargin="100px 0px">
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
+      </DeferredSection>
     </div>
   );
 };

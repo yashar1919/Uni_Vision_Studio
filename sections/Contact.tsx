@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
 
   // Initialize EmailJS when component mounts
   useEffect(() => {
-    initEmailJS();
+    void initEmailJS();
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
