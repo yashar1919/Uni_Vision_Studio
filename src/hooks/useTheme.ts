@@ -1,39 +1,34 @@
 import { useState, useEffect } from "react";
 import { Theme } from "../../types";
 
+const THEME_STORAGE_KEY = "univision-theme";
+const THEME_CHANGED_EVENT = "univision-theme-changed";
+
 export const useTheme = () => {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("univision-theme") as Theme;
+      const stored = localStorage.getItem(THEME_STORAGE_KEY) as Theme;
       return stored || "dark";
     }
     return "dark";
   });
 
   useEffect(() => {
-    const handleStorageChange = () => {
-      const stored = localStorage.getItem("univision-theme") as Theme;
+    const updateThemeFromStorage = () => {
+      const stored = localStorage.getItem(THEME_STORAGE_KEY) as Theme;
       if (stored) {
         setTheme(stored);
       }
     };
 
-    // Listen for storage changes
-    window.addEventListener("storage", handleStorageChange);
-
-    // Also check periodically for changes in the same tab
-    const interval = setInterval(() => {
-      const stored = localStorage.getItem("univision-theme") as Theme;
-      if (stored && stored !== theme) {
-        setTheme(stored);
-      }
-    }, 100);
+    window.addEventListener("storage", updateThemeFromStorage);
+    window.addEventListener(THEME_CHANGED_EVENT, updateThemeFromStorage);
 
     return () => {
-      window.removeEventListener("storage", handleStorageChange);
-      clearInterval(interval);
+      window.removeEventListener("storage", updateThemeFromStorage);
+      window.removeEventListener(THEME_CHANGED_EVENT, updateThemeFromStorage);
     };
-  }, [theme]);
+  }, []);
 
   return theme;
 };

@@ -31,14 +31,44 @@ const Hero: React.FC = () => {
 
   const [displayedText, setDisplayedText] = useState("");
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [enableTyping, setEnableTyping] = useState(() => {
+    if (typeof window === "undefined") return true;
+
+    return !window.matchMedia(
+      "(max-width: 768px), (prefers-reduced-motion: reduce)",
+    ).matches;
+  });
   const rotatingTexts =
     HERO_DYNAMIC_TEXTS[languageKey] || HERO_DYNAMIC_TEXTS.en;
   const fullText = rotatingTexts[currentTextIndex] || "";
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia(
+      "(max-width: 768px), (prefers-reduced-motion: reduce)",
+    );
+
+    const handleMediaChange = () => {
+      setEnableTyping(!mediaQuery.matches);
+    };
+
+    handleMediaChange();
+
+    mediaQuery.addEventListener("change", handleMediaChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!enableTyping) {
+      setDisplayedText(fullText);
+      return;
+    }
+
     let charIndex = 0;
     let isDeleting = false;
-    let timeout: NodeJS.Timeout;
+    let timeout: ReturnType<typeof setTimeout>;
 
     const type = () => {
       if (!isDeleting && charIndex < fullText.length) {
@@ -65,16 +95,16 @@ const Hero: React.FC = () => {
     timeout = setTimeout(type, 500);
 
     return () => clearTimeout(timeout);
-  }, [fullText, rotatingTexts.length]);
+  }, [enableTyping, fullText, rotatingTexts.length]);
 
   return (
-    <Section className="relative flex items-center justify-center min-h-[90vh]">
+    <Section className="relative flex items-center justify-center min-h-[78vh] sm:min-h-[90vh]">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className={`absolute -top-[60%] sm:-top-[10%] -right-[10%] w-125 h-125 ${theme === "dark" ? "bg-violet-500/20" : "bg-violet-500/40"} rounded-full blur-[120px]`}
+          className={`absolute -top-[30%] sm:-top-[10%] -right-[10%] w-72 h-72 sm:w-125 sm:h-125 ${theme === "dark" ? "bg-violet-500/15" : "bg-violet-500/30"} rounded-full blur-3xl sm:blur-[120px]`}
         />
         <div
-          className={`absolute -bottom-[60%] sm:-bottom-[10%] -left-[10%] w-125 h-125 ${theme === "dark" ? "bg-violet-500/20" : "bg-violet-500/40"} rounded-full blur-[120px]`}
+          className={`absolute -bottom-[30%] sm:-bottom-[10%] -left-[10%] w-72 h-72 sm:w-125 sm:h-125 ${theme === "dark" ? "bg-violet-500/15" : "bg-violet-500/30"} rounded-full blur-3xl sm:blur-[120px]`}
         />
       </div>
 
@@ -90,10 +120,14 @@ const Hero: React.FC = () => {
           {t("hero.title.part1")}
           <br className="block sm:hidden" />
           <span
-            className={`text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-violet-600 ${isRTL ? "mr-2" : "ml-2"} inline-block min-h-[1.2em] py-2`}
+            className={`text-transparent bg-clip-text bg-linear-to-r from-violet-500 to-violet-600 ${isRTL ? "mr-2" : "ml-2"} inline-block min-h-[1.2em] py-2`}
           >
             {displayedText}
-            <span className="animate-cursor text-violet-400 font-light">|</span>
+            {enableTyping ? (
+              <span className="animate-cursor text-violet-400 font-light">
+                |
+              </span>
+            ) : null}
           </span>
         </h1>
         <p

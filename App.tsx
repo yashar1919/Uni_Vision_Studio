@@ -172,6 +172,7 @@ const App: React.FC = () => {
       root.classList.remove("dark");
     }
     localStorage.setItem("univision-theme", theme);
+    window.dispatchEvent(new Event("univision-theme-changed"));
 
     trackEvent("theme_changed", { theme });
   }, [theme]);
