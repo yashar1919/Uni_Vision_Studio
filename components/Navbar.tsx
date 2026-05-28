@@ -17,6 +17,7 @@ interface NavbarProps {
   theme: Theme;
   toggleTheme: () => void;
 }
+// test commit
 
 const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
   const { t, i18n } = useTranslation();
