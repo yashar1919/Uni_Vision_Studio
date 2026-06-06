@@ -1,17 +1,17 @@
-@import './styles/fonts.css';
+@import "./styles/fonts.css";
 @import "tailwindcss";
 
 @theme {
-    --color-violet-50: #f5f3ff;
-    --color-violet-100: #ede9fe;
-    --color-violet-200: #ddd6fe;
-    --color-violet-300: #c4b5fd;
-    --color-violet-400: #a78bfa;
-    --color-violet-500: #8b5cf6;
-    --color-violet-600: #7c3aed;
-    --color-violet-700: #6d28d9;
-    --color-violet-800: #5b21b6;
-    --color-violet-900: #4c1d95;
+  --color-violet-50: #f5f3ff;
+  --color-violet-100: #ede9fe;
+  --color-violet-200: #ddd6fe;
+  --color-violet-300: #c4b5fd;
+  --color-violet-400: #a78bfa;
+  --color-violet-500: #8b5cf6;
+  --color-violet-600: #7c3aed;
+  --color-violet-700: #6d28d9;
+  --color-violet-800: #5b21b6;
+  --color-violet-900: #4c1d95;
 }
 
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ START Of CustomCursor Styles ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
@@ -138,45 +138,42 @@
 } */
 
 @keyframes texture-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
 
-    0%,
-    100% {
-        transform: translate(0, 0) scale(1);
-    }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
 
-    33% {
-        transform: translate(30px, -30px) scale(1.1);
-    }
-
-    66% {
-        transform: translate(-20px, 20px) scale(0.9);
-    }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
 }
 
 @keyframes texture-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
 
-    0%,
-    100% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-
-    50% {
-        transform: translate(-40px, 40px) rotate(180deg);
-    }
+  50% {
+    transform: translate(-40px, 40px) rotate(180deg);
+  }
 }
 
 @keyframes texture-pulse {
+  0%,
+  100% {
+    transform: translate(-50%, 0) scale(1);
+    opacity: 0.15;
+  }
 
-    0%,
-    100% {
-        transform: translate(-50%, 0) scale(1);
-        opacity: 0.15;
-    }
-
-    50% {
-        transform: translate(-50%, 0) scale(1.2);
-        opacity: 0.25;
-    }
+  50% {
+    transform: translate(-50%, 0) scale(1.2);
+    opacity: 0.25;
+  }
 }
 
 /* Glass effect for navigation */
@@ -189,8 +186,8 @@
 /* Comprehensive RTL fixes for Persian/Arabic layout */
 
 [dir="rtl"] {
-    direction: rtl;
-    text-align: right;
+  direction: rtl;
+  text-align: right;
 }
 
 /* Flexbox RTL fixes - Only for space-x utilities */
@@ -331,8 +328,21 @@
 /* Persian font support - Applied globally */
 html,
 body {
-    font-family: 'IRANSans', 'IRANYekanX', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
-    overflow-x: hidden;
+  font-family:
+    "IRANSans",
+    "IRANYekanX",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif !important;
+  overflow-x: hidden;
 }
 
 h1,
@@ -341,7 +351,20 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'IRANSans', 'IRANYekanX', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+  font-family:
+    "IRANSans",
+    "IRANYekanX",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif !important;
 }
 
 p,
@@ -353,68 +376,168 @@ button,
 input,
 textarea,
 label {
-    font-family: 'IRANSans', 'IRANYekanX', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+  font-family:
+    "IRANSans",
+    "IRANYekanX",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif !important;
 }
 
 [dir="rtl"] {
-    direction: rtl;
+  direction: rtl;
 }
 
 /* ===== CUSTOM CURSOR ANIMATIONS ===== */
 @keyframes particleFade {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
 
-    100% {
-        opacity: 0;
-        transform: scale(0);
-    }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
 }
 
 .animate-particle-fade {
-    animation: particleFade 0.5s ease-out forwards;
+  animation: particleFade 0.5s ease-out forwards;
 }
 
 /* Animation classes for dropdowns */
 @keyframes slide-in-from-top {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-in.slide-in-from-top-1 {
-    animation: slide-in-from-top 0.2s ease-out;
+  animation: slide-in-from-top 0.2s ease-out;
 }
 
 #logo_text_font {
-    font-family: sans-serif !important;
+  font-family: sans-serif !important;
 }
 
 /* ========== Hero Typing Animation Styles ========== */
 @keyframes blink-cursor {
-    0%,
-    49% {
-        opacity: 1;
-    }
+  0%,
+  49% {
+    opacity: 1;
+  }
 
-    50%,
-    100% {
-        opacity: 0;
-    }
+  50%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .animate-cursor {
-    animation: blink-cursor 1s infinite;
-    display: inline;
-    margin-left: 2px;
+  animation: blink-cursor 1s infinite;
+  display: inline;
+  margin-left: 2px;
 }
 
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ END Of Hero Typing Animation Styles ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+/* ===== CHAPORT WIDGET OVERRIDES ===== */
+
+.chaport-launcher-chat-icon {
+  background-image: url("/svg/chaport-launcher-icon.svg") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: 50% !important;
+  border-radius: 9999px !important;
+}
+
+.chaport-launcher-chat-icon {
+  background-size: 90% !important;
+}
+@media (min-width: 768px) {
+  .chaport-launcher-chat-icon {
+    background-size: 105% !important;
+    /* background-color: blue !important; */
+  }
+}
+
+.chaport-launcher-chat-icon svg,
+.chaport-launcher-chat-icon img {
+  opacity: 0 !important;
+}
+
+/* Ping animation — only active when body has .user-idle class */
+body.user-idle .chaport-launcher .chaport-launcher-button::before,
+body.user-idle .chaport-launcher .chaport-launcher-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background-color: inherit;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body.user-idle .chaport-launcher .chaport-launcher-button::before {
+  animation: chaport-ping 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+body.user-idle .chaport-launcher .chaport-launcher-button::after {
+  animation: chaport-ping 2.2s cubic-bezier(0, 0, 0.2, 1) 1.1s infinite;
+}
+
+@keyframes chaport-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+
+  80%,
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.user-idle .chaport-launcher .chaport-launcher-button::before,
+  body.user-idle .chaport-launcher .chaport-launcher-button::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* Light theme: violet-600 — bold, on-brand, readable on white backgrounds */
+.chaport-launcher .chaport-launcher-button {
+  background-color: #7c3aed !important;
+}
+
+/* Dark theme: violet-400 — softer glow, pops on dark backgrounds without being aggressive */
+.dark .chaport-launcher .chaport-launcher-button,
+.chaport-container.chaport-window-dark-gray
+  .chaport-launcher
+  .chaport-launcher-button,
+.chaport-content.chaport-window-dark-gray
+  .chaport-launcher
+  .chaport-launcher-button,
+.chaport-faq-container.chaport-window-dark-gray
+  .chaport-launcher
+  .chaport-launcher-button {
+  background-color: #7c3aed !important;
+  box-shadow: 0 8px 24px -6px rgba(167, 139, 250, 0.45) !important;
+}

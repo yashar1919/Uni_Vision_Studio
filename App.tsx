@@ -245,7 +245,7 @@ const App: React.FC = () => {
         </Suspense>
       </DeferredSection>
 
-      <FloatingWhatsAppButton />
+      {/* <FloatingWhatsAppButton /> */}
     </div>
   );
 };
