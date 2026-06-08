@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "services": "Services",
+    "articles": "Articles",
     "about": "About",
     "contact": "Contact",
     "menu": "Menu"
@@ -137,6 +138,32 @@
       "sending": "Sending...",
       "success": "Message Sent!",
       "error": "Failed to send message. Please try again."
+    }
+  },
+  "insights": {
+    "badge": "Insights & Articles",
+    "title": "From Technical Insight to Business Results",
+    "description": "Here we publish practical Persian and English articles to support better decisions, strengthen audience trust, and grow organic traffic on high-value keywords.",
+    "cta": "Plan Content Strategy",
+    "readMore": "Read",
+    "tags": {
+      "seo": "SEO",
+      "ux": "UX",
+      "ai": "AI"
+    },
+    "items": {
+      "article1": {
+        "title": "How to Rank for Persian Search Keywords",
+        "description": "From search intent mapping to title structure and internal linking, this practical framework helps you grow in Persian SERPs."
+      },
+      "article2": {
+        "title": "UX Patterns That Increase Conversion",
+        "description": "Real design and copy patterns for service websites, from section hierarchy to call-to-action placement."
+      },
+      "article3": {
+        "title": "AI for Business: From Idea to Execution",
+        "description": "A practical guide to choosing and implementing AI features that reduce costs and improve customer value."
+      }
     }
   },
   "footer": {

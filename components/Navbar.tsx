@@ -9,9 +9,11 @@ import {
   Briefcase,
   Users,
   Phone,
+  BookOpenText,
 } from "lucide-react";
 import { Theme } from "../types";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { normalizeBlogLanguage } from "../src/blog/utils";
 
 interface NavbarProps {
   theme: Theme;
@@ -24,11 +26,17 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isRTL = i18n.language === "fa" || i18n.language === "ar";
+  const blogLanguage = normalizeBlogLanguage(i18n.language, "fa");
 
   // Navigation items using translations with icons
   const navItems = [
     { label: t("nav.home"), href: "#home", icon: Home },
     { label: t("nav.services"), href: "#services", icon: Briefcase },
+    {
+      label: t("nav.articles"),
+      href: `/blog/${blogLanguage}`,
+      icon: BookOpenText,
+    },
     { label: t("nav.about"), href: "#about", icon: Users },
     { label: t("nav.contact"), href: "#contact", icon: Phone },
   ];

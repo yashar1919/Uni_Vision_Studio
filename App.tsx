@@ -17,6 +17,7 @@ import { useSeo } from "./src/hooks/useSeo";
 import "./src/i18n/config";
 
 const About = React.lazy(() => import("./sections/About"));
+const Insights = React.lazy(() => import("./sections/Insights"));
 const AICapabilities = React.lazy(() => import("./sections/AICapabilities"));
 const Experience = React.lazy(() => import("./sections/Experience"));
 const CTA = React.lazy(() => import("./sections/CTA"));
@@ -217,6 +218,12 @@ const App: React.FC = () => {
         <DeferredSection minHeight={460}>
           <Suspense fallback={null}>
             <Experience />
+          </Suspense>
+        </DeferredSection>
+
+        <DeferredSection id="articles" minHeight={520}>
+          <Suspense fallback={null}>
+            <Insights />
           </Suspense>
         </DeferredSection>
 

@@ -294,5 +294,24 @@ export const useSeo = (language?: string) => {
         },
       ],
     });
+
+    upsertJsonLd("seo-insights-schema", {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": `${SITE_URL}/#articles`,
+      name:
+        seoLanguage === "fa"
+          ? "بخش مقالات یونی ویژن استودیو"
+          : seoLanguage === "ar"
+            ? "قسم المقالات في UniVision Studio"
+            : "UniVision Studio Insights and Articles",
+      url: `${SITE_URL}/#articles`,
+      inLanguage: seoLanguage,
+      isPartOf: {
+        "@type": "WebSite",
+        name: SITE_NAME,
+        url: SITE_URL,
+      },
+    });
   }, [language]);
 };
