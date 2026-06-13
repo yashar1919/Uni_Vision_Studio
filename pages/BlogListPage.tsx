@@ -57,29 +57,45 @@ const BlogListPage: React.FC = () => {
         }`}
       >
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-          <Link
-            to="/"
-            className="inline-flex gap-2 text-sm font-semibold text-violet-500"
-          >
-            <Home size={16} />
-            UniVision Studio
+          <Link to="/" className="text-violet-500">
+            <div className="flex gap-1 items-center">
+              <Home size={20} />
+              <span
+                //href="#home"
+                className={`text-sm tracking-tight font-normal ${theme === "dark" ? "text-zinc-50" : "text-zinc-900"} whitespace-nowrap mt-1 max-[330px]:hidden`}
+                id="logo_text_font"
+              >
+                <span className="text-violet-400 text-lg">U</span>ni
+                <span className="text-violet-400 text-lg">V</span>ision
+                <span className="text-violet-500"> </span>
+                <span className="text-xs text-zinc-400">studio</span>
+              </span>
+            </div>
           </Link>
           <div className="flex items-center gap-2">
             <Link
               to={`/blog/${blogLanguage}`}
-              className={`rounded-full px-4 py-2 text-sm font-semibold ${
+              className={`rounded-xl px-4 py-2 text-sm font-medium ${
                 theme === "dark"
                   ? "bg-zinc-800 text-zinc-100"
                   : "bg-zinc-100 text-zinc-700"
               }`}
             >
-              Blog
+              {blogLanguage === "fa"
+                ? "بلاگ"
+                : blogLanguage === "ar"
+                  ? "المدونة"
+                  : "Blog"}
             </Link>
             <Link
               to="/#contact"
-              className="rounded-full bg-violet-600 px-4 py-2 text-sm font-semibold text-white"
+              className="rounded-xl bg-violet-600 px-4 py-2 text-sm font-medium text-white"
             >
-              Contact
+              {blogLanguage === "fa"
+                ? "تماس با ما"
+                : blogLanguage === "ar"
+                  ? "اتصل بنا"
+                  : "Contact"}
             </Link>
           </div>
         </div>
@@ -88,7 +104,7 @@ const BlogListPage: React.FC = () => {
       <main className="mx-auto max-w-6xl px-4 pb-20 pt-12 sm:px-6">
         <section className="mb-12">
           <p
-            className={`mb-4 inline-flex items-center rounded-full border px-4 py-1 text-xs font-bold uppercase tracking-wider ${
+            className={`mb-4 inline-flex items-center rounded-full border px-4 pb-0.5 pt-1 text-xs font-bold uppercase tracking-wider ${
               theme === "dark"
                 ? "border-violet-800 text-violet-300"
                 : "border-violet-300 text-violet-700"

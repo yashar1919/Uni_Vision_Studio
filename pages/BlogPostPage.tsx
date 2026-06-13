@@ -64,14 +64,25 @@ const BlogPostPage: React.FC = () => {
         <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4 sm:px-6">
           <Link
             to="/"
-            className="inline-flex gap-2 text-sm font-semibold text-violet-500"
+            className="text-violet-500"
           >
-            <Home size={16} />
-            UniVision Studio
+            <div className="flex gap-1 items-center">
+              <Home size={20} />
+              <span
+                //href="#home"
+                className={`text-sm tracking-tight font-normal ${theme === "dark" ? "text-zinc-50" : "text-zinc-900"} whitespace-nowrap mt-1`}
+                id="logo_text_font"
+              >
+                <span className="text-violet-400 text-lg">U</span>ni
+                <span className="text-violet-400 text-lg">V</span>ision
+                <span className="text-violet-500"> </span>
+                <span className="text-xs text-zinc-400">studio</span>
+              </span>
+            </div>
           </Link>
           <Link
             to={`/blog/${blogLanguage}`}
-            className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold ${
+            className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold ${
               theme === "dark"
                 ? "bg-zinc-800 text-zinc-100"
                 : "bg-zinc-100 text-zinc-700"
