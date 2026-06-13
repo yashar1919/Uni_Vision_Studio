@@ -64,7 +64,7 @@ const BlogPostPage: React.FC = () => {
         <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4 sm:px-6">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-violet-500"
+            className="inline-flex gap-2 text-sm font-semibold text-violet-500"
           >
             <Home size={16} />
             UniVision Studio
