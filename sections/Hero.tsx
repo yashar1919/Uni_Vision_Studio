@@ -17,7 +17,7 @@ const HERO_DYNAMIC_TEXTS: Record<string, string[]> = {
   ],
   ar: ["تُحقق النتائج", "إلى واقع ملموس", "إلى منتج رقمي"],
 };
-
+// test commit
 const TYPE_SPEED = 80;
 const DELETE_SPEED = 50;
 const PAUSE_AFTER_TYPED = 2000;
