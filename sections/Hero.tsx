@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ArrowRight, ArrowLeft, Sparkles } from "lucide-react";
 import Section from "../components/Section";
@@ -18,128 +18,186 @@ const HERO_DYNAMIC_TEXTS: Record<string, string[]> = {
   ar: ["تُحقق النتائج", "إلى واقع ملموس", "إلى منتج رقمي"],
 };
 
+const TYPE_SPEED = 80;
+const DELETE_SPEED = 50;
+const PAUSE_AFTER_TYPED = 2000;
+const START_DELAY = 300;
+
+function usePrefersReducedMotion() {
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const update = () => {
+      setReducedMotion(query.matches);
+      //console.log("[Hero] prefers-reduced-motion:", query.matches);
+    };
+
+    update();
+
+    if (query.addEventListener) {
+      query.addEventListener("change", update);
+    } else {
+      query.addListener(update);
+    }
+
+    return () => {
+      if (query.removeEventListener) {
+        query.removeEventListener("change", update);
+      } else {
+        query.removeListener(update);
+      }
+    };
+  }, []);
+
+  return reducedMotion;
+}
+
 const Hero: React.FC = () => {
   const { t, i18n } = useTranslation();
+  const theme = useTheme();
+  const prefersReducedMotion = usePrefersReducedMotion();
+
   const language = i18n.language?.toLowerCase() || "en";
   const languageKey = language.startsWith("fa")
     ? "fa"
     : language.startsWith("ar")
       ? "ar"
       : "en";
+
   const isRTL = languageKey === "fa" || languageKey === "ar";
-  const theme = useTheme();
+
+  const rotatingTexts = useMemo(
+    () => HERO_DYNAMIC_TEXTS[languageKey] || HERO_DYNAMIC_TEXTS.en,
+    [languageKey],
+  );
 
   const [displayedText, setDisplayedText] = useState("");
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [enableTyping, setEnableTyping] = useState(() => {
-    if (typeof window === "undefined") return true;
-
-    return !window.matchMedia(
-      "(max-width: 768px), (prefers-reduced-motion: reduce)",
-    ).matches;
-  });
-  const rotatingTexts =
-    HERO_DYNAMIC_TEXTS[languageKey] || HERO_DYNAMIC_TEXTS.en;
-  const fullText = rotatingTexts[currentTextIndex] || "";
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia(
-      "(max-width: 768px), (prefers-reduced-motion: reduce)",
-    );
+    // console.log("[Hero] typing effect started");
+    // console.log("[Hero] index:", currentTextIndex);
+    // console.log("[Hero] text:", rotatingTexts[currentTextIndex]);
 
-    const handleMediaChange = () => {
-      setEnableTyping(!mediaQuery.matches);
-    };
+    if (!rotatingTexts.length) return;
 
-    handleMediaChange();
-
-    mediaQuery.addEventListener("change", handleMediaChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaChange);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!enableTyping) {
-      setDisplayedText(fullText);
+    if (prefersReducedMotion) {
+      setDisplayedText(rotatingTexts[currentTextIndex] || "");
+      //console.log("[Hero] reduced motion enabled, static text");
       return;
     }
 
     let charIndex = 0;
     let isDeleting = false;
-    let timeout: ReturnType<typeof setTimeout>;
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+    let cancelled = false;
+
+    const currentText = rotatingTexts[currentTextIndex] || "";
+    setDisplayedText("");
 
     const type = () => {
-      if (!isDeleting && charIndex < fullText.length) {
-        // Typing forward
-        setDisplayedText(fullText.slice(0, charIndex + 1));
-        charIndex++;
-        timeout = setTimeout(type, 80); // Typing speed
-      } else if (!isDeleting && charIndex === fullText.length) {
-        // Pause before deleting
+      if (cancelled) return;
+
+      if (!isDeleting && charIndex < currentText.length) {
+        charIndex += 1;
+        setDisplayedText(currentText.slice(0, charIndex));
+        timeoutId = setTimeout(type, TYPE_SPEED);
+        return;
+      }
+
+      if (!isDeleting && charIndex === currentText.length) {
         isDeleting = true;
-        timeout = setTimeout(type, 2000); // Pause duration
-      } else if (isDeleting && charIndex > 0) {
-        // Deleting backward
-        charIndex--;
-        setDisplayedText(fullText.slice(0, charIndex));
-        timeout = setTimeout(type, 50); // Deleting speed
-      } else if (isDeleting && charIndex === 0) {
-        // Move to next text
-        setDisplayedText("");
+        timeoutId = setTimeout(type, PAUSE_AFTER_TYPED);
+        return;
+      }
+
+      if (isDeleting && charIndex > 0) {
+        charIndex -= 1;
+        setDisplayedText(currentText.slice(0, charIndex));
+        timeoutId = setTimeout(type, DELETE_SPEED);
+        return;
+      }
+
+      if (isDeleting && charIndex === 0) {
         setCurrentTextIndex((prev) => (prev + 1) % rotatingTexts.length);
       }
     };
 
-    timeout = setTimeout(type, 500);
+    timeoutId = setTimeout(type, START_DELAY);
 
-    return () => clearTimeout(timeout);
-  }, [enableTyping, fullText, rotatingTexts.length]);
+    return () => {
+      cancelled = true;
+      if (timeoutId) clearTimeout(timeoutId);
+      //console.log("[Hero] typing cleanup");
+    };
+  }, [currentTextIndex, rotatingTexts, prefersReducedMotion]);
 
   return (
     <Section className="relative flex items-center justify-center min-h-[78vh] sm:min-h-[90vh]">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className={`absolute -top-[30%] sm:-top-[10%] -right-[10%] w-72 h-72 sm:w-125 sm:h-125 ${theme === "dark" ? "bg-violet-500/15" : "bg-violet-500/30"} rounded-full blur-3xl sm:blur-[120px]`}
+          className={`absolute -top-[30%] sm:-top-[10%] -right-[10%] w-72 h-72 sm:w-125 sm:h-125 ${
+            theme === "dark" ? "bg-violet-500/15" : "bg-violet-500/30"
+          } rounded-full blur-3xl sm:blur-[120px]`}
         />
         <div
-          className={`absolute -bottom-[30%] sm:-bottom-[10%] -left-[10%] w-72 h-72 sm:w-125 sm:h-125 ${theme === "dark" ? "bg-violet-500/15" : "bg-violet-500/30"} rounded-full blur-3xl sm:blur-[120px]`}
+          className={`absolute -bottom-[30%] sm:-bottom-[10%] -left-[10%] w-72 h-72 sm:w-125 sm:h-125 ${
+            theme === "dark" ? "bg-violet-500/15" : "bg-violet-500/30"
+          } rounded-full blur-3xl sm:blur-[120px]`}
         />
       </div>
 
       <div className="text-center relative z-10 max-w-4xl mx-auto">
         <div
-          className={`inline-flex items-center rounded-full px-3 py-1 text-sm font-medium ${theme === "dark" ? "bg-violet-900/20 text-violet-400 border-violet-800/50" : "bg-violet-50 text-violet-600 border-violet-100"} border mb-8 `}
+          className={`inline-flex items-center rounded-full px-3 py-1 text-sm font-medium ${
+            theme === "dark"
+              ? "bg-violet-900/20 text-violet-400 border-violet-800/50"
+              : "bg-violet-50 text-violet-600 border-violet-100"
+          } border mb-8`}
         >
           {t("hero.badge")}
         </div>
+
         <h1
-          className={`text-[42px] md:text-[56px] lg:text-[62px] tracking-tighter ${theme === "dark" ? "text-white" : "text-zinc-950"} mb-6 leading-tight`}
+          className={`text-[42px] md:text-[56px] lg:text-[62px] tracking-tighter ${
+            theme === "dark" ? "text-white" : "text-zinc-950"
+          } mb-6 leading-tight`}
         >
           {t("hero.title.part1")}
           <br className="block sm:hidden" />
           <span
-            className={`text-transparent bg-clip-text bg-linear-to-r from-violet-500 to-violet-600 ${isRTL ? "mr-2" : "ml-2"} inline-block min-h-[1.2em] py-2`}
+            className={`text-transparent bg-clip-text bg-linear-to-r from-violet-500 to-violet-600 ${
+              isRTL ? "mr-2" : "ml-2"
+            } inline-block min-h-[1.2em] py-2`}
           >
             {displayedText}
-            {enableTyping ? (
+            {!prefersReducedMotion ? (
               <span className="animate-cursor text-violet-400 font-light">
                 |
               </span>
             ) : null}
           </span>
         </h1>
+
         <p
-          className={`text-lg md:text-sm ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"} mb-10 max-w-2xl mx-auto leading-relaxed`}
+          className={`text-lg md:text-sm ${
+            theme === "dark" ? "text-zinc-400" : "text-zinc-600"
+          } mb-10 max-w-2xl mx-auto leading-relaxed`}
         >
           {t("hero.description")}
         </p>
+
         <div className="flex items-center justify-center">
           <div className="sm:flex-row flex flex-col gap-4 sm:w-120 sm:max-w-150">
             <a
               href="#contact"
-              className={`group flex items-center justify-center px-8 py-4 w-full ${theme === "dark" ? "bg-white text-zinc-950" : "bg-zinc-950 text-white"} rounded-full font-medium transition-all hover:scale-105 active:scale-95`}
+              className={`group flex items-center justify-center px-8 py-4 w-full ${
+                theme === "dark"
+                  ? "bg-white text-zinc-950"
+                  : "bg-zinc-950 text-white"
+              } rounded-full font-medium transition-all hover:scale-105 active:scale-95`}
             >
               {t("hero.cta.primary")}
               {isRTL ? (
@@ -148,9 +206,14 @@ const Hero: React.FC = () => {
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               )}
             </a>
+
             <a
               href="#services"
-              className={`group flex items-center justify-center px-8 py-4 w-full ${theme === "dark" ? "bg-zinc-900 border-zinc-500 text-zinc-100 hover:bg-zinc-800" : "bg-white border-zinc-900 text-zinc-900 hover:bg-zinc-50"} border rounded-full font-medium transition-all hover:scale-105 active:scale-95`}
+              className={`group flex items-center justify-center px-8 py-4 w-full ${
+                theme === "dark"
+                  ? "bg-zinc-900 border-zinc-500 text-zinc-100 hover:bg-zinc-800"
+                  : "bg-white border-zinc-900 text-zinc-900 hover:bg-zinc-50"
+              } border rounded-full font-medium transition-all hover:scale-105 active:scale-95`}
             >
               {t("hero.cta.secondary")}
               <Sparkles
