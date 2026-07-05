@@ -10,6 +10,7 @@ import {
   Users,
   Phone,
   BookOpenText,
+  LineChart,
 } from "lucide-react";
 import { Theme } from "../types";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -32,6 +33,11 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
   const navItems = [
     { label: t("nav.home"), href: "#home", icon: Home },
     { label: t("nav.services"), href: "#services", icon: Briefcase },
+    {
+      label: t("nav.digitalMarketing"),
+      href: "#digital-marketing",
+      icon: LineChart,
+    },
     {
       label: t("nav.articles"),
       href: `/blog/${blogLanguage}`,

@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "services": "Services",
+    "digitalMarketing": "Digital Marketing",
     "articles": "Articles",
     "about": "About",
     "contact": "Contact",
@@ -47,6 +48,170 @@
         "title": "Software Strategy & Consulting",
         "description": "Guidance on choosing the right technology, scaling your systems as you grow, and updating aging software to modern standards. Think of us as your technical advisor."
       }
+    }
+  },
+  "digitalMarketing": {
+    "hero": {
+      "badge": "Digital Growth Services",
+      "title": "Grow Your Business Online",
+      "description": "We build high-performance websites—and help them get found, convert visitors, and scale. From SEO to content strategy, we support the full path from launch to long-term growth.",
+      "cta": "Discuss Your Growth Plan"
+    },
+    "why": {
+      "label": "Why Digital Marketing",
+      "title": "A Great Website Is Only the Beginning",
+      "description1": "Launching a website does not automatically bring customers. Without search visibility, clear content, and ongoing optimization, even the best-built site can stay invisible.",
+      "description2": "Digital marketing connects your product to the people searching for it—through search engines, useful content, faster pages, and data-driven improvements.",
+      "highlight": "We combine development expertise with growth-focused marketing so your digital presence works as hard as your business does."
+    },
+    "services": {
+      "label": "Our Marketing Services",
+      "title": "Services That Drive Real Growth",
+      "subtitle": "Practical, measurable services focused on visibility, performance, and conversion—not vanity metrics.",
+      "items": {
+        "seoOptimization": {
+          "title": "SEO Optimization",
+          "description": "On-page improvements, keyword targeting, and content structure to help your site rank for the searches that matter to your business."
+        },
+        "technicalSeo": {
+          "title": "Technical SEO",
+          "description": "Crawlability, indexing, structured data, sitemaps, and site architecture fixes that search engines need to understand your site."
+        },
+        "localSeo": {
+          "title": "Local SEO",
+          "description": "Google Business Profile optimization, local keywords, and location signals so nearby customers can find and trust your business."
+        },
+        "contentStrategy": {
+          "title": "Content Strategy",
+          "description": "A clear plan for what to publish, who it serves, and how each piece supports your business goals and search intent."
+        },
+        "contentMarketing": {
+          "title": "Content Marketing",
+          "description": "Structured content that educates your audience, builds authority, and guides visitors toward meaningful actions on your site."
+        },
+        "blogContent": {
+          "title": "Blog Content Creation",
+          "description": "Research-driven articles written for your audience and optimized for search—designed to attract qualified traffic over time."
+        },
+        "performanceOptimization": {
+          "title": "Website Performance Optimization",
+          "description": "Core Web Vitals, load speed, and technical improvements that improve user experience and support better search rankings."
+        },
+        "cro": {
+          "title": "Conversion Rate Optimization (CRO)",
+          "description": "Layout, messaging, and UX refinements that turn more visitors into leads, inquiries, or customers."
+        },
+        "analyticsSetup": {
+          "title": "Google Analytics & Search Console Setup",
+          "description": "Proper tracking configuration so you can see what works, fix what does not, and make decisions based on real data."
+        },
+        "growthConsulting": {
+          "title": "Digital Growth Consulting",
+          "description": "Honest guidance on priorities, channels, and next steps—aligned with your budget, timeline, and business stage."
+        },
+        "businessStrategy": {
+          "title": "Online Business Strategy",
+          "description": "A practical roadmap for how your website, content, and search presence fit into your broader business goals."
+        }
+      }
+    },
+    "process": {
+      "label": "Our Process",
+      "title": "How We Help You Grow",
+      "subtitle": "A clear, repeatable approach—from understanding your market to delivering measurable improvements.",
+      "steps": {
+        "idea": {
+          "title": "Idea",
+          "description": "Clarify the core idea, goals, and target audience to shape a focused growth plan."
+        },
+        "website": {
+          "title": "Website",
+          "description": "Build or refine your site so it performs technically and communicates clearly to users."
+        },
+        "seo": {
+          "title": "SEO",
+          "description": "Optimize on-page, technical signals and content for better search visibility."
+        },
+        "content": {
+          "title": "Content",
+          "description": "Create and structure content that matches user intent and supports conversion."
+        },
+        "discover": {
+          "title": "Discover",
+          "description": "We learn about your business, audience, competitors, and current digital presence to identify the highest-impact opportunities."
+        },
+        "analyze": {
+          "title": "Analyze",
+          "description": "We audit your site, search performance, content gaps, and analytics to build a data-informed action plan."
+        },
+        "optimize": {
+          "title": "Optimize",
+          "description": "We implement SEO, content, performance, and conversion improvements—prioritizing changes that move the needle."
+        },
+        "grow": {
+          "title": "Grow",
+          "description": "We monitor results, refine strategy, and scale what works so your online presence keeps improving over time."
+        }
+      }
+    },
+    "benefits": {
+      "label": "Business Value",
+      "title": "What You Gain",
+      "subtitle": "Digital marketing done well delivers outcomes you can see in traffic, leads, and customer experience.",
+      "items": {
+        "visibility": {
+          "title": "More Visibility",
+          "description": "Reach the people already searching for what you offer—before they find a competitor instead."
+        },
+        "rankings": {
+          "title": "Better Google Rankings",
+          "description": "Stronger positions in search results for keywords that align with your services and location."
+        },
+        "conversion": {
+          "title": "Higher Conversion",
+          "description": "More visitors taking action—contacting you, requesting a quote, or completing a purchase."
+        },
+        "longTermGrowth": {
+          "title": "Long-Term Growth",
+          "description": "Content and SEO assets that compound over months, not campaigns that stop when spend ends."
+        },
+        "userExperience": {
+          "title": "Better User Experience",
+          "description": "Faster pages, clearer messaging, and smoother journeys that keep visitors engaged and trusting your brand."
+        }
+      }
+    },
+    "whyUs": {
+      "label": "Why UniVision Studio",
+      "title": "Development and Growth, One Team",
+      "subtitle": "Because we build the sites we optimize, we can fix root causes—not just surface-level marketing tasks.",
+      "items": {
+        "customSolutions": {
+          "title": "Custom Solutions",
+          "description": "No one-size-fits-all packages. Every strategy is tailored to your industry, audience, and goals."
+        },
+        "modernTech": {
+          "title": "Modern Technologies",
+          "description": "We work with current web standards, analytics tools, and SEO best practices—not outdated shortcuts."
+        },
+        "performanceFocused": {
+          "title": "Performance-Focused Development",
+          "description": "Speed, accessibility, and clean code are built in—giving your marketing efforts a stronger foundation."
+        },
+        "transparentCommunication": {
+          "title": "Transparent Communication",
+          "description": "Clear reporting, honest recommendations, and no inflated promises about rankings or timelines."
+        },
+        "longTermPartnership": {
+          "title": "Long-Term Partnership",
+          "description": "We aim to grow with you—supporting launches, optimizations, and the next phase of your digital presence."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to Grow Online?",
+      "description": "Tell us about your business and goals. We will recommend a practical path—from SEO and content to performance and conversion.",
+      "button": "Get in Touch"
     }
   },
   "about": {

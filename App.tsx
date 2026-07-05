@@ -16,6 +16,7 @@ import { useSeo } from "./src/hooks/useSeo";
 // Import i18n configuration
 import "./src/i18n/config";
 
+const DigitalMarketing = React.lazy(() => import("./sections/DigitalMarketing"));
 const About = React.lazy(() => import("./sections/About"));
 const Insights = React.lazy(() => import("./sections/Insights"));
 const AICapabilities = React.lazy(() => import("./sections/AICapabilities"));
@@ -203,6 +204,12 @@ const App: React.FC = () => {
           <Services />
         </div>
 
+        <DeferredSection id="digital-marketing" minHeight={920}>
+          <Suspense fallback={null}>
+            <DigitalMarketing />
+          </Suspense>
+        </DeferredSection>
+
         <DeferredSection id="about" minHeight={520}>
           <Suspense fallback={null}>
             <About />
@@ -239,11 +246,11 @@ const App: React.FC = () => {
           </Suspense>
         </DeferredSection>
 
-        <DeferredSection minHeight={680}>
+        {/* <DeferredSection minHeight={680}>
           <Suspense fallback={null}>
             <QRCode />
           </Suspense>
-        </DeferredSection>
+        </DeferredSection> */}
       </main>
 
       <DeferredSection minHeight={340} rootMargin="100px 0px">

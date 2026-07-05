@@ -26,7 +26,7 @@ export const SEO_CONTENT: Record<SeoLanguage, SeoContent> = {
     description:
       "UniVision Studio builds scalable custom software, web applications, mobile apps, and AI-powered digital products for startups and enterprises.",
     keywords:
-      "UniVision Studio, software development, web application development, mobile app development, AI solutions, UI UX design, digital product studio",
+      "UniVision Studio, software development, web application development, mobile app development, AI solutions, UI UX design, digital product studio, SEO, digital marketing, content strategy",
     locale: "en_US",
   },
   fa: {
@@ -34,7 +34,7 @@ export const SEO_CONTENT: Record<SeoLanguage, SeoContent> = {
     description:
       "یونی‌ویژن استودیو ارائه‌دهنده خدمات توسعه نرم‌افزار سفارشی، اپلیکیشن وب، اپلیکیشن موبایل و راهکارهای هوش مصنوعی برای کسب‌وکارهای در حال رشد است.",
     keywords:
-      "یونی‌ویژن استودیو, یونی ویژن استودیو, یونیویژن استودیو, یونیویژن, یونی ویژن, univision studio, univisionstudio, توسعه نرم افزار, طراحی سایت, توسعه اپلیکیشن موبایل, هوش مصنوعی, طراحی تجربه کاربری, محصول دیجیتال",
+      "یونی‌ویژن استودیو, یونی ویژن استودیو, یونیویژن استودیو, یونیویژن, یونی ویژن, univision studio, univisionstudio, توسعه نرم افزار, طراحی سایت, توسعه اپلیکیشن موبایل, هوش مصنوعی, طراحی تجربه کاربری, محصول دیجیتال, سئو, بازاریابی دیجیتال, استراتژی محتوا",
     locale: "fa_IR",
   },
   ar: {
@@ -42,7 +42,7 @@ export const SEO_CONTENT: Record<SeoLanguage, SeoContent> = {
     description:
       "UniVision Studio يقدم حلول تطوير برمجيات مخصصة وتطبيقات ويب وموبايل وحلول ذكاء اصطناعي لبناء منتجات رقمية قابلة للتوسع.",
     keywords:
-      "UniVision Studio, تطوير البرمجيات, تطوير تطبيقات الويب, تطوير تطبيقات الموبايل, حلول الذكاء الاصطناعي, تصميم واجهات المستخدم",
+      "UniVision Studio, تطوير البرمجيات, تطوير تطبيقات الويب, تطوير تطبيقات الموبايل, حلول الذكاء الاصطناعي, تصميم واجهات المستخدم, SEO, التسويق الرقمي, استراتيجية المحتوى",
     locale: "ar_SA",
   },
 };
