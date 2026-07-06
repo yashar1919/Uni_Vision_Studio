@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import {
   ArrowLeft,
@@ -57,6 +57,124 @@ const DigitalMarketing: React.FC = () => {
   const theme = useTheme();
   const isRTL = i18n.language === "fa" || i18n.language === "ar";
 
+  useEffect(() => {
+    const id = "digital-marketing-jsonld";
+    const existing = document.head.querySelector(`#${id}`);
+    const site =
+      process.env.NODE_ENV === "production"
+        ? "https://www.univisionstudio.ir"
+        : window.location.origin;
+    const payload = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${site}/#digital-marketing`,
+      name: t("digitalMarketing.hero.title"),
+      description: t("digitalMarketing.hero.description"),
+      inLanguage: document.documentElement.lang || "en",
+      isPartOf: {
+        "@type": "WebSite",
+        name: "UniVision Studio",
+        url: site,
+      },
+      mainEntity: {
+        "@type": "Service",
+        name: t("digitalMarketing.hero.title"),
+        description: t("digitalMarketing.hero.description"),
+        provider: {
+          "@type": "Organization",
+          name: "UniVision Studio",
+          url: site,
+        },
+      },
+    } as Record<string, unknown>;
+
+    if (existing) {
+      existing.textContent = JSON.stringify(payload);
+    } else {
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.id = id;
+      script.textContent = JSON.stringify(payload);
+      document.head.appendChild(script);
+    }
+
+    // Page-level meta overrides for this section (SPA-friendly)
+    const prevTitle = document.title;
+    const prevMeta: Record<string, string | null> = {};
+    const prevPropMeta: Record<string, string | null> = {};
+    const setMetaName = (name: string, value: string) => {
+      const selector = `meta[name="${name}"]`;
+      let el = document.head.querySelector<HTMLMetaElement>(selector);
+      prevMeta[name] = el ? el.getAttribute("content") : null;
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("name", name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", value);
+    };
+
+    const setMetaProp = (prop: string, value: string) => {
+      const selector = `meta[property="${prop}"]`;
+      let el = document.head.querySelector<HTMLMetaElement>(selector);
+      prevPropMeta[prop] = el ? el.getAttribute("content") : null;
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("property", prop);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", value);
+    };
+
+    // Apply overrides
+    document.title = t("digitalMarketing.hero.title");
+    setMetaName("description", t("digitalMarketing.hero.description"));
+    setMetaProp("og:title", t("digitalMarketing.hero.title"));
+    setMetaProp("og:description", t("digitalMarketing.hero.description"));
+    setMetaProp("og:url", `${site}/#digital-marketing`);
+
+    // override canonical link
+    const canonicalSelector = 'link[rel="canonical"]';
+    let canonical =
+      document.head.querySelector<HTMLLinkElement>(canonicalSelector);
+    const prevCanonical = canonical ? canonical.getAttribute("href") : null;
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", `${site}/#digital-marketing`);
+
+    return () => {
+      const s = document.head.querySelector(`#${id}`);
+      if (s) s.remove();
+
+      // restore title and metas
+      document.title = prevTitle;
+
+      Object.entries(prevMeta).forEach(([name, val]) => {
+        const selector = `meta[name="${name}"]`;
+        const el = document.head.querySelector<HTMLMetaElement>(selector);
+        if (!el) return;
+        if (val === null) el.remove();
+        else el.setAttribute("content", val);
+      });
+
+      Object.entries(prevPropMeta).forEach(([prop, val]) => {
+        const selector = `meta[property="${prop}"]`;
+        const el = document.head.querySelector<HTMLMetaElement>(selector);
+        if (!el) return;
+        if (val === null) el.remove();
+        else el.setAttribute("content", val);
+      });
+
+      if (canonical) {
+        if (prevCanonical) canonical.setAttribute("href", prevCanonical);
+        else canonical.remove();
+      }
+    };
+  }, [t]);
+
   const sectionLabelClass = `text-sm font-bold uppercase tracking-widest ${
     theme === "dark" ? "text-violet-400" : "text-violet-600"
   } mb-4`;
@@ -78,7 +196,10 @@ const DigitalMarketing: React.FC = () => {
   return (
     <>
       {/* Hero */}
-      <Section className="relative min-h-[70vh] flex items-center">
+      <Section
+        id="digital-marketing"
+        className="relative min-h-[70vh] flex items-center"
+      >
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div
             className={`absolute -top-[20%] -right-[10%] w-72 h-72 sm:w-125 sm:h-125 ${
@@ -204,7 +325,7 @@ const DigitalMarketing: React.FC = () => {
               return (
                 <div
                   key={key}
-                  className="flex items-center gap-4 px-4 flex-shrink-0"
+                  className="flex items-center gap-4 px-4 shrink-0"
                 >
                   <div
                     className={`w-12 h-12 ${theme === "dark" ? "bg-violet-900/20 text-violet-400" : "bg-violet-100 text-violet-600"} rounded-xl flex items-center justify-center`}
