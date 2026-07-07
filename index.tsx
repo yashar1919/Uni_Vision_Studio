@@ -7,8 +7,12 @@ import BlogPostPage from "./pages/BlogPostPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import "./src/index.css";
 
+import { printConsoleBrand } from "./src/utils/consoleBrand";
+printConsoleBrand();
+
 // Initialize i18n
 import "./src/i18n/config";
+
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
